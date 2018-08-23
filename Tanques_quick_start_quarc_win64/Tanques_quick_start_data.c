@@ -5,7 +5,7 @@
  *
  * Model version              : 1.784
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Thu Aug 23 09:18:17 2018
+ * C source code generated on : Thu Aug 23 10:19:34 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -251,7 +251,7 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<Root>/Rate Transition'
                                         */
-  2.0,                                 /* Expression: 2
+  3.0,                                 /* Expression: 3
                                         * Referenced by: '<Root>/Controller Entry'
                                         */
   2.0,                                 /* Expression: 2
@@ -272,19 +272,19 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   0.0,                                 /* Expression: -inf
                                         * Referenced by: '<S6>/Integrator'
                                         */
-  1.0,                                 /* Expression: 1
+  2.16,                                /* Expression: 2.16
                                         * Referenced by: '<Root>/PI-D_Kp'
                                         */
-  0.01,                                /* Expression: 0.01
+  0.05,                                /* Expression: 0.05
                                         * Referenced by: '<Root>/PI-D_Kd'
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S5>/Integrator'
                                         */
-  2.7,                                 /* Expression: 2.7
+  2.0,                                 /* Expression: 2
                                         * Referenced by: '<Root>/I-PD_Kp'
                                         */
-  0.2,                                 /* Expression: 0.2
+  0.001,                               /* Expression: 0.001
                                         * Referenced by: '<Root>/I-PD_Kd'
                                         */
   0.0,                                 /* Expression: 0
@@ -299,10 +299,10 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   28.0,                                /* Expression: 28
                                         * Referenced by: '<Root>/Switch'
                                         */
-  2.0,                                 /* Expression: 2
+  0.05,                                /* Expression: 0.05
                                         * Referenced by: '<Root>/I-PD_Ki'
                                         */
-  0.005,                               /* Expression: 0.005
+  0.12,                                /* Expression: 0.12
                                         * Referenced by: '<Root>/PI-D_Ki '
                                         */
   0.01,                                /* Expression: 0.01
