@@ -1,8 +1,54 @@
+P - 2º Tanque 
+1º Config
+KP: 1.3
+ITAE: 9.6494e+05
+
+2º Config
+KP: 2
+ITAE: 9.9804e+05
+
+------------------
+PI - 2º Tanque 
+1º Config
+KP: 2
+KI: 0.05
+ITAE: 1.1422e+06
+
+2º Config
+KP: 1.4
+KI: 0.001
+ITAE: 9.8378e+05
+
+3º Config
+KP: 2.3
+KI: 0.001
+ITAE: 1.0131e+06
+
+------------------
+PD - 2º Tanque 
+1º Config
+KP: 2
+KD: 0.001
+ITAE: 9.9844e+05
+
+2º Config
+KP: 2.2
+KD: 0.05
+ITAE: 1.0060e+06
+
+------------------
+
 PID - 2º Tanque - 1º Config
 KP: 1.3
 KI: 0.01
 KD: 0.001
-ITAE: 
+ITAE: 1.0628e+06
+
+2º Config
+KP: 2
+KI: 0.05
+KD: 0.001
+ITAE: 1.1412e+06
 
 ------------------
 
@@ -83,11 +129,11 @@ ITAE: 9.7570e+05
 ------------------
 Scripts:
 INIT:
-controller_name = 'I_PD';
+controller_name = 'PID';
 config_version = 1;
 tank_name = 'Tank_2';
 Save Sample:
 ITAE(Tank_2_Height_Data.signals.values, Tank_2_Height_Data.time)
-save(strcat('Data\',controller_name,'\', tank_name,'\Filtro\','Height_Data_Config_', num2str(config_version)), strcat(controller_name, '_Data'))
-save(strcat('Data\',controller_name,'\', tank_name,'\Filtro\',controller_name, '_Data_', num2str(config_version)), strcat(controller_name, '_Data'))
+save(strcat('Data\',controller_name,'\', tank_name,'\PID\','Height_Data_Config_', num2str(config_version)), strcat(controller_name, '_Data'))
+save(strcat('Data\',controller_name,'\', tank_name,'\PID\',controller_name, '_Data_', num2str(config_version)), strcat(controller_name, '_Data'))
 config_version = config_version + 1;
