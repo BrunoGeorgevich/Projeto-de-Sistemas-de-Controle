@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.784
+ * Model version              : 1.785
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Thu Aug 23 10:19:34 2018
+ * C source code generated on : Fri Aug 24 08:08:57 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1211,7 +1211,7 @@ struct P_Tanques_quick_start_T_ {
   real_T RateTransition_X0;            /* Expression: 0
                                         * Referenced by: '<Root>/Rate Transition'
                                         */
-  real_T ControllerEntry_Value;        /* Expression: 3
+  real_T ControllerEntry_Value;        /* Expression: 1
                                         * Referenced by: '<Root>/Controller Entry'
                                         */
   real_T TankEntry_Value;              /* Expression: 2
@@ -1220,7 +1220,7 @@ struct P_Tanques_quick_start_T_ {
   real_T PID_Kp_Gain;                  /* Expression: 1.3
                                         * Referenced by: '<Root>/PID_Kp'
                                         */
-  real_T PID_Kd_Gain;                  /* Expression: 0.001
+  real_T PID_Kd_Gain;                  /* Expression: 0
                                         * Referenced by: '<Root>/PID_Kd'
                                         */
   real_T Integrator_IC;                /* Expression: 0
@@ -1232,28 +1232,28 @@ struct P_Tanques_quick_start_T_ {
   real_T Integrator_LowerSat;          /* Expression: -inf
                                         * Referenced by: '<S6>/Integrator'
                                         */
-  real_T PID_Kp_Gain_b;                /* Expression: 2.16
+  real_T PID_Kp_Gain_b;                /* Expression: 2.2
                                         * Referenced by: '<Root>/PI-D_Kp'
                                         */
-  real_T PID_Kd_Gain_a;                /* Expression: 0.05
+  real_T PID_Kd_Gain_a;                /* Expression: 0.001
                                         * Referenced by: '<Root>/PI-D_Kd'
                                         */
   real_T Integrator_IC_b;              /* Expression: 0
                                         * Referenced by: '<S5>/Integrator'
                                         */
-  real_T IPD_Kp_Gain;                  /* Expression: 2
+  real_T IPD_Kp_Gain;                  /* Expression: 1.3
                                         * Referenced by: '<Root>/I-PD_Kp'
                                         */
-  real_T IPD_Kd_Gain;                  /* Expression: 0.001
+  real_T IPD_Kd_Gain;                  /* Expression: 0.01
                                         * Referenced by: '<Root>/I-PD_Kd'
                                         */
   real_T Integrator_IC_p;              /* Expression: 0
                                         * Referenced by: '<S2>/Integrator'
                                         */
-  real_T Integrator_UpperSat_i;        /* Expression: inf
+  real_T Integrator_UpperSat_i;        /* Expression: 35
                                         * Referenced by: '<S2>/Integrator'
                                         */
-  real_T Integrator_LowerSat_g;        /* Expression: -inf
+  real_T Integrator_LowerSat_g;        /* Expression: -1
                                         * Referenced by: '<S2>/Integrator'
                                         */
   real_T Switch_Threshold;             /* Expression: 28
@@ -1262,10 +1262,10 @@ struct P_Tanques_quick_start_T_ {
   real_T IPD_Ki_Gain;                  /* Expression: 0.05
                                         * Referenced by: '<Root>/I-PD_Ki'
                                         */
-  real_T PID_Ki_Gain;                  /* Expression: 0.12
+  real_T PID_Ki_Gain;                  /* Expression: 0.05
                                         * Referenced by: '<Root>/PI-D_Ki '
                                         */
-  real_T PID_Ki_Gain_g;                /* Expression: 0.01
+  real_T PID_Ki_Gain_g;                /* Expression: 0
                                         * Referenced by: '<Root>/PID_Ki'
                                         */
   real_T amin_Value;                   /* Expression: 0

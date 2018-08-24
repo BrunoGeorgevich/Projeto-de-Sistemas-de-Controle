@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.784
+ * Model version              : 1.785
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Thu Aug 23 10:19:34 2018
+ * C source code generated on : Fri Aug 24 08:08:57 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -583,7 +583,7 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
 
   /* Gain: '<Root>/PI-D_Kd' */
   Tanques_quick_start_B.PID_Kd_h = Tanques_quick_start_P.PID_Kd_Gain_a *
-    Tanques_quick_start_B.Sum1;
+    rtb_TankHeightSwitch;
 
   /* Derivative: '<S5>/Derivative' */
   if ((Tanques_quick_start_DW.TimeStampA_e >= Tanques_quick_start_M->Timing.t[0])
@@ -1543,8 +1543,6 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
   /* non-finite (run-time) assignments */
   Tanques_quick_start_P.Integrator_UpperSat = rtInf;
   Tanques_quick_start_P.Integrator_LowerSat = rtMinusInf;
-  Tanques_quick_start_P.Integrator_UpperSat_i = rtInf;
-  Tanques_quick_start_P.Integrator_LowerSat_g = rtMinusInf;
 
   /* initialize real-time model */
   (void) memset((void *)Tanques_quick_start_M, 0,
@@ -1618,10 +1616,10 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
   Tanques_quick_start_M->Timing.stepSize2 = 1.0;
 
   /* External mode info */
-  Tanques_quick_start_M->Sizes.checksums[0] = (336036178U);
-  Tanques_quick_start_M->Sizes.checksums[1] = (1654953345U);
-  Tanques_quick_start_M->Sizes.checksums[2] = (3515911615U);
-  Tanques_quick_start_M->Sizes.checksums[3] = (3543904619U);
+  Tanques_quick_start_M->Sizes.checksums[0] = (3737703024U);
+  Tanques_quick_start_M->Sizes.checksums[1] = (3972454626U);
+  Tanques_quick_start_M->Sizes.checksums[2] = (165213183U);
+  Tanques_quick_start_M->Sizes.checksums[3] = (3274780233U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
