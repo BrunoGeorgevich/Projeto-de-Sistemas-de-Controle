@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.785
+ * Model version              : 1.814
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Fri Aug 24 08:08:57 2018
+ * C source code generated on : Tue Sep 18 12:25:04 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -18,8 +18,42 @@
 
 /* Block parameters (auto storage) */
 P_Tanques_quick_start_T Tanques_quick_start_P = {
+  /*  Variable: A
+   * Referenced by: '<S9>/A'
+   */
+  { -0.057753, 0.057753, 0.0, -0.057753 },
+
+  /*  Variable: B
+   * Referenced by: '<S9>/B'
+   */
+  { 0.741573, 0.0 },
+
+  /*  Variable: C
+   * Referenced by: '<S9>/C '
+   */
+  { 0.0, 1.0 },
+
+  /*  Variable: L
+   * Referenced by: '<S9>/L'
+   */
+  { 861.76454330883769, 692.59320695102645 },
+
+  /*  Variable: a
+   * Referenced by: '<S8>/A2'
+   */
+  { 0.99424134498636607, 0.00574204203969976, 0.0, 0.99424134498636607 },
+
+  /*  Variable: b
+   * Referenced by: '<S8>/B2'
+   */
+  { 0.073943571319681378, 0.0002133176271239159 },
+
+  /*  Variable: c
+   * Referenced by: '<S8>/C2'
+   */
+  { 0.0, 1.0 },
   -0.99999999999999978,                /* Mask Parameter: RandomSource_MinVal
-                                        * Referenced by: '<S8>/Random Source'
+                                        * Referenced by: '<S10>/Random Source'
                                         */
   10.0,                                /* Mask Parameter: HILInitialize_analog_input_maxi
                                         * Referenced by: '<Root>/HIL Initialize'
@@ -88,9 +122,6 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
    * Referenced by: '<Root>/HIL Initialize'
    */
   { 0U, 1U },
-  0U,                                  /* Mask Parameter: HILWriteAnalog_channels
-                                        * Referenced by: '<Root>/HIL Write Analog'
-                                        */
 
   /*  Mask Parameter: HILReadAnalog_channels
    * Referenced by: '<Root>/HIL Read Analog'
@@ -105,10 +136,10 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
   37U,                                 /* Mask Parameter: randP_seed
-                                        * Referenced by: '<S8>/Random Source'
+                                        * Referenced by: '<S10>/Random Source'
                                         */
   65535U,                              /* Mask Parameter: WrapToZero_Threshold
-                                        * Referenced by: '<S10>/FixPt Switch'
+                                        * Referenced by: '<S12>/FixPt Switch'
                                         */
   0,                                   /* Mask Parameter: HILInitialize_active
                                         * Referenced by: '<Root>/HIL Initialize'
@@ -228,11 +259,13 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
                                         * Referenced by: '<Root>/Transfer Fcn1'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Zero Constant'
+                                        * Referenced by: '<S8>/Integrator1'
                                         */
-  2.0,                                 /* Expression: 2
-                                        * Referenced by: '<Root>/Controller Enabler '
-                                        */
+
+  /*  Expression: [0;0]
+   * Referenced by: '<S9>/Integrator'
+   */
+  { 0.0, 0.0 },
   2.0,                                 /* Expression: 2
                                         * Referenced by: '<Root>/switch_input_signal'
                                         */
@@ -251,16 +284,16 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<Root>/Rate Transition'
                                         */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<Root>/Controller Entry'
-                                        */
-  2.0,                                 /* Expression: 2
+  3.0,                                 /* Expression: 3
                                         * Referenced by: '<Root>/Tank Entry'
+                                        */
+  3.0,                                 /* Expression: 3
+                                        * Referenced by: '<Root>/Controller Entry'
                                         */
   1.3,                                 /* Expression: 1.3
                                         * Referenced by: '<Root>/PID_Kp'
                                         */
-  0.0,                                 /* Expression: 0
+  0.001,                               /* Expression: 0.001
                                         * Referenced by: '<Root>/PID_Kd'
                                         */
   0.0,                                 /* Expression: 0
@@ -296,8 +329,11 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<S2>/Integrator'
                                         */
-  28.0,                                /* Expression: 28
-                                        * Referenced by: '<Root>/Switch'
+  2.0,                                 /* Expression: 2
+                                        * Referenced by: '<Root>/Controller Enabler '
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<Root>/Gain'
                                         */
   0.05,                                /* Expression: 0.05
                                         * Referenced by: '<Root>/I-PD_Ki'
@@ -305,7 +341,7 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   0.05,                                /* Expression: 0.05
                                         * Referenced by: '<Root>/PI-D_Ki '
                                         */
-  0.0,                                 /* Expression: 0
+  0.01,                                /* Expression: 0.01
                                         * Referenced by: '<Root>/PID_Ki'
                                         */
   0.0,                                 /* Expression: 0
@@ -315,7 +351,7 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
                                         * Referenced by: '<Root>/amax'
                                         */
   4.0,                                 /* Expression: MaxVal
-                                        * Referenced by: '<S8>/Random Source'
+                                        * Referenced by: '<S10>/Random Source'
                                         */
   6.25,                                /* Expression: 30/4.8
                                         * Referenced by: '<Root>/Volts to cm Tank 1 '
@@ -336,10 +372,10 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
                                         * Referenced by: '<Root>/previousError'
                                         */
   0U,                                  /* Computed Parameter: Constant_Value
-                                        * Referenced by: '<S10>/Constant'
+                                        * Referenced by: '<S12>/Constant'
                                         */
   1U,                                  /* Computed Parameter: FixPtConstant_Value
-                                        * Referenced by: '<S9>/FixPt Constant'
+                                        * Referenced by: '<S11>/FixPt Constant'
                                         */
   0U,                                  /* Computed Parameter: Output_InitialCondition
                                         * Referenced by: '<S1>/Output'
@@ -355,9 +391,6 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
                                         */
   0U,                                  /* Computed Parameter: prevTime_InitialValue
                                         * Referenced by: '<Root>/prevTime'
-                                        */
-  0,                                   /* Computed Parameter: HILWriteAnalog_Active
-                                        * Referenced by: '<Root>/HIL Write Analog'
                                         */
   1                                    /* Computed Parameter: HILReadAnalog_Active
                                         * Referenced by: '<Root>/HIL Read Analog'
