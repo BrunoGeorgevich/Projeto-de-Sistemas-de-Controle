@@ -985,39 +985,39 @@
 	  section.data(3).logicalSrcIdx = 29;
 	  section.data(3).dtTransOffset = 2;
 	
-	  ;% Tanques_quick_start_DW.Scope1_PWORK.LoggedData
+	  ;% Tanques_quick_start_DW.SinaldeErro_PWORK.LoggedData
 	  section.data(4).logicalSrcIdx = 30;
 	  section.data(4).dtTransOffset = 3;
 	
-	  ;% Tanques_quick_start_DW.Scope7_PWORK.LoggedData
+	  ;% Tanques_quick_start_DW.SinaldeSadadaMalhaAberta_PWORK.LoggedData
 	  section.data(5).logicalSrcIdx = 31;
 	  section.data(5).dtTransOffset = 4;
 	
-	  ;% Tanques_quick_start_DW.SinaldeErro_PWORK.LoggedData
+	  ;% Tanques_quick_start_DW.SinaldeSadadaMalhaFechada_PWORK.LoggedData
 	  section.data(6).logicalSrcIdx = 32;
 	  section.data(6).dtTransOffset = 5;
 	
-	  ;% Tanques_quick_start_DW.SinaldeSadadaMalhaAberta_PWORK.LoggedData
+	  ;% Tanques_quick_start_DW.SinaldeSadadoObservadordeEstado.LoggedData
 	  section.data(7).logicalSrcIdx = 33;
 	  section.data(7).dtTransOffset = 6;
 	
-	  ;% Tanques_quick_start_DW.SinaldeSadadaMalhaFechada_PWORK.LoggedData
+	  ;% Tanques_quick_start_DW.SinaldeSadadoControlador_PWORK.LoggedData
 	  section.data(8).logicalSrcIdx = 34;
 	  section.data(8).dtTransOffset = 7;
 	
-	  ;% Tanques_quick_start_DW.SinaldeSadadoControlador_PWORK.LoggedData
+	  ;% Tanques_quick_start_DW.SinaldeSadadoIPD_PWORK.LoggedData
 	  section.data(9).logicalSrcIdx = 35;
 	  section.data(9).dtTransOffset = 8;
 	
-	  ;% Tanques_quick_start_DW.SinaldeSadadoIPD_PWORK.LoggedData
+	  ;% Tanques_quick_start_DW.SinaldeSadadoPID_PWORK.LoggedData
 	  section.data(10).logicalSrcIdx = 36;
 	  section.data(10).dtTransOffset = 9;
 	
-	  ;% Tanques_quick_start_DW.SinaldeSadadoPID_PWORK.LoggedData
+	  ;% Tanques_quick_start_DW.SinaldeSadadoPID_PWORK_o.LoggedData
 	  section.data(11).logicalSrcIdx = 37;
 	  section.data(11).dtTransOffset = 10;
 	
-	  ;% Tanques_quick_start_DW.SinaldeSadadoPID_PWORK_o.LoggedData
+	  ;% Tanques_quick_start_DW.SinaldeSadadosEstadosObservados.LoggedData
 	  section.data(12).logicalSrcIdx = 38;
 	  section.data(12).dtTransOffset = 11;
 	
@@ -1151,8 +1151,8 @@
   ;%
 
 
-  targMap.checksum0 = 3424791282;
-  targMap.checksum1 = 893985185;
-  targMap.checksum2 = 2093108743;
-  targMap.checksum3 = 1369383145;
+  targMap.checksum0 = 56973777;
+  targMap.checksum1 = 260818741;
+  targMap.checksum2 = 1331976870;
+  targMap.checksum3 = 392720868;
 

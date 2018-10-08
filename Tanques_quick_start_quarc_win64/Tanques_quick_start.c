@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.843
+ * Model version              : 1.846
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Mon Oct 08 13:14:10 2018
+ * C source code generated on : Mon Oct 08 13:31:08 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1720,10 +1720,10 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
   Tanques_quick_start_M->Timing.stepSize2 = 1.0;
 
   /* External mode info */
-  Tanques_quick_start_M->Sizes.checksums[0] = (3424791282U);
-  Tanques_quick_start_M->Sizes.checksums[1] = (893985185U);
-  Tanques_quick_start_M->Sizes.checksums[2] = (2093108743U);
-  Tanques_quick_start_M->Sizes.checksums[3] = (1369383145U);
+  Tanques_quick_start_M->Sizes.checksums[0] = (56973777U);
+  Tanques_quick_start_M->Sizes.checksums[1] = (260818741U);
+  Tanques_quick_start_M->Sizes.checksums[2] = (1331976870U);
+  Tanques_quick_start_M->Sizes.checksums[3] = (392720868U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

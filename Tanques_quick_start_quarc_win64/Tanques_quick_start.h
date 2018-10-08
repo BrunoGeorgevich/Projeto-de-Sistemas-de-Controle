@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.843
+ * Model version              : 1.846
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Mon Oct 08 13:14:10 2018
+ * C source code generated on : Mon Oct 08 13:31:08 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -883,14 +883,6 @@ typedef struct {
   void *HILWriteAnalog_PWORK;          /* '<Root>/HIL Write Analog' */
   struct {
     void *LoggedData;
-  } Scope1_PWORK;                      /* '<Root>/Scope1' */
-
-  struct {
-    void *LoggedData;
-  } Scope7_PWORK;                      /* '<Root>/Scope7' */
-
-  struct {
-    void *LoggedData;
   } SinaldeErro_PWORK;                 /* '<Root>/Sinal de Erro' */
 
   struct {
@@ -900,6 +892,10 @@ typedef struct {
   struct {
     void *LoggedData;
   } SinaldeSadadaMalhaFechada_PWORK;   /* '<Root>/Sinal de Saída da Malha Fechada' */
+
+  struct {
+    void *LoggedData;
+  } SinaldeSadadoObservadordeEstado;   /* '<Root>/Sinal de Saída do  Observador de Estados' */
 
   struct {
     void *LoggedData;
@@ -916,6 +912,10 @@ typedef struct {
   struct {
     void *LoggedData;
   } SinaldeSadadoPID_PWORK_o;          /* '<Root>/Sinal de Saída do PID' */
+
+  struct {
+    void *LoggedData;
+  } SinaldeSadadosEstadosObservados;   /* '<Root>/Sinal de Saída dos  Estados Observados' */
 
   struct {
     void *LoggedData;
