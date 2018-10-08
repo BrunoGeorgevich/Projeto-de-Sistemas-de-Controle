@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.846
+ * Model version              : 1.848
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Mon Oct 08 13:31:08 2018
+ * C source code generated on : Mon Oct 08 14:24:45 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,31 +19,31 @@
 /* Block parameters (auto storage) */
 P_Tanques_quick_start_T Tanques_quick_start_P = {
   /*  Variable: L
-   * Referenced by: '<Root>/Constant'
+   * Referenced by: '<Root>/Matrix of Gains L'
    */
   { 1.5467373877505939, 0.18848268997273218 },
 
   /*  Variable: a
-   * Referenced by: '<Root>/Constant3'
+   * Referenced by: '<Root>/Matrix A - Discrete'
    */
   { 0.99424134498636607, 0.00574204203969976, 0.0, 0.99424134498636607 },
 
   /*  Variable: b
-   * Referenced by: '<Root>/Constant1'
+   * Referenced by: '<Root>/Matrix B - Discrete'
    */
   { 0.073943571319681378, 0.0002133176271239159 },
 
   /*  Variable: c
-   * Referenced by: '<Root>/Constant2'
+   * Referenced by: '<Root>/Matrix C - Discrete'
    */
   { 0.0, 1.0 },
 
   /*  Variable: k
-   * Referenced by: '<Root>/Constant4'
+   * Referenced by: '<Root>/Matrix of Gains k'
    */
   { -0.05, 0.12 },
   6.0,                                 /* Variable: ke
-                                        * Referenced by: '<Root>/Constant5'
+                                        * Referenced by: '<Root>/Gain Error'
                                         */
   -0.99999999999999978,                /* Mask Parameter: RandomSource_MinVal
                                         * Referenced by: '<S14>/Random Source'

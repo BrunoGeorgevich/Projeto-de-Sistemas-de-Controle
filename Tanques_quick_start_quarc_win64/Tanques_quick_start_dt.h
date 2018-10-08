@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.846
+ * Model version              : 1.848
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Mon Oct 08 13:31:08 2018
+ * C source code generated on : Mon Oct 08 14:24:45 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -66,7 +66,7 @@ static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&Tanques_quick_start_DW.HILInitialize_Card), 14, 0, 1 },
 
   { (char_T *)(&Tanques_quick_start_DW.AlturadoTanque1cm_PWORK.LoggedData), 11,
-    0, 18 },
+    0, 19 },
 
   { (char_T *)(&Tanques_quick_start_DW.HILInitialize_ClockModes), 6, 0, 5 },
 

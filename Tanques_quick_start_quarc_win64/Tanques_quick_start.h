@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.846
+ * Model version              : 1.848
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Mon Oct 08 13:31:08 2018
+ * C source code generated on : Mon Oct 08 14:24:45 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -796,7 +796,7 @@ typedef struct {
   real_T TransferFcn;                  /* '<Root>/Transfer Fcn' */
   real_T TransferFcn1;                 /* '<Root>/Transfer Fcn1' */
   real_T UnitDelay[2];                 /* '<Root>/Unit Delay' */
-  real_T Constant5;                    /* '<Root>/Constant5' */
+  real_T GainError;                    /* '<Root>/Gain Error' */
   real_T switch_input_signal;          /* '<Root>/switch_input_signal' */
   real_T offset;                       /* '<Root>/offset' */
   real_T step;                         /* '<Root>/step' */
@@ -826,9 +826,9 @@ typedef struct {
   real_T Sum3_j;                       /* '<S2>/Sum3' */
   real_T ControllerSwitch;             /* '<Root>/Controller Switch' */
   real_T Switch;                       /* '<Root>/Switch' */
-  real_T Constant[2];                  /* '<Root>/Constant' */
-  real_T Constant1[2];                 /* '<Root>/Constant1' */
   real_T IPD_Ki;                       /* '<Root>/I-PD_Ki' */
+  real_T MatrixofGainsL[2];            /* '<Root>/Matrix of Gains L' */
+  real_T MatrixBDiscrete[2];           /* '<Root>/Matrix B - Discrete' */
   real_T PID_Ki;                       /* '<Root>/PI-D_Ki ' */
   real_T PID_Ki_k;                     /* '<Root>/PID_Ki' */
   real_T Sum2[2];                      /* '<Root>/Sum2' */
@@ -896,6 +896,10 @@ typedef struct {
   struct {
     void *LoggedData;
   } SinaldeSadadoObservadordeEstado;   /* '<Root>/Sinal de Saída do  Observador de Estados' */
+
+  struct {
+    void *LoggedData;
+  } SinaldeSadadoSeguidordeRefernci;   /* '<Root>/Sinal de Saída do  Seguidor de Referência' */
 
   struct {
     void *LoggedData;
@@ -1006,22 +1010,22 @@ typedef struct {
 /* Parameters (auto storage) */
 struct P_Tanques_quick_start_T_ {
   real_T L[2];                         /* Variable: L
-                                        * Referenced by: '<Root>/Constant'
+                                        * Referenced by: '<Root>/Matrix of Gains L'
                                         */
   real_T a[4];                         /* Variable: a
-                                        * Referenced by: '<Root>/Constant3'
+                                        * Referenced by: '<Root>/Matrix A - Discrete'
                                         */
   real_T b[2];                         /* Variable: b
-                                        * Referenced by: '<Root>/Constant1'
+                                        * Referenced by: '<Root>/Matrix B - Discrete'
                                         */
   real_T c[2];                         /* Variable: c
-                                        * Referenced by: '<Root>/Constant2'
+                                        * Referenced by: '<Root>/Matrix C - Discrete'
                                         */
   real_T k[2];                         /* Variable: k
-                                        * Referenced by: '<Root>/Constant4'
+                                        * Referenced by: '<Root>/Matrix of Gains k'
                                         */
   real_T ke;                           /* Variable: ke
-                                        * Referenced by: '<Root>/Constant5'
+                                        * Referenced by: '<Root>/Gain Error'
                                         */
   real_T RandomSource_MinVal;          /* Mask Parameter: RandomSource_MinVal
                                         * Referenced by: '<S14>/Random Source'

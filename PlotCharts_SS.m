@@ -1,7 +1,7 @@
 % controller_name = 'PID';
 % controller_title = strcat('\fontsize{30}',strrep('PID','_','-'))
 % folder = strcat('/home/bruno/Documentos/Workspaces/Matlab_Projects/projeto-de-sistemas-de-controle/Data/',controller_name,'/Tank_2/PID/')
-function [] = PlotCharts( controller_name, controller_title, folder)
+function [] = PlotCharts_SS( controller_name, controller_title, folder)
     for i = 1:2
         load(strcat(folder, 'Height_Data_Config_',num2str(i),'.mat'))
         load(strcat(folder, controller_name, '_Data_',num2str(i),'.mat'))
@@ -21,9 +21,9 @@ function [] = PlotCharts( controller_name, controller_title, folder)
 
         plot(I_PD_Data.time, I_PD_Data.signals.values, 'k')
         set(gca,'fontsize',16)
-        title(strcat(controller_title, ' - Sa√≠da do Controlador'))
+        title(strcat(controller_title, ' - SaÌda do Controlador'))
         xlabel('\fontsize{30}Tempo (s)')
-        ylabel('\fontsize{30}Tens√£o (V)')
+        ylabel('\fontsize{30}Tens„o (V)')
         grid
 
         set(fig2,'PaperOrientation','landscape');
