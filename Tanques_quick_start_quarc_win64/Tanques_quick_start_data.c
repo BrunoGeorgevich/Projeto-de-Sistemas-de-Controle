@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.848
+ * Model version              : 1.849
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Mon Oct 08 14:24:45 2018
+ * C source code generated on : Mon Oct 08 17:01:42 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -41,8 +41,8 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   /*  Variable: k
    * Referenced by: '<Root>/Matrix of Gains k'
    */
-  { -0.05, 0.12 },
-  6.0,                                 /* Variable: ke
+  { -0.8, 1.4 },
+  0.8,                                 /* Variable: ke
                                         * Referenced by: '<Root>/Gain Error'
                                         */
   -0.99999999999999978,                /* Mask Parameter: RandomSource_MinVal
@@ -260,22 +260,22 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   2.0,                                 /* Expression: 2
                                         * Referenced by: '<Root>/switch_input_signal'
                                         */
-  15.0,                                /* Expression: 15
+  1.0,                                 /* Expression: 1
                                         * Referenced by: '<Root>/Signal Generator'
                                         */
-  6.2832,                              /* Expression: 6.2832
+  1.0000023384349968,                  /* Computed Parameter: SignalGenerator_Frequency
                                         * Referenced by: '<Root>/Signal Generator'
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<Root>/offset'
                                         */
-  15.0,                                /* Expression: 15
+  1.0,                                 /* Expression: 1
                                         * Referenced by: '<Root>/step'
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<Root>/Rate Transition'
                                         */
-  2.0,                                 /* Expression: 2
+  1.0,                                 /* Expression: 1
                                         * Referenced by: '<Root>/Tank Entry'
                                         */
   0.0,                                 /* Expression: 0
@@ -284,13 +284,13 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   4.0,                                 /* Expression: 4
                                         * Referenced by: '<Root>/Controller Enabler '
                                         */
-  3.0,                                 /* Expression: 3
+  1.0,                                 /* Expression: 1
                                         * Referenced by: '<Root>/Controller Entry'
                                         */
-  1.3,                                 /* Expression: 1.3
+  0.0,                                 /* Expression: 0
                                         * Referenced by: '<Root>/PID_Kp'
                                         */
-  0.001,                               /* Expression: 0.001
+  0.0,                                 /* Expression: 0
                                         * Referenced by: '<Root>/PID_Kd'
                                         */
   0.0,                                 /* Expression: 0
@@ -320,7 +320,7 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S2>/Integrator'
                                         */
-  35.0,                                /* Expression: 35
+  0.0,                                 /* Expression: inf
                                         * Referenced by: '<S2>/Integrator'
                                         */
   -1.0,                                /* Expression: -1
@@ -335,13 +335,13 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   0.05,                                /* Expression: 0.05
                                         * Referenced by: '<Root>/PI-D_Ki '
                                         */
-  0.01,                                /* Expression: 0.01
+  0.0,                                 /* Expression: 0
                                         * Referenced by: '<Root>/PID_Ki'
                                         */
-  0.0,                                 /* Expression: 0
+  20.0,                                /* Expression: 20
                                         * Referenced by: '<Root>/amin'
                                         */
-  0.0,                                 /* Expression: 0
+  10.0,                                /* Expression: 10
                                         * Referenced by: '<Root>/amax'
                                         */
   4.0,                                 /* Expression: MaxVal
@@ -374,10 +374,10 @@ P_Tanques_quick_start_T Tanques_quick_start_P = {
   0U,                                  /* Computed Parameter: Output_InitialCondition
                                         * Referenced by: '<S1>/Output'
                                         */
-  0U,                                  /* Computed Parameter: pmin_Value
+  58U,                                 /* Computed Parameter: pmin_Value
                                         * Referenced by: '<Root>/pmin'
                                         */
-  0U,                                  /* Computed Parameter: pmax_Value
+  52U,                                 /* Computed Parameter: pmax_Value
                                         * Referenced by: '<Root>/pmax'
                                         */
   0U,                                  /* Computed Parameter: currPeriod_InitialValue

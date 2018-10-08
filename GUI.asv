@@ -762,8 +762,8 @@ Ke=get(handles.editGainKe,'String');
 
 kee=str2num(Ke);
 kk=[str2num(k1) str2num(k2)];
-assignin('base', 'ke', kee);
-assignin('base', 'k',kk);
+assignin(ke, 'var', ke)
+assignin('base', 'ke', -1);
 
 disp('gainnnn')
 

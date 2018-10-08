@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.848
+ * Model version              : 1.849
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Mon Oct 08 14:24:45 2018
+ * C source code generated on : Mon Oct 08 17:01:42 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1234,22 +1234,22 @@ struct P_Tanques_quick_start_T_ {
   real_T switch_input_signal_Value;    /* Expression: 2
                                         * Referenced by: '<Root>/switch_input_signal'
                                         */
-  real_T SignalGenerator_Amplitude;    /* Expression: 15
+  real_T SignalGenerator_Amplitude;    /* Expression: 1
                                         * Referenced by: '<Root>/Signal Generator'
                                         */
-  real_T SignalGenerator_Frequency;    /* Expression: 6.2832
+  real_T SignalGenerator_Frequency;    /* Computed Parameter: SignalGenerator_Frequency
                                         * Referenced by: '<Root>/Signal Generator'
                                         */
   real_T offset_Value;                 /* Expression: 0
                                         * Referenced by: '<Root>/offset'
                                         */
-  real_T step_Value;                   /* Expression: 15
+  real_T step_Value;                   /* Expression: 1
                                         * Referenced by: '<Root>/step'
                                         */
   real_T RateTransition_X0;            /* Expression: 0
                                         * Referenced by: '<Root>/Rate Transition'
                                         */
-  real_T TankEntry_Value;              /* Expression: 2
+  real_T TankEntry_Value;              /* Expression: 1
                                         * Referenced by: '<Root>/Tank Entry'
                                         */
   real_T ZeroConstant_Value;           /* Expression: 0
@@ -1258,13 +1258,13 @@ struct P_Tanques_quick_start_T_ {
   real_T ControllerEnabler_Value;      /* Expression: 4
                                         * Referenced by: '<Root>/Controller Enabler '
                                         */
-  real_T ControllerEntry_Value;        /* Expression: 3
+  real_T ControllerEntry_Value;        /* Expression: 1
                                         * Referenced by: '<Root>/Controller Entry'
                                         */
-  real_T PID_Kp_Gain;                  /* Expression: 1.3
+  real_T PID_Kp_Gain;                  /* Expression: 0
                                         * Referenced by: '<Root>/PID_Kp'
                                         */
-  real_T PID_Kd_Gain;                  /* Expression: 0.001
+  real_T PID_Kd_Gain;                  /* Expression: 0
                                         * Referenced by: '<Root>/PID_Kd'
                                         */
   real_T Integrator_IC;                /* Expression: 0
@@ -1294,7 +1294,7 @@ struct P_Tanques_quick_start_T_ {
   real_T Integrator_IC_p;              /* Expression: 0
                                         * Referenced by: '<S2>/Integrator'
                                         */
-  real_T Integrator_UpperSat_i;        /* Expression: 35
+  real_T Integrator_UpperSat_i;        /* Expression: inf
                                         * Referenced by: '<S2>/Integrator'
                                         */
   real_T Integrator_LowerSat_g;        /* Expression: -1
@@ -1309,13 +1309,13 @@ struct P_Tanques_quick_start_T_ {
   real_T PID_Ki_Gain;                  /* Expression: 0.05
                                         * Referenced by: '<Root>/PI-D_Ki '
                                         */
-  real_T PID_Ki_Gain_g;                /* Expression: 0.01
+  real_T PID_Ki_Gain_g;                /* Expression: 0
                                         * Referenced by: '<Root>/PID_Ki'
                                         */
-  real_T amin_Value;                   /* Expression: 0
+  real_T amin_Value;                   /* Expression: 20
                                         * Referenced by: '<Root>/amin'
                                         */
-  real_T amax_Value;                   /* Expression: 0
+  real_T amax_Value;                   /* Expression: 10
                                         * Referenced by: '<Root>/amax'
                                         */
   real_T RandomSource_MaxRTP;          /* Expression: MaxVal
