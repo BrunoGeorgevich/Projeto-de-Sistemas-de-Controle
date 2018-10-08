@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.814
+ * Model version              : 1.843
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Tue Sep 18 12:25:04 2018
+ * C source code generated on : Mon Oct 08 13:14:10 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -56,17 +56,17 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&Tanques_quick_start_B.TransferFcn), 0, 0, 43 },
+  { (char_T *)(&Tanques_quick_start_B.TransferFcn), 0, 0, 52 },
 
   { (char_T *)(&Tanques_quick_start_B.FixPtSwitch), 5, 0, 1 }
   ,
 
-  { (char_T *)(&Tanques_quick_start_DW.HILInitialize_AIMinimums[0]), 0, 0, 66 },
+  { (char_T *)(&Tanques_quick_start_DW.UnitDelay_DSTATE[0]), 0, 0, 68 },
 
   { (char_T *)(&Tanques_quick_start_DW.HILInitialize_Card), 14, 0, 1 },
 
   { (char_T *)(&Tanques_quick_start_DW.AlturadoTanque1cm_PWORK.LoggedData), 11,
-    0, 17 },
+    0, 18 },
 
   { (char_T *)(&Tanques_quick_start_DW.HILInitialize_ClockModes), 6, 0, 5 },
 
@@ -85,22 +85,22 @@ static DataTypeTransitionTable rtBTransTable = {
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&Tanques_quick_start_P.A[0]), 0, 0, 34 },
+  { (char_T *)(&Tanques_quick_start_P.L[0]), 0, 0, 29 },
 
   { (char_T *)(&Tanques_quick_start_P.HILInitialize_hardware_clocks), 6, 0, 4 },
 
   { (char_T *)(&Tanques_quick_start_P.HILInitialize_analog_input_chan[0]), 7, 0,
-    10 },
+    11 },
 
   { (char_T *)(&Tanques_quick_start_P.WrapToZero_Threshold), 5, 0, 1 },
 
   { (char_T *)(&Tanques_quick_start_P.HILInitialize_active), 8, 0, 35 },
 
-  { (char_T *)(&Tanques_quick_start_P.TransferFcn_A), 0, 0, 42 },
+  { (char_T *)(&Tanques_quick_start_P.TransferFcn_A), 0, 0, 41 },
 
   { (char_T *)(&Tanques_quick_start_P.Constant_Value), 5, 0, 7 },
 
-  { (char_T *)(&Tanques_quick_start_P.HILReadAnalog_Active), 8, 0, 1 }
+  { (char_T *)(&Tanques_quick_start_P.HILWriteAnalog_Active), 8, 0, 2 }
 };
 
 /* data type transition table for Parameters structure */

@@ -642,7 +642,7 @@ static void c2_info_helper(const mxArray **c2_info)
   sf_mex_addfield(*c2_info, c2_emlrt_marshallOut(
     "[E]C:/Users/Aluno IC/Documents/MATLAB/Projeto001/get_amplitude_and_period.m"),
                   "resolved", "resolved", 0);
-  sf_mex_addfield(*c2_info, c2_b_emlrt_marshallOut(1531466914U), "fileTimeLo",
+  sf_mex_addfield(*c2_info, c2_b_emlrt_marshallOut(1539014307U), "fileTimeLo",
                   "fileTimeLo", 0);
   sf_mex_addfield(*c2_info, c2_b_emlrt_marshallOut(0U), "fileTimeHi",
                   "fileTimeHi", 0);
@@ -1944,7 +1944,7 @@ static real_T c2_get_currAmp(SFc2_Tanques_quick_startInstanceStruct
 {
   ssReadFromDataStoreElement(chartInstance->S, 0, NULL, c2_b);
   if (chartInstance->c2_currAmp_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'currAmp\' (#79) in the initialization routine of the chart.\n");
+    sf_mex_error_message("Invalid access to Data Store Memory data \'currAmp\' (#41) in the initialization routine of the chart.\n");
   }
 
   return *chartInstance->c2_currAmp_address;
@@ -1955,7 +1955,7 @@ static void c2_set_currAmp(SFc2_Tanques_quick_startInstanceStruct *chartInstance
 {
   ssWriteToDataStoreElement(chartInstance->S, 0, NULL, c2_b);
   if (chartInstance->c2_currAmp_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'currAmp\' (#79) in the initialization routine of the chart.\n");
+    sf_mex_error_message("Invalid access to Data Store Memory data \'currAmp\' (#41) in the initialization routine of the chart.\n");
   }
 
   *chartInstance->c2_currAmp_address = c2_c;
@@ -1967,7 +1967,7 @@ static real_T *c2_access_currAmp(SFc2_Tanques_quick_startInstanceStruct
   real_T *c2_c;
   ssReadFromDataStore(chartInstance->S, 0, NULL);
   if (chartInstance->c2_currAmp_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'currAmp\' (#79) in the initialization routine of the chart.\n");
+    sf_mex_error_message("Invalid access to Data Store Memory data \'currAmp\' (#41) in the initialization routine of the chart.\n");
   }
 
   c2_c = chartInstance->c2_currAmp_address;
@@ -1983,7 +1983,7 @@ static uint16_T c2_get_currPeriod(SFc2_Tanques_quick_startInstanceStruct
 {
   ssReadFromDataStoreElement(chartInstance->S, 1, NULL, c2_b);
   if (chartInstance->c2_currPeriod_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'currPeriod\' (#80) in the initialization routine of the chart.\n");
+    sf_mex_error_message("Invalid access to Data Store Memory data \'currPeriod\' (#42) in the initialization routine of the chart.\n");
   }
 
   return *chartInstance->c2_currPeriod_address;
@@ -1994,7 +1994,7 @@ static void c2_set_currPeriod(SFc2_Tanques_quick_startInstanceStruct
 {
   ssWriteToDataStoreElement(chartInstance->S, 1, NULL, c2_b);
   if (chartInstance->c2_currPeriod_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'currPeriod\' (#80) in the initialization routine of the chart.\n");
+    sf_mex_error_message("Invalid access to Data Store Memory data \'currPeriod\' (#42) in the initialization routine of the chart.\n");
   }
 
   *chartInstance->c2_currPeriod_address = c2_c;
@@ -2006,7 +2006,7 @@ static uint16_T *c2_access_currPeriod(SFc2_Tanques_quick_startInstanceStruct
   uint16_T *c2_c;
   ssReadFromDataStore(chartInstance->S, 1, NULL);
   if (chartInstance->c2_currPeriod_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'currPeriod\' (#80) in the initialization routine of the chart.\n");
+    sf_mex_error_message("Invalid access to Data Store Memory data \'currPeriod\' (#42) in the initialization routine of the chart.\n");
   }
 
   c2_c = chartInstance->c2_currPeriod_address;
@@ -2022,7 +2022,7 @@ static uint16_T c2_get_prevTime(SFc2_Tanques_quick_startInstanceStruct
 {
   ssReadFromDataStoreElement(chartInstance->S, 2, NULL, c2_b);
   if (chartInstance->c2_prevTime_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'prevTime\' (#81) in the initialization routine of the chart.\n");
+    sf_mex_error_message("Invalid access to Data Store Memory data \'prevTime\' (#43) in the initialization routine of the chart.\n");
   }
 
   return *chartInstance->c2_prevTime_address;
@@ -2033,7 +2033,7 @@ static void c2_set_prevTime(SFc2_Tanques_quick_startInstanceStruct
 {
   ssWriteToDataStoreElement(chartInstance->S, 2, NULL, c2_b);
   if (chartInstance->c2_prevTime_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'prevTime\' (#81) in the initialization routine of the chart.\n");
+    sf_mex_error_message("Invalid access to Data Store Memory data \'prevTime\' (#43) in the initialization routine of the chart.\n");
   }
 
   *chartInstance->c2_prevTime_address = c2_c;
@@ -2045,7 +2045,7 @@ static uint16_T *c2_access_prevTime(SFc2_Tanques_quick_startInstanceStruct
   uint16_T *c2_c;
   ssReadFromDataStore(chartInstance->S, 2, NULL);
   if (chartInstance->c2_prevTime_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'prevTime\' (#81) in the initialization routine of the chart.\n");
+    sf_mex_error_message("Invalid access to Data Store Memory data \'prevTime\' (#43) in the initialization routine of the chart.\n");
   }
 
   c2_c = chartInstance->c2_prevTime_address;
@@ -2620,10 +2620,10 @@ static void mdlSetWorkWidths_c2_Tanques_quick_start(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(1139734065U));
-  ssSetChecksum1(S,(381664209U));
-  ssSetChecksum2(S,(2227371109U));
-  ssSetChecksum3(S,(3026811021U));
+  ssSetChecksum0(S,(2173262890U));
+  ssSetChecksum1(S,(288406164U));
+  ssSetChecksum2(S,(1020503812U));
+  ssSetChecksum3(S,(115429777U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
   ssSupportsMultipleExecInstances(S,0);

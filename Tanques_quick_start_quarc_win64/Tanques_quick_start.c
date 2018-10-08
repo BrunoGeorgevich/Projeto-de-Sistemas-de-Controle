@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.814
+ * Model version              : 1.843
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Tue Sep 18 12:25:04 2018
+ * C source code generated on : Mon Oct 08 13:14:10 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -97,7 +97,7 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   ODE1_IntgData *id = (ODE1_IntgData *)rtsiGetSolverData(si);
   real_T *f0 = id->f[0];
   int_T i;
-  int_T nXc = 9;
+  int_T nXc = 5;
   rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
   rtsiSetdX(si, f0);
   Tanques_quick_start_derivatives();
@@ -118,7 +118,7 @@ void RandSrcInitState_U_64(const uint32_T seed[], real_T state[], int32_T nChans
   int32_T n;
   real_T d;
 
-  /* InitializeConditions for S-Function (sdsprandsrc2): '<S10>/Random Source' */
+  /* InitializeConditions for S-Function (sdsprandsrc2): '<S14>/Random Source' */
   /* RandSrcInitState_U_64 */
   for (i = 0; i < nChans; i++) {
     j = seed[i] != 0U ? seed[i] : 2147483648U;
@@ -139,7 +139,7 @@ void RandSrcInitState_U_64(const uint32_T seed[], real_T state[], int32_T nChans
     state[35 * i + 33] = 0.0;
   }
 
-  /* End of InitializeConditions for S-Function (sdsprandsrc2): '<S10>/Random Source' */
+  /* End of InitializeConditions for S-Function (sdsprandsrc2): '<S14>/Random Source' */
 }
 
 void RandSrc_U_D(real_T y[], const real_T minVec[], int32_T minLen, const real_T
@@ -157,7 +157,7 @@ void RandSrc_U_D(real_T y[], const real_T minVec[], int32_T minLen, const real_T
   int32_T i;
   uint32_T j;
 
-  /* S-Function (sdsprandsrc2): '<S10>/Random Source' */
+  /* S-Function (sdsprandsrc2): '<S14>/Random Source' */
   /* RandSrc_U_D */
   one = 1;
   onePtr = (int8_T *)&one;
@@ -198,7 +198,7 @@ void RandSrc_U_D(real_T y[], const real_T minVec[], int32_T minLen, const real_T
     state[chan * 35 + 34] = j;
   }
 
-  /* End of S-Function (sdsprandsrc2): '<S10>/Random Source' */
+  /* End of S-Function (sdsprandsrc2): '<S14>/Random Source' */
 }
 
 /* Function for MATLAB Function: '<Root>/PRS' */
@@ -405,7 +405,6 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
   real_T rtb_HILReadAnalog_o2;
   real_T *lastU;
   real_T rtb_Temcontroladorouno;
-  real_T rtb_L_0;
   if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
     /* set solver stop time */
     if (!(Tanques_quick_start_M->Timing.clockTick0+1)) {
@@ -446,27 +445,24 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
   Tanques_quick_start_B.TransferFcn1 += Tanques_quick_start_P.TransferFcn1_C *
     Tanques_quick_start_X.TransferFcn1_CSTATE;
   if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
-  }
+    /* UnitDelay: '<Root>/Unit Delay' */
+    Tanques_quick_start_B.UnitDelay[0] =
+      Tanques_quick_start_DW.UnitDelay_DSTATE[0];
+    Tanques_quick_start_B.UnitDelay[1] =
+      Tanques_quick_start_DW.UnitDelay_DSTATE[1];
 
-  /* Integrator: '<S8>/Integrator1' */
-  Tanques_quick_start_B.Integrator1[0] =
-    Tanques_quick_start_X.Integrator1_CSTATE[0];
-  Tanques_quick_start_B.Integrator1[1] =
-    Tanques_quick_start_X.Integrator1_CSTATE[1];
+    /* MATLAB Function: '<Root>/MATLAB Function6' incorporates:
+     *  Constant: '<Root>/Constant4'
+     */
+    /* MATLAB Function 'MATLAB Function6': '<S9>:1' */
+    /* '<S9>:1:2' */
+    Tanques_quick_start_B.y = Tanques_quick_start_P.k[0] *
+      Tanques_quick_start_B.UnitDelay[0] + Tanques_quick_start_P.k[1] *
+      Tanques_quick_start_B.UnitDelay[1];
 
-  /* Gain: '<S8>/C2' */
-  rtb_L_0 = Tanques_quick_start_P.c[0] * Tanques_quick_start_B.Integrator1[0] +
-    Tanques_quick_start_P.c[1] * Tanques_quick_start_B.Integrator1[1];
+    /* Constant: '<Root>/Constant5' */
+    Tanques_quick_start_B.Constant5 = Tanques_quick_start_P.ke;
 
-  /* Sum: '<Root>/Sum2' incorporates:
-   *  Gain: '<S8>/C2'
-   *  Integrator: '<S9>/Integrator'
-   */
-  Tanques_quick_start_B.Sum2[0] = rtb_L_0 -
-    Tanques_quick_start_X.Integrator_CSTATE[0];
-  Tanques_quick_start_B.Sum2[1] = rtb_L_0 -
-    Tanques_quick_start_X.Integrator_CSTATE[1];
-  if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
     /* Constant: '<Root>/switch_input_signal' */
     Tanques_quick_start_B.switch_input_signal =
       Tanques_quick_start_P.switch_input_signal_Value;
@@ -517,49 +513,34 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
   }
 
   /* MultiPortSwitch: '<Root>/Tank Height Switch' */
-  switch ((int32_T)Tanques_quick_start_B.TankEntry) {
-   case 1:
-    rtb_L_0 = Tanques_quick_start_B.TransferFcn;
-    break;
-
-   case 2:
-    rtb_L_0 = Tanques_quick_start_B.TransferFcn1;
-    break;
-
-   default:
-    rtb_L_0 = 0.0;
-    break;
+  if ((int32_T)Tanques_quick_start_B.TankEntry == 1) {
+    Tanques_quick_start_B.TankHeightSwitch = Tanques_quick_start_B.TransferFcn;
+  } else {
+    Tanques_quick_start_B.TankHeightSwitch = Tanques_quick_start_B.TransferFcn1;
   }
 
   /* End of MultiPortSwitch: '<Root>/Tank Height Switch' */
 
   /* Sum: '<Root>/Sum1' */
-  Tanques_quick_start_B.Sum1 = Tanques_quick_start_B.MultiportSwitch - rtb_L_0;
+  Tanques_quick_start_B.Sum1 = Tanques_quick_start_B.MultiportSwitch -
+    Tanques_quick_start_B.TankHeightSwitch;
+
+  /* Sum: '<Root>/Sum4' incorporates:
+   *  MATLAB Function: '<Root>/MATLAB Function7'
+   */
+  /* MATLAB Function 'MATLAB Function7': '<S10>:1' */
+  /* '<S10>:1:2' */
+  Tanques_quick_start_B.Sum4 = Tanques_quick_start_B.Constant5 *
+    Tanques_quick_start_B.Sum1 - Tanques_quick_start_B.y;
   if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
-  }
+    /* Constant: '<Root>/Zero Constant' */
+    Tanques_quick_start_B.ZeroConstant =
+      Tanques_quick_start_P.ZeroConstant_Value;
 
-  /* MATLAB Function: '<Root>/MATLAB Function2' */
-  rtb_Temcontroladorouno = Tanques_quick_start_B.MultiportSwitch;
+    /* Constant: '<Root>/Controller Enabler ' */
+    Tanques_quick_start_B.ControllerEnabler =
+      Tanques_quick_start_P.ControllerEnabler_Value;
 
-  /* MATLAB Function 'MATLAB Function2': '<S4>:1' */
-  if (Tanques_quick_start_B.MultiportSwitch > 30.0) {
-    /* '<S4>:1:3' */
-    /* '<S4>:1:4' */
-    rtb_Temcontroladorouno = 30.0;
-  } else {
-    if (Tanques_quick_start_B.MultiportSwitch < 0.0) {
-      /* '<S4>:1:5' */
-      /* '<S4>:1:6' */
-      rtb_Temcontroladorouno = 0.0;
-    }
-  }
-
-  /* '<S4>:1:8' */
-  Tanques_quick_start_B.tensao = rtb_Temcontroladorouno -
-    Tanques_quick_start_B.TransferFcn;
-
-  /* End of MATLAB Function: '<Root>/MATLAB Function2' */
-  if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
     /* Constant: '<Root>/Controller Entry' */
     Tanques_quick_start_B.ControllerEntry =
       Tanques_quick_start_P.ControllerEntry_Value;
@@ -573,7 +554,7 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
   Tanques_quick_start_B.PID_Kd = Tanques_quick_start_P.PID_Kd_Gain *
     Tanques_quick_start_B.Sum1;
 
-  /* Derivative: '<S6>/Derivative' */
+  /* Derivative: '<S12>/Derivative' */
   if ((Tanques_quick_start_DW.TimeStampA >= Tanques_quick_start_M->Timing.t[0]) &&
       (Tanques_quick_start_DW.TimeStampB >= Tanques_quick_start_M->Timing.t[0]))
   {
@@ -599,26 +580,26 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
       (Tanques_quick_start_M->Timing.t[0] - rtb_Temcontroladorouno);
   }
 
-  /* End of Derivative: '<S6>/Derivative' */
+  /* End of Derivative: '<S12>/Derivative' */
 
-  /* Integrator: '<S6>/Integrator'
+  /* Integrator: '<S12>/Integrator'
    *
-   * Regarding '<S6>/Integrator':
+   * Regarding '<S12>/Integrator':
    *  Limited Integrator
    */
-  if (Tanques_quick_start_X.Integrator_CSTATE_p >=
+  if (Tanques_quick_start_X.Integrator_CSTATE >=
       Tanques_quick_start_P.Integrator_UpperSat ) {
-    Tanques_quick_start_X.Integrator_CSTATE_p =
+    Tanques_quick_start_X.Integrator_CSTATE =
       Tanques_quick_start_P.Integrator_UpperSat;
-  } else if (Tanques_quick_start_X.Integrator_CSTATE_p <=
+  } else if (Tanques_quick_start_X.Integrator_CSTATE <=
              (Tanques_quick_start_P.Integrator_LowerSat) ) {
-    Tanques_quick_start_X.Integrator_CSTATE_p =
+    Tanques_quick_start_X.Integrator_CSTATE =
       (Tanques_quick_start_P.Integrator_LowerSat);
   }
 
-  Tanques_quick_start_B.Integrator = Tanques_quick_start_X.Integrator_CSTATE_p;
+  Tanques_quick_start_B.Integrator = Tanques_quick_start_X.Integrator_CSTATE;
 
-  /* Sum: '<S6>/Sum3' */
+  /* Sum: '<S12>/Sum3' */
   Tanques_quick_start_B.Sum3 = (Tanques_quick_start_B.PID_Kp +
     Tanques_quick_start_B.Derivative) + Tanques_quick_start_B.Integrator;
 
@@ -627,9 +608,10 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
     Tanques_quick_start_B.Sum1;
 
   /* Gain: '<Root>/PI-D_Kd' */
-  Tanques_quick_start_B.PID_Kd_h = Tanques_quick_start_P.PID_Kd_Gain_a * rtb_L_0;
+  Tanques_quick_start_B.PID_Kd_h = Tanques_quick_start_P.PID_Kd_Gain_a *
+    Tanques_quick_start_B.TankHeightSwitch;
 
-  /* Derivative: '<S5>/Derivative' */
+  /* Derivative: '<S11>/Derivative' */
   if ((Tanques_quick_start_DW.TimeStampA_e >= Tanques_quick_start_M->Timing.t[0])
       && (Tanques_quick_start_DW.TimeStampB_g >= Tanques_quick_start_M->
           Timing.t[0])) {
@@ -656,20 +638,22 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
       *lastU) / (Tanques_quick_start_M->Timing.t[0] - rtb_Temcontroladorouno);
   }
 
-  /* End of Derivative: '<S5>/Derivative' */
+  /* End of Derivative: '<S11>/Derivative' */
 
-  /* Integrator: '<S5>/Integrator' */
+  /* Integrator: '<S11>/Integrator' */
   Tanques_quick_start_B.Integrator_j = Tanques_quick_start_X.Integrator_CSTATE_j;
 
-  /* Sum: '<S5>/Sum3' */
+  /* Sum: '<S11>/Sum3' */
   Tanques_quick_start_B.Sum3_p = (Tanques_quick_start_B.PID_Kp_g -
     Tanques_quick_start_B.Derivative_c) + Tanques_quick_start_B.Integrator_j;
 
   /* Gain: '<Root>/I-PD_Kp' */
-  Tanques_quick_start_B.IPD_Kp = Tanques_quick_start_P.IPD_Kp_Gain * rtb_L_0;
+  Tanques_quick_start_B.IPD_Kp = Tanques_quick_start_P.IPD_Kp_Gain *
+    Tanques_quick_start_B.TankHeightSwitch;
 
   /* Gain: '<Root>/I-PD_Kd' */
-  Tanques_quick_start_B.IPD_Kd = Tanques_quick_start_P.IPD_Kd_Gain * rtb_L_0;
+  Tanques_quick_start_B.IPD_Kd = Tanques_quick_start_P.IPD_Kd_Gain *
+    Tanques_quick_start_B.TankHeightSwitch;
 
   /* Derivative: '<S2>/Derivative' */
   if ((Tanques_quick_start_DW.TimeStampA_h >= Tanques_quick_start_M->Timing.t[0])
@@ -705,18 +689,17 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
    * Regarding '<S2>/Integrator':
    *  Limited Integrator
    */
-  if (Tanques_quick_start_X.Integrator_CSTATE_pj >=
+  if (Tanques_quick_start_X.Integrator_CSTATE_p >=
       Tanques_quick_start_P.Integrator_UpperSat_i ) {
-    Tanques_quick_start_X.Integrator_CSTATE_pj =
+    Tanques_quick_start_X.Integrator_CSTATE_p =
       Tanques_quick_start_P.Integrator_UpperSat_i;
-  } else if (Tanques_quick_start_X.Integrator_CSTATE_pj <=
+  } else if (Tanques_quick_start_X.Integrator_CSTATE_p <=
              (Tanques_quick_start_P.Integrator_LowerSat_g) ) {
-    Tanques_quick_start_X.Integrator_CSTATE_pj =
+    Tanques_quick_start_X.Integrator_CSTATE_p =
       (Tanques_quick_start_P.Integrator_LowerSat_g);
   }
 
-  Tanques_quick_start_B.Integrator_b =
-    Tanques_quick_start_X.Integrator_CSTATE_pj;
+  Tanques_quick_start_B.Integrator_b = Tanques_quick_start_X.Integrator_CSTATE_p;
 
   /* Sum: '<S2>/Sum3' */
   Tanques_quick_start_B.Sum3_j = (Tanques_quick_start_B.Integrator_b -
@@ -738,11 +721,28 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
   }
 
   /* End of MultiPortSwitch: '<Root>/Controller Switch' */
-  if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
-    /* Constant: '<Root>/Controller Enabler ' */
-    Tanques_quick_start_B.ControllerEnabler =
-      Tanques_quick_start_P.ControllerEnabler_Value;
+
+  /* MATLAB Function: '<Root>/MATLAB Function2' */
+  rtb_Temcontroladorouno = Tanques_quick_start_B.MultiportSwitch;
+
+  /* MATLAB Function 'MATLAB Function2': '<S5>:1' */
+  if (Tanques_quick_start_B.MultiportSwitch > 30.0) {
+    /* '<S5>:1:3' */
+    /* '<S5>:1:4' */
+    rtb_Temcontroladorouno = 30.0;
+  } else {
+    if (Tanques_quick_start_B.MultiportSwitch < 0.0) {
+      /* '<S5>:1:5' */
+      /* '<S5>:1:6' */
+      rtb_Temcontroladorouno = 0.0;
+    }
   }
+
+  /* '<S5>:1:8' */
+  Tanques_quick_start_B.tensao = rtb_Temcontroladorouno -
+    Tanques_quick_start_B.TransferFcn;
+
+  /* End of MATLAB Function: '<Root>/MATLAB Function2' */
 
   /* MultiPortSwitch: '<Root>/Tem controlador ou não? ' */
   switch ((int32_T)Tanques_quick_start_B.ControllerEnabler) {
@@ -754,8 +754,12 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
     rtb_Temcontroladorouno = Tanques_quick_start_B.ControllerSwitch;
     break;
 
-   default:
+   case 3:
     rtb_Temcontroladorouno = Tanques_quick_start_B.tensao;
+    break;
+
+   default:
+    rtb_Temcontroladorouno = Tanques_quick_start_B.Sum4;
     break;
   }
 
@@ -822,19 +826,49 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
   Tanques_quick_start_B.tensao_h = rtb_Temcontroladorouno;
 
   /* End of MATLAB Function: '<Root>/MATLAB Function1' */
-  if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
+
+  /* Switch: '<Root>/Switch' */
+  if (Tanques_quick_start_B.TransferFcn >=
+      Tanques_quick_start_P.Switch_Threshold) {
+    Tanques_quick_start_B.Switch = Tanques_quick_start_B.ZeroConstant;
+  } else {
+    Tanques_quick_start_B.Switch = Tanques_quick_start_B.tensao_h;
   }
 
-  /* Gain: '<Root>/Gain' incorporates:
-   *  Gain: '<S9>/C '
-   *  Integrator: '<S9>/Integrator'
-   */
-  rtb_L_0 = (Tanques_quick_start_P.C[0] *
-             Tanques_quick_start_X.Integrator_CSTATE[0] +
-             Tanques_quick_start_P.C[1] *
-             Tanques_quick_start_X.Integrator_CSTATE[1]) *
-    Tanques_quick_start_P.Gain_Gain;
+  /* End of Switch: '<Root>/Switch' */
   if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
+    /* S-Function (hil_write_analog_block): '<Root>/HIL Write Analog' */
+
+    /* S-Function Block: Tanques_quick_start/HIL Write Analog (hil_write_analog_block) */
+    {
+      t_error result;
+      result = hil_write_analog(Tanques_quick_start_DW.HILInitialize_Card,
+        &Tanques_quick_start_P.HILWriteAnalog_channels, 1,
+        &Tanques_quick_start_B.Switch);
+      if (result < 0) {
+        msg_get_error_messageA(NULL, result, _rt_error_message, sizeof
+          (_rt_error_message));
+        rtmSetErrorStatus(Tanques_quick_start_M, _rt_error_message);
+      }
+    }
+
+    /* MATLAB Function: '<Root>/MATLAB Function3' incorporates:
+     *  Constant: '<Root>/Constant2'
+     */
+    /* MATLAB Function 'MATLAB Function3': '<S6>:1' */
+    /* '<S6>:1:2' */
+    Tanques_quick_start_B.y_m = Tanques_quick_start_P.c[0] *
+      Tanques_quick_start_B.UnitDelay[0] + Tanques_quick_start_P.c[1] *
+      Tanques_quick_start_B.UnitDelay[1];
+
+    /* Constant: '<Root>/Constant' */
+    Tanques_quick_start_B.Constant[0] = Tanques_quick_start_P.L[0];
+    Tanques_quick_start_B.Constant[1] = Tanques_quick_start_P.L[1];
+
+    /* Constant: '<Root>/Constant1' */
+    Tanques_quick_start_B.Constant1[0] = Tanques_quick_start_P.b[0];
+    Tanques_quick_start_B.Constant1[1] = Tanques_quick_start_P.b[1];
+
     /* S-Function (hil_read_analog_block): '<Root>/HIL Read Analog' */
 
     /* S-Function Block: Tanques_quick_start/HIL Read Analog (hil_read_analog_block) */
@@ -856,7 +890,31 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
   /* Gain: '<Root>/I-PD_Ki' */
   Tanques_quick_start_B.IPD_Ki = Tanques_quick_start_P.IPD_Ki_Gain *
     Tanques_quick_start_B.Sum1;
+
+  /* Sum: '<Root>/Sum3' */
+  rtb_Temcontroladorouno = Tanques_quick_start_B.TankHeightSwitch -
+    Tanques_quick_start_B.y_m;
+
+  /* MATLAB Function 'MATLAB Function10': '<S4>:1' */
+  /* '<S4>:1:2' */
+  /* MATLAB Function 'MATLAB Function4': '<S7>:1' */
+  /* '<S7>:1:2' */
   if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
+    /* MATLAB Function: '<Root>/MATLAB Function5' incorporates:
+     *  Constant: '<Root>/Constant3'
+     */
+    /* MATLAB Function 'MATLAB Function5': '<S8>:1' */
+    /* '<S8>:1:2' */
+    Tanques_quick_start_B.y_n[0] = 0.0;
+    Tanques_quick_start_B.y_n[0] += Tanques_quick_start_P.a[0] *
+      Tanques_quick_start_B.UnitDelay[0];
+    Tanques_quick_start_B.y_n[0] += Tanques_quick_start_P.a[2] *
+      Tanques_quick_start_B.UnitDelay[1];
+    Tanques_quick_start_B.y_n[1] = 0.0;
+    Tanques_quick_start_B.y_n[1] += Tanques_quick_start_P.a[1] *
+      Tanques_quick_start_B.UnitDelay[0];
+    Tanques_quick_start_B.y_n[1] += Tanques_quick_start_P.a[3] *
+      Tanques_quick_start_B.UnitDelay[1];
   }
 
   /* Gain: '<Root>/PI-D_Ki ' */
@@ -869,35 +927,16 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
   Tanques_quick_start_B.PID_Ki_k = Tanques_quick_start_P.PID_Ki_Gain_g *
     Tanques_quick_start_B.Sum1;
 
-  /* Sum: '<S8>/Sum4' incorporates:
-   *  Gain: '<S8>/A2'
-   *  Gain: '<S8>/B2'
+  /* Sum: '<Root>/Sum2' incorporates:
+   *  MATLAB Function: '<Root>/MATLAB Function10'
+   *  MATLAB Function: '<Root>/MATLAB Function4'
    */
-  Tanques_quick_start_B.Sum4[0] = (Tanques_quick_start_P.a[0] *
-    Tanques_quick_start_B.Integrator1[0] + Tanques_quick_start_P.a[2] *
-    Tanques_quick_start_B.Integrator1[1]) + Tanques_quick_start_P.b[0] * rtb_L_0;
-  Tanques_quick_start_B.Sum4[1] = (Tanques_quick_start_P.a[1] *
-    Tanques_quick_start_B.Integrator1[0] + Tanques_quick_start_P.a[3] *
-    Tanques_quick_start_B.Integrator1[1]) + Tanques_quick_start_P.b[1] * rtb_L_0;
-
-  /* Gain: '<S9>/L' */
-  rtb_L_0 = Tanques_quick_start_B.Sum2[0] * Tanques_quick_start_P.L[0] +
-    Tanques_quick_start_B.Sum2[1] * Tanques_quick_start_P.L[1];
-
-  /* Sum: '<S9>/Sum4' incorporates:
-   *  Gain: '<S9>/A'
-   *  Gain: '<S9>/B'
-   *  Gain: '<S9>/L'
-   *  Integrator: '<S9>/Integrator'
-   */
-  Tanques_quick_start_B.Sum4_g[0] = ((Tanques_quick_start_P.A[0] *
-    Tanques_quick_start_X.Integrator_CSTATE[0] + Tanques_quick_start_P.A[2] *
-    Tanques_quick_start_X.Integrator_CSTATE[1]) + Tanques_quick_start_P.B[0] *
-    Tanques_quick_start_B.ControllerSwitch) + rtb_L_0;
-  Tanques_quick_start_B.Sum4_g[1] = ((Tanques_quick_start_P.A[1] *
-    Tanques_quick_start_X.Integrator_CSTATE[0] + Tanques_quick_start_P.A[3] *
-    Tanques_quick_start_X.Integrator_CSTATE[1]) + Tanques_quick_start_P.B[1] *
-    Tanques_quick_start_B.ControllerSwitch) + rtb_L_0;
+  Tanques_quick_start_B.Sum2[0] = (Tanques_quick_start_B.MultiportSwitch *
+    Tanques_quick_start_B.Constant1[0] + Tanques_quick_start_B.y_n[0]) +
+    Tanques_quick_start_B.Constant[0] * rtb_Temcontroladorouno;
+  Tanques_quick_start_B.Sum2[1] = (Tanques_quick_start_B.MultiportSwitch *
+    Tanques_quick_start_B.Constant1[1] + Tanques_quick_start_B.y_n[1]) +
+    Tanques_quick_start_B.Constant[1] * rtb_Temcontroladorouno;
   if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
     /* Gain: '<Root>/Volts to cm Tank 1 ' */
     Tanques_quick_start_B.VoltstocmTank1 =
@@ -913,8 +952,13 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
 void Tanques_quick_start_update0(void) /* Sample time: [0.0s, 0.0s] */
 {
   real_T *lastU;
+  if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
+    /* Update for UnitDelay: '<Root>/Unit Delay' */
+    Tanques_quick_start_DW.UnitDelay_DSTATE[0] = Tanques_quick_start_B.Sum2[0];
+    Tanques_quick_start_DW.UnitDelay_DSTATE[1] = Tanques_quick_start_B.Sum2[1];
+  }
 
-  /* Update for Derivative: '<S6>/Derivative' */
+  /* Update for Derivative: '<S12>/Derivative' */
   if (Tanques_quick_start_DW.TimeStampA == (rtInf)) {
     Tanques_quick_start_DW.TimeStampA = Tanques_quick_start_M->Timing.t[0];
     lastU = &Tanques_quick_start_DW.LastUAtTimeA;
@@ -932,8 +976,8 @@ void Tanques_quick_start_update0(void) /* Sample time: [0.0s, 0.0s] */
 
   *lastU = Tanques_quick_start_B.PID_Kd;
 
-  /* End of Update for Derivative: '<S6>/Derivative' */
-  /* Update for Derivative: '<S5>/Derivative' */
+  /* End of Update for Derivative: '<S12>/Derivative' */
+  /* Update for Derivative: '<S11>/Derivative' */
   if (Tanques_quick_start_DW.TimeStampA_e == (rtInf)) {
     Tanques_quick_start_DW.TimeStampA_e = Tanques_quick_start_M->Timing.t[0];
     lastU = &Tanques_quick_start_DW.LastUAtTimeA_c;
@@ -951,7 +995,7 @@ void Tanques_quick_start_update0(void) /* Sample time: [0.0s, 0.0s] */
 
   *lastU = Tanques_quick_start_B.PID_Kd_h;
 
-  /* End of Update for Derivative: '<S5>/Derivative' */
+  /* End of Update for Derivative: '<S11>/Derivative' */
 
   /* Update for Derivative: '<S2>/Derivative' */
   if (Tanques_quick_start_DW.TimeStampA_h == (rtInf)) {
@@ -1030,54 +1074,46 @@ void Tanques_quick_start_derivatives(void)
     Tanques_quick_start_X.TransferFcn1_CSTATE;
   _rtXdot->TransferFcn1_CSTATE += Tanques_quick_start_B.VoltstocmTank2;
 
-  /* Derivatives for Integrator: '<S8>/Integrator1' */
-  _rtXdot->Integrator1_CSTATE[0] = Tanques_quick_start_B.Sum4[0];
-  _rtXdot->Integrator1_CSTATE[1] = Tanques_quick_start_B.Sum4[1];
-
-  /* Derivatives for Integrator: '<S9>/Integrator' */
-  _rtXdot->Integrator_CSTATE[0] = Tanques_quick_start_B.Sum4_g[0];
-  _rtXdot->Integrator_CSTATE[1] = Tanques_quick_start_B.Sum4_g[1];
-
-  /* Derivatives for Integrator: '<S6>/Integrator' */
+  /* Derivatives for Integrator: '<S12>/Integrator' */
   {
     boolean_T lsat;
     boolean_T usat;
-    lsat = ( Tanques_quick_start_X.Integrator_CSTATE_p <=
+    lsat = ( Tanques_quick_start_X.Integrator_CSTATE <=
             (Tanques_quick_start_P.Integrator_LowerSat) );
-    usat = ( Tanques_quick_start_X.Integrator_CSTATE_p >=
+    usat = ( Tanques_quick_start_X.Integrator_CSTATE >=
             Tanques_quick_start_P.Integrator_UpperSat );
     if ((!lsat && !usat) ||
         (lsat && (Tanques_quick_start_B.PID_Ki_k > 0)) ||
         (usat && (Tanques_quick_start_B.PID_Ki_k < 0)) ) {
       ((XDot_Tanques_quick_start_T *) Tanques_quick_start_M->ModelData.derivs)
-        ->Integrator_CSTATE_p = Tanques_quick_start_B.PID_Ki_k;
+        ->Integrator_CSTATE = Tanques_quick_start_B.PID_Ki_k;
     } else {
       /* in saturation */
       ((XDot_Tanques_quick_start_T *) Tanques_quick_start_M->ModelData.derivs)
-        ->Integrator_CSTATE_p = 0.0;
+        ->Integrator_CSTATE = 0.0;
     }
   }
 
-  /* Derivatives for Integrator: '<S5>/Integrator' */
+  /* Derivatives for Integrator: '<S11>/Integrator' */
   _rtXdot->Integrator_CSTATE_j = Tanques_quick_start_B.PID_Ki;
 
   /* Derivatives for Integrator: '<S2>/Integrator' */
   {
     boolean_T lsat;
     boolean_T usat;
-    lsat = ( Tanques_quick_start_X.Integrator_CSTATE_pj <=
+    lsat = ( Tanques_quick_start_X.Integrator_CSTATE_p <=
             (Tanques_quick_start_P.Integrator_LowerSat_g) );
-    usat = ( Tanques_quick_start_X.Integrator_CSTATE_pj >=
+    usat = ( Tanques_quick_start_X.Integrator_CSTATE_p >=
             Tanques_quick_start_P.Integrator_UpperSat_i );
     if ((!lsat && !usat) ||
         (lsat && (Tanques_quick_start_B.IPD_Ki > 0)) ||
         (usat && (Tanques_quick_start_B.IPD_Ki < 0)) ) {
       ((XDot_Tanques_quick_start_T *) Tanques_quick_start_M->ModelData.derivs)
-        ->Integrator_CSTATE_pj = Tanques_quick_start_B.IPD_Ki;
+        ->Integrator_CSTATE_p = Tanques_quick_start_B.IPD_Ki;
     } else {
       /* in saturation */
       ((XDot_Tanques_quick_start_T *) Tanques_quick_start_M->ModelData.derivs)
-        ->Integrator_CSTATE_pj = 0.0;
+        ->Integrator_CSTATE_p = 0.0;
     }
   }
 }
@@ -1094,15 +1130,15 @@ void Tanques_quick_start_output2(void) /* Sample time: [1.0s, 0.0s] */
   /* UnitDelay: '<S1>/Output' */
   Output = Tanques_quick_start_DW.Output_DSTATE;
 
-  /* Sum: '<S11>/FixPt Sum1' incorporates:
-   *  Constant: '<S11>/FixPt Constant'
+  /* Sum: '<S15>/FixPt Sum1' incorporates:
+   *  Constant: '<S15>/FixPt Constant'
    *  UnitDelay: '<S1>/Output'
    */
   rtb_FixPtSum1 = (uint16_T)((uint32_T)Tanques_quick_start_DW.Output_DSTATE +
     Tanques_quick_start_P.FixPtConstant_Value);
 
-  /* Switch: '<S12>/FixPt Switch' incorporates:
-   *  Constant: '<S12>/Constant'
+  /* Switch: '<S16>/FixPt Switch' incorporates:
+   *  Constant: '<S16>/Constant'
    */
   if (rtb_FixPtSum1 > Tanques_quick_start_P.WrapToZero_Threshold) {
     Tanques_quick_start_B.FixPtSwitch = Tanques_quick_start_P.Constant_Value;
@@ -1110,17 +1146,17 @@ void Tanques_quick_start_output2(void) /* Sample time: [1.0s, 0.0s] */
     Tanques_quick_start_B.FixPtSwitch = rtb_FixPtSum1;
   }
 
-  /* End of Switch: '<S12>/FixPt Switch' */
+  /* End of Switch: '<S16>/FixPt Switch' */
 
-  /* S-Function (sdsprandsrc2): '<S10>/Random Source' */
+  /* S-Function (sdsprandsrc2): '<S14>/Random Source' */
   RandSrc_U_D(&rtb_RoundingFunction, &Tanques_quick_start_P.RandomSource_MinVal,
               1, &Tanques_quick_start_P.RandomSource_MaxRTP, 1,
               Tanques_quick_start_DW.RandomSource_STATE_DWORK, 1, 1);
 
-  /* Rounding: '<S10>/Rounding Function' */
+  /* Rounding: '<S14>/Rounding Function' */
   rtb_RoundingFunction = ceil(rtb_RoundingFunction);
 
-  /* DataTypeConversion: '<S10>/Data Type Conversion' */
+  /* DataTypeConversion: '<S14>/Data Type Conversion' */
   if (rtIsNaN(rtb_RoundingFunction) || rtIsInf(rtb_RoundingFunction)) {
     rtb_RoundingFunction = 0.0;
   } else {
@@ -1131,7 +1167,7 @@ void Tanques_quick_start_output2(void) /* Sample time: [1.0s, 0.0s] */
     -(int16_T)(uint16_T)-rtb_RoundingFunction : (int32_T)(uint16_T)
     rtb_RoundingFunction);
 
-  /* End of DataTypeConversion: '<S10>/Data Type Conversion' */
+  /* End of DataTypeConversion: '<S14>/Data Type Conversion' */
 
   /* MATLAB Function: '<Root>/PRS' incorporates:
    *  Constant: '<Root>/amax'
@@ -1139,22 +1175,22 @@ void Tanques_quick_start_output2(void) /* Sample time: [1.0s, 0.0s] */
    *  Constant: '<Root>/pmax'
    *  Constant: '<Root>/pmin'
    */
-  /* MATLAB Function 'PRS': '<S7>:1' */
+  /* MATLAB Function 'PRS': '<S13>:1' */
   qY = (uint32_T)Output - Tanques_quick_start_DW.prevTime;
   if (qY > Output) {
     qY = 0U;
   }
 
   if ((int32_T)qY >= Tanques_quick_start_DW.currPeriod) {
-    /* '<S7>:1:5' */
+    /* '<S13>:1:5' */
     qY = (uint32_T)rtb_FixPtSum1 + Tanques_quick_start_P.pmin_Value;
     if (qY > 65535U) {
       qY = 65535U;
     }
 
     if ((int32_T)qY < Tanques_quick_start_P.pmax_Value) {
-      /* '<S7>:1:6' */
-      /* '<S7>:1:7' */
+      /* '<S13>:1:6' */
+      /* '<S13>:1:7' */
       qY = (uint32_T)Tanques_quick_start_P.pmin_Value + rtb_FixPtSum1;
       if (qY > 65535U) {
         qY = 65535U;
@@ -1162,7 +1198,7 @@ void Tanques_quick_start_output2(void) /* Sample time: [1.0s, 0.0s] */
 
       Tanques_quick_start_DW.currPeriod = (uint16_T)qY;
     } else {
-      /* '<S7>:1:9' */
+      /* '<S13>:1:9' */
       Tanques_quick_start_DW.currPeriod = rtb_FixPtSum1;
     }
 
@@ -1172,12 +1208,12 @@ void Tanques_quick_start_output2(void) /* Sample time: [1.0s, 0.0s] */
     Tanques_quick_start_DW.currAmp = (amax - rtb_RoundingFunction) *
       Tanques_quick_start_rand() + rtb_RoundingFunction;
 
-    /* '<S7>:1:11' */
-    /* '<S7>:1:12' */
+    /* '<S13>:1:11' */
+    /* '<S13>:1:12' */
     Tanques_quick_start_DW.prevTime = Output;
   }
 
-  /* '<S7>:1:14' */
+  /* '<S13>:1:14' */
   Tanques_quick_start_B.amp = Tanques_quick_start_DW.currAmp;
 
   /* End of MATLAB Function: '<Root>/PRS' */
@@ -1403,8 +1439,19 @@ void Tanques_quick_start_initialize(void)
     }
   }
 
+  /* Start for Constant: '<Root>/Constant5' */
+  Tanques_quick_start_B.Constant5 = Tanques_quick_start_P.ke;
+
   /* Start for RateTransition: '<Root>/Rate Transition' */
   Tanques_quick_start_B.RateTransition = Tanques_quick_start_P.RateTransition_X0;
+
+  /* Start for Constant: '<Root>/Constant' */
+  Tanques_quick_start_B.Constant[0] = Tanques_quick_start_P.L[0];
+  Tanques_quick_start_B.Constant[1] = Tanques_quick_start_P.L[1];
+
+  /* Start for Constant: '<Root>/Constant1' */
+  Tanques_quick_start_B.Constant1[0] = Tanques_quick_start_P.b[0];
+  Tanques_quick_start_B.Constant1[1] = Tanques_quick_start_P.b[1];
 
   /* Start for DataStoreMemory: '<Root>/currAmp' */
   Tanques_quick_start_DW.currAmp = Tanques_quick_start_P.currAmp_InitialValue;
@@ -1433,35 +1480,28 @@ void Tanques_quick_start_initialize(void)
   /* InitializeConditions for TransferFcn: '<Root>/Transfer Fcn1' */
   Tanques_quick_start_X.TransferFcn1_CSTATE = 0.0;
 
-  /* InitializeConditions for Integrator: '<S8>/Integrator1' */
-  Tanques_quick_start_X.Integrator1_CSTATE[0] =
-    Tanques_quick_start_P.Integrator1_IC;
-  Tanques_quick_start_X.Integrator1_CSTATE[1] =
-    Tanques_quick_start_P.Integrator1_IC;
-
-  /* InitializeConditions for Integrator: '<S9>/Integrator' */
-  Tanques_quick_start_X.Integrator_CSTATE[0] =
-    Tanques_quick_start_P.Integrator_IC[0];
-  Tanques_quick_start_X.Integrator_CSTATE[1] =
-    Tanques_quick_start_P.Integrator_IC[1];
+  /* InitializeConditions for UnitDelay: '<Root>/Unit Delay' */
+  Tanques_quick_start_DW.UnitDelay_DSTATE[0] =
+    Tanques_quick_start_P.UnitDelay_InitialCondition;
+  Tanques_quick_start_DW.UnitDelay_DSTATE[1] =
+    Tanques_quick_start_P.UnitDelay_InitialCondition;
 
   /* InitializeConditions for RateTransition: '<Root>/Rate Transition' */
   Tanques_quick_start_DW.RateTransition_Buffer0 =
     Tanques_quick_start_P.RateTransition_X0;
 
-  /* InitializeConditions for Derivative: '<S6>/Derivative' */
+  /* InitializeConditions for Derivative: '<S12>/Derivative' */
   Tanques_quick_start_DW.TimeStampA = (rtInf);
   Tanques_quick_start_DW.TimeStampB = (rtInf);
 
-  /* InitializeConditions for Integrator: '<S6>/Integrator' */
-  Tanques_quick_start_X.Integrator_CSTATE_p =
-    Tanques_quick_start_P.Integrator_IC_e;
+  /* InitializeConditions for Integrator: '<S12>/Integrator' */
+  Tanques_quick_start_X.Integrator_CSTATE = Tanques_quick_start_P.Integrator_IC;
 
-  /* InitializeConditions for Derivative: '<S5>/Derivative' */
+  /* InitializeConditions for Derivative: '<S11>/Derivative' */
   Tanques_quick_start_DW.TimeStampA_e = (rtInf);
   Tanques_quick_start_DW.TimeStampB_g = (rtInf);
 
-  /* InitializeConditions for Integrator: '<S5>/Integrator' */
+  /* InitializeConditions for Integrator: '<S11>/Integrator' */
   Tanques_quick_start_X.Integrator_CSTATE_j =
     Tanques_quick_start_P.Integrator_IC_b;
 
@@ -1470,14 +1510,14 @@ void Tanques_quick_start_initialize(void)
   Tanques_quick_start_DW.TimeStampB_c = (rtInf);
 
   /* InitializeConditions for Integrator: '<S2>/Integrator' */
-  Tanques_quick_start_X.Integrator_CSTATE_pj =
+  Tanques_quick_start_X.Integrator_CSTATE_p =
     Tanques_quick_start_P.Integrator_IC_p;
 
   /* InitializeConditions for UnitDelay: '<S1>/Output' */
   Tanques_quick_start_DW.Output_DSTATE =
     Tanques_quick_start_P.Output_InitialCondition;
 
-  /* InitializeConditions for S-Function (sdsprandsrc2): '<S10>/Random Source' */
+  /* InitializeConditions for S-Function (sdsprandsrc2): '<S14>/Random Source' */
   Tanques_quick_start_DW.RandomSource_SEED_DWORK =
     Tanques_quick_start_P.randP_seed;
   RandSrcInitState_U_64(&Tanques_quick_start_DW.RandomSource_SEED_DWORK,
@@ -1674,21 +1714,21 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
     Tanques_quick_start_M->Timing.sampleHits = (&mdlSampleHits[0]);
   }
 
-  rtmSetTFinal(Tanques_quick_start_M, 120.0);
+  rtmSetTFinal(Tanques_quick_start_M, 200.0);
   Tanques_quick_start_M->Timing.stepSize0 = 0.1;
   Tanques_quick_start_M->Timing.stepSize1 = 0.1;
   Tanques_quick_start_M->Timing.stepSize2 = 1.0;
 
   /* External mode info */
-  Tanques_quick_start_M->Sizes.checksums[0] = (2955033906U);
-  Tanques_quick_start_M->Sizes.checksums[1] = (1792975044U);
-  Tanques_quick_start_M->Sizes.checksums[2] = (3081495399U);
-  Tanques_quick_start_M->Sizes.checksums[3] = (2142205430U);
+  Tanques_quick_start_M->Sizes.checksums[0] = (3424791282U);
+  Tanques_quick_start_M->Sizes.checksums[1] = (893985185U);
+  Tanques_quick_start_M->Sizes.checksums[2] = (2093108743U);
+  Tanques_quick_start_M->Sizes.checksums[3] = (1369383145U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
     static RTWExtModeInfo rt_ExtModeInfo;
-    static const sysRanDType *systemRan[6];
+    static const sysRanDType *systemRan[12];
     Tanques_quick_start_M->extModeInfo = (&rt_ExtModeInfo);
     rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
     systemRan[0] = &rtAlwaysEnabled;
@@ -1697,6 +1737,12 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
     systemRan[3] = &rtAlwaysEnabled;
     systemRan[4] = &rtAlwaysEnabled;
     systemRan[5] = &rtAlwaysEnabled;
+    systemRan[6] = &rtAlwaysEnabled;
+    systemRan[7] = &rtAlwaysEnabled;
+    systemRan[8] = &rtAlwaysEnabled;
+    systemRan[9] = &rtAlwaysEnabled;
+    systemRan[10] = &rtAlwaysEnabled;
+    systemRan[11] = &rtAlwaysEnabled;
     rteiSetModelMappingInfoPtr(Tanques_quick_start_M->extModeInfo,
       &Tanques_quick_start_M->SpecialInfo.mappingInfo);
     rteiSetChecksumsPtr(Tanques_quick_start_M->extModeInfo,
@@ -1718,17 +1764,20 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
   {
     Tanques_quick_start_B.TransferFcn = 0.0;
     Tanques_quick_start_B.TransferFcn1 = 0.0;
-    Tanques_quick_start_B.Integrator1[0] = 0.0;
-    Tanques_quick_start_B.Integrator1[1] = 0.0;
-    Tanques_quick_start_B.Sum2[0] = 0.0;
-    Tanques_quick_start_B.Sum2[1] = 0.0;
+    Tanques_quick_start_B.UnitDelay[0] = 0.0;
+    Tanques_quick_start_B.UnitDelay[1] = 0.0;
+    Tanques_quick_start_B.Constant5 = 0.0;
     Tanques_quick_start_B.switch_input_signal = 0.0;
     Tanques_quick_start_B.offset = 0.0;
     Tanques_quick_start_B.step = 0.0;
     Tanques_quick_start_B.RateTransition = 0.0;
     Tanques_quick_start_B.MultiportSwitch = 0.0;
     Tanques_quick_start_B.TankEntry = 0.0;
+    Tanques_quick_start_B.TankHeightSwitch = 0.0;
     Tanques_quick_start_B.Sum1 = 0.0;
+    Tanques_quick_start_B.Sum4 = 0.0;
+    Tanques_quick_start_B.ZeroConstant = 0.0;
+    Tanques_quick_start_B.ControllerEnabler = 0.0;
     Tanques_quick_start_B.ControllerEntry = 0.0;
     Tanques_quick_start_B.PID_Kp = 0.0;
     Tanques_quick_start_B.PID_Kd = 0.0;
@@ -1746,17 +1795,23 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
     Tanques_quick_start_B.Integrator_b = 0.0;
     Tanques_quick_start_B.Sum3_j = 0.0;
     Tanques_quick_start_B.ControllerSwitch = 0.0;
-    Tanques_quick_start_B.ControllerEnabler = 0.0;
+    Tanques_quick_start_B.Switch = 0.0;
+    Tanques_quick_start_B.Constant[0] = 0.0;
+    Tanques_quick_start_B.Constant[1] = 0.0;
+    Tanques_quick_start_B.Constant1[0] = 0.0;
+    Tanques_quick_start_B.Constant1[1] = 0.0;
     Tanques_quick_start_B.IPD_Ki = 0.0;
     Tanques_quick_start_B.PID_Ki = 0.0;
     Tanques_quick_start_B.PID_Ki_k = 0.0;
-    Tanques_quick_start_B.Sum4[0] = 0.0;
-    Tanques_quick_start_B.Sum4[1] = 0.0;
-    Tanques_quick_start_B.Sum4_g[0] = 0.0;
-    Tanques_quick_start_B.Sum4_g[1] = 0.0;
+    Tanques_quick_start_B.Sum2[0] = 0.0;
+    Tanques_quick_start_B.Sum2[1] = 0.0;
     Tanques_quick_start_B.VoltstocmTank1 = 0.0;
     Tanques_quick_start_B.VoltstocmTank2 = 0.0;
     Tanques_quick_start_B.amp = 0.0;
+    Tanques_quick_start_B.y = 0.0;
+    Tanques_quick_start_B.y_n[0] = 0.0;
+    Tanques_quick_start_B.y_n[1] = 0.0;
+    Tanques_quick_start_B.y_m = 0.0;
     Tanques_quick_start_B.tensao = 0.0;
     Tanques_quick_start_B.tensao_h = 0.0;
   }
@@ -1777,6 +1832,8 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
   Tanques_quick_start_M->ModelData.dwork = ((void *) &Tanques_quick_start_DW);
   (void) memset((void *)&Tanques_quick_start_DW, 0,
                 sizeof(DW_Tanques_quick_start_T));
+  Tanques_quick_start_DW.UnitDelay_DSTATE[0] = 0.0;
+  Tanques_quick_start_DW.UnitDelay_DSTATE[1] = 0.0;
   Tanques_quick_start_DW.HILInitialize_AIMinimums[0] = 0.0;
   Tanques_quick_start_DW.HILInitialize_AIMinimums[1] = 0.0;
   Tanques_quick_start_DW.HILInitialize_AIMaximums[0] = 0.0;
@@ -1835,14 +1892,14 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
   }
 
   /* Initialize Sizes */
-  Tanques_quick_start_M->Sizes.numContStates = (9);/* Number of continuous states */
+  Tanques_quick_start_M->Sizes.numContStates = (5);/* Number of continuous states */
   Tanques_quick_start_M->Sizes.numY = (0);/* Number of model outputs */
   Tanques_quick_start_M->Sizes.numU = (0);/* Number of model inputs */
   Tanques_quick_start_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   Tanques_quick_start_M->Sizes.numSampTimes = (3);/* Number of sample times */
-  Tanques_quick_start_M->Sizes.numBlocks = (93);/* Number of blocks */
-  Tanques_quick_start_M->Sizes.numBlockIO = (42);/* Number of block outputs */
-  Tanques_quick_start_M->Sizes.numBlockPrms = (134);/* Sum of parameter "widths" */
+  Tanques_quick_start_M->Sizes.numBlocks = (106);/* Number of blocks */
+  Tanques_quick_start_M->Sizes.numBlockIO = (50);/* Number of block outputs */
+  Tanques_quick_start_M->Sizes.numBlockPrms = (130);/* Sum of parameter "widths" */
   return Tanques_quick_start_M;
 }
 

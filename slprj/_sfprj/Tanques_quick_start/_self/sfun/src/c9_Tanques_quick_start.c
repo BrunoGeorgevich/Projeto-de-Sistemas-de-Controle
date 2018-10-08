@@ -18,8 +18,11 @@
 
 /* Variable Definitions */
 static real_T _sfTime_;
-static const char * c9_debug_family_names[8] = { "proportional", "derivative",
-  "nargin", "nargout", "kp", "kd", "error", "y" };
+static const char * c9_debug_family_names[5] = { "nargin", "nargout", "scalar",
+  "matrix", "y" };
+
+static const char * c9_b_debug_family_names[5] = { "nargin", "nargout", "scalar",
+  "matrix", "product" };
 
 /* Function Declarations */
 static void initialize_c9_Tanques_quick_start
@@ -65,24 +68,6 @@ static uint8_T c9_d_emlrt_marshallIn(SFc9_Tanques_quick_startInstanceStruct
   char_T *c9_identifier);
 static uint8_T c9_e_emlrt_marshallIn(SFc9_Tanques_quick_startInstanceStruct
   *chartInstance, const mxArray *c9_u, const emlrtMsgIdentifier *c9_parentId);
-static real_T c9_get_integral(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b);
-static void c9_set_integral(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b, real_T c9_c);
-static real_T *c9_access_integral(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b);
-static real_T c9_get_pidPreviousTime(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b);
-static void c9_set_pidPreviousTime(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b, real_T c9_c);
-static real_T *c9_access_pidPreviousTime(SFc9_Tanques_quick_startInstanceStruct *
-  chartInstance, uint32_T c9_b);
-static real_T c9_get_previousError(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b);
-static void c9_set_previousError(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b, real_T c9_c);
-static real_T *c9_access_previousError(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b);
 static void init_dsm_address_info(SFc9_Tanques_quick_startInstanceStruct
   *chartInstance);
 
@@ -179,82 +164,72 @@ static void sf_gateway_c9_Tanques_quick_start
 {
   real_T c9_hoistedGlobal;
   real_T c9_b_hoistedGlobal;
-  real_T c9_c_hoistedGlobal;
-  real_T c9_kp;
-  real_T c9_kd;
-  real_T c9_error;
-  uint32_T c9_debug_family_var_map[8];
-  real_T c9_proportional;
-  real_T c9_derivative;
-  real_T c9_nargin = 3.0;
+  real_T c9_scalar;
+  real_T c9_matrix;
+  uint32_T c9_debug_family_var_map[5];
+  real_T c9_nargin = 2.0;
   real_T c9_nargout = 1.0;
   real_T c9_y;
-  real_T c9_d_hoistedGlobal;
-  real_T c9_A;
-  real_T c9_x;
-  real_T c9_b_x;
-  real_T c9_c_x;
-  real_T *c9_b_error;
-  real_T *c9_b_kd;
-  real_T *c9_b_kp;
+  real_T c9_b_scalar;
+  real_T c9_b_matrix;
+  real_T c9_b_nargin = 2.0;
+  real_T c9_b_nargout = 1.0;
+  real_T *c9_c_scalar;
   real_T *c9_b_y;
+  real_T *c9_c_matrix;
+  c9_c_matrix = (real_T *)ssGetInputPortSignal(chartInstance->S, 1);
   c9_b_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
-  c9_b_error = (real_T *)ssGetInputPortSignal(chartInstance->S, 2);
-  c9_b_kd = (real_T *)ssGetInputPortSignal(chartInstance->S, 1);
-  c9_b_kp = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
+  c9_c_scalar = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
   _SFD_SYMBOL_SCOPE_PUSH(0U, 0U);
   _sfTime_ = sf_get_time(chartInstance->S);
   _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 8U, chartInstance->c9_sfEvent);
-  _SFD_DATA_RANGE_CHECK(*c9_b_kp, 0U);
-  _SFD_DATA_RANGE_CHECK(*c9_b_kd, 1U);
-  _SFD_DATA_RANGE_CHECK(*c9_b_error, 2U);
+  _SFD_DATA_RANGE_CHECK(*c9_c_scalar, 0U);
   chartInstance->c9_sfEvent = CALL_EVENT;
   _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 8U, chartInstance->c9_sfEvent);
-  c9_hoistedGlobal = *c9_b_kp;
-  c9_b_hoistedGlobal = *c9_b_kd;
-  c9_c_hoistedGlobal = *c9_b_error;
-  c9_kp = c9_hoistedGlobal;
-  c9_kd = c9_b_hoistedGlobal;
-  c9_error = c9_c_hoistedGlobal;
-  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 8U, 8U, c9_debug_family_names,
+  c9_hoistedGlobal = *c9_c_scalar;
+  c9_b_hoistedGlobal = *c9_c_matrix;
+  c9_scalar = c9_hoistedGlobal;
+  c9_matrix = c9_b_hoistedGlobal;
+  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 5U, 5U, c9_debug_family_names,
     c9_debug_family_var_map);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_proportional, 0U, c9_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_nargin, 0U, c9_sf_marshallOut,
     c9_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_derivative, 1U, c9_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_nargout, 1U, c9_sf_marshallOut,
     c9_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_nargin, 2U, c9_sf_marshallOut,
-    c9_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_nargout, 3U, c9_sf_marshallOut,
-    c9_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML(&c9_kp, 4U, c9_sf_marshallOut);
-  _SFD_SYMBOL_SCOPE_ADD_EML(&c9_kd, 5U, c9_sf_marshallOut);
-  _SFD_SYMBOL_SCOPE_ADD_EML(&c9_error, 6U, c9_sf_marshallOut);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_y, 7U, c9_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML(&c9_scalar, 2U, c9_sf_marshallOut);
+  _SFD_SYMBOL_SCOPE_ADD_EML(&c9_matrix, 3U, c9_sf_marshallOut);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_y, 4U, c9_sf_marshallOut,
     c9_sf_marshallIn);
   CV_EML_FCN(0, 0);
   _SFD_EML_CALL(0U, chartInstance->c9_sfEvent, 2);
-  _SFD_EML_CALL(0U, chartInstance->c9_sfEvent, 3);
-  c9_proportional = c9_kp * c9_error;
-  _SFD_EML_CALL(0U, chartInstance->c9_sfEvent, 4);
-  c9_d_hoistedGlobal = c9_get_previousError(chartInstance, 0);
-  c9_A = c9_kd * (c9_error - c9_d_hoistedGlobal);
-  c9_x = c9_A;
-  c9_b_x = c9_x;
-  c9_c_x = c9_b_x;
-  c9_derivative = c9_c_x / 0.1;
-  _SFD_EML_CALL(0U, chartInstance->c9_sfEvent, 5);
-  c9_set_previousError(chartInstance, 0, c9_error);
-  ssUpdateDataStoreLog(chartInstance->S, 2);
-  _SFD_EML_CALL(0U, chartInstance->c9_sfEvent, 6);
-  c9_y = c9_proportional + c9_derivative;
-  _SFD_EML_CALL(0U, chartInstance->c9_sfEvent, -6);
+  c9_b_scalar = c9_scalar;
+  c9_b_matrix = c9_matrix;
+  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 5U, 5U, c9_b_debug_family_names,
+    c9_debug_family_var_map);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_b_nargin, 0U, c9_sf_marshallOut,
+    c9_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_b_nargout, 1U, c9_sf_marshallOut,
+    c9_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_b_scalar, 2U, c9_sf_marshallOut,
+    c9_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_b_matrix, 3U, c9_sf_marshallOut,
+    c9_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c9_y, 4U, c9_sf_marshallOut,
+    c9_sf_marshallIn);
+  CV_SCRIPT_FCN(0, 0);
+  _SFD_SCRIPT_CALL(0U, chartInstance->c9_sfEvent, 2);
+  c9_y = c9_b_scalar * c9_b_matrix;
+  _SFD_SCRIPT_CALL(0U, chartInstance->c9_sfEvent, -2);
+  _SFD_SYMBOL_SCOPE_POP();
+  _SFD_EML_CALL(0U, chartInstance->c9_sfEvent, -2);
   _SFD_SYMBOL_SCOPE_POP();
   *c9_b_y = c9_y;
   _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 8U, chartInstance->c9_sfEvent);
   _SFD_SYMBOL_SCOPE_POP();
   _SFD_CHECK_FOR_STATE_INCONSISTENCY(_Tanques_quick_startMachineNumber_,
     chartInstance->chartNumber, chartInstance->instanceNumber);
-  _SFD_DATA_RANGE_CHECK(*c9_b_y, 3U);
+  _SFD_DATA_RANGE_CHECK(*c9_b_y, 1U);
+  _SFD_DATA_RANGE_CHECK(*c9_c_matrix, 2U);
 }
 
 static void initSimStructsc9_Tanques_quick_start
@@ -267,8 +242,9 @@ static void init_script_number_translation(uint32_T c9_machineNumber, uint32_T
   c9_chartNumber, uint32_T c9_instanceNumber)
 {
   (void)c9_machineNumber;
-  (void)c9_chartNumber;
-  (void)c9_instanceNumber;
+  _SFD_SCRIPT_TRANSLATION(c9_chartNumber, c9_instanceNumber, 0U,
+    sf_debug_get_script_id(
+    "C:\\Users\\Aluno IC\\Documents\\MATLAB\\Projeto001\\scalar_x_matrix.m"));
 }
 
 static const mxArray *c9_sf_marshallOut(void *chartInstanceVoid, void *c9_inData)
@@ -333,7 +309,7 @@ const mxArray *sf_c9_Tanques_quick_start_get_eml_resolved_functions_info(void)
 {
   const mxArray *c9_nameCaptureInfo = NULL;
   c9_nameCaptureInfo = NULL;
-  sf_mex_assign(&c9_nameCaptureInfo, sf_mex_createstruct("structure", 2, 7, 1),
+  sf_mex_assign(&c9_nameCaptureInfo, sf_mex_createstruct("structure", 2, 1, 1),
                 false);
   c9_info_helper(&c9_nameCaptureInfo);
   sf_mex_emlrtNameCapturePostProcessR2012a(&c9_nameCaptureInfo);
@@ -344,30 +320,19 @@ static void c9_info_helper(const mxArray **c9_info)
 {
   const mxArray *c9_rhs0 = NULL;
   const mxArray *c9_lhs0 = NULL;
-  const mxArray *c9_rhs1 = NULL;
-  const mxArray *c9_lhs1 = NULL;
-  const mxArray *c9_rhs2 = NULL;
-  const mxArray *c9_lhs2 = NULL;
-  const mxArray *c9_rhs3 = NULL;
-  const mxArray *c9_lhs3 = NULL;
-  const mxArray *c9_rhs4 = NULL;
-  const mxArray *c9_lhs4 = NULL;
-  const mxArray *c9_rhs5 = NULL;
-  const mxArray *c9_lhs5 = NULL;
-  const mxArray *c9_rhs6 = NULL;
-  const mxArray *c9_lhs6 = NULL;
   sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(""), "context", "context", 0);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("mrdivide"), "name", "name", 0);
+  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("scalar_x_matrix"), "name",
+                  "name", 0);
   sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("double"), "dominantType",
                   "dominantType", 0);
   sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/mrdivide.p"), "resolved",
-                  "resolved", 0);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(1388463696U), "fileTimeLo",
+    "[E]C:/Users/Aluno IC/Documents/MATLAB/Projeto001/scalar_x_matrix.m"),
+                  "resolved", "resolved", 0);
+  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(1539014307U), "fileTimeLo",
                   "fileTimeLo", 0);
   sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "fileTimeHi",
                   "fileTimeHi", 0);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(1370017086U), "mFileTimeLo",
+  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeLo",
                   "mFileTimeLo", 0);
   sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeHi",
                   "mFileTimeHi", 0);
@@ -375,150 +340,8 @@ static void c9_info_helper(const mxArray **c9_info)
   sf_mex_assign(&c9_lhs0, sf_mex_createcellmatrix(0, 1), false);
   sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_rhs0), "rhs", "rhs", 0);
   sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_lhs0), "lhs", "lhs", 0);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/mrdivide.p"), "context",
-                  "context", 1);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("coder.internal.assert"),
-                  "name", "name", 1);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("char"), "dominantType",
-                  "dominantType", 1);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[IXE]$matlabroot$/toolbox/shared/coder/coder/+coder/+internal/assert.m"),
-                  "resolved", "resolved", 1);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(1363718156U), "fileTimeLo",
-                  "fileTimeLo", 1);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "fileTimeHi",
-                  "fileTimeHi", 1);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeLo",
-                  "mFileTimeLo", 1);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeHi",
-                  "mFileTimeHi", 1);
-  sf_mex_assign(&c9_rhs1, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_assign(&c9_lhs1, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_rhs1), "rhs", "rhs", 1);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_lhs1), "lhs", "lhs", 1);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/mrdivide.p"), "context",
-                  "context", 2);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("rdivide"), "name", "name", 2);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("double"), "dominantType",
-                  "dominantType", 2);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/rdivide.m"), "resolved",
-                  "resolved", 2);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(1363717480U), "fileTimeLo",
-                  "fileTimeLo", 2);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "fileTimeHi",
-                  "fileTimeHi", 2);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeLo",
-                  "mFileTimeLo", 2);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeHi",
-                  "mFileTimeHi", 2);
-  sf_mex_assign(&c9_rhs2, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_assign(&c9_lhs2, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_rhs2), "rhs", "rhs", 2);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_lhs2), "lhs", "lhs", 2);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/rdivide.m"), "context",
-                  "context", 3);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "coder.internal.isBuiltInNumeric"), "name", "name", 3);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("double"), "dominantType",
-                  "dominantType", 3);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[IXE]$matlabroot$/toolbox/shared/coder/coder/+coder/+internal/isBuiltInNumeric.m"),
-                  "resolved", "resolved", 3);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(1363718156U), "fileTimeLo",
-                  "fileTimeLo", 3);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "fileTimeHi",
-                  "fileTimeHi", 3);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeLo",
-                  "mFileTimeLo", 3);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeHi",
-                  "mFileTimeHi", 3);
-  sf_mex_assign(&c9_rhs3, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_assign(&c9_lhs3, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_rhs3), "rhs", "rhs", 3);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_lhs3), "lhs", "lhs", 3);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/rdivide.m"), "context",
-                  "context", 4);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("eml_scalexp_compatible"),
-                  "name", "name", 4);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("double"), "dominantType",
-                  "dominantType", 4);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/eml/eml_scalexp_compatible.m"),
-                  "resolved", "resolved", 4);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(1286825996U), "fileTimeLo",
-                  "fileTimeLo", 4);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "fileTimeHi",
-                  "fileTimeHi", 4);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeLo",
-                  "mFileTimeLo", 4);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeHi",
-                  "mFileTimeHi", 4);
-  sf_mex_assign(&c9_rhs4, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_assign(&c9_lhs4, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_rhs4), "rhs", "rhs", 4);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_lhs4), "lhs", "lhs", 4);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/rdivide.m"), "context",
-                  "context", 5);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("eml_div"), "name", "name", 5);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("double"), "dominantType",
-                  "dominantType", 5);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/eml/eml_div.m"), "resolved",
-                  "resolved", 5);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(1375987888U), "fileTimeLo",
-                  "fileTimeLo", 5);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "fileTimeHi",
-                  "fileTimeHi", 5);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeLo",
-                  "mFileTimeLo", 5);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeHi",
-                  "mFileTimeHi", 5);
-  sf_mex_assign(&c9_rhs5, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_assign(&c9_lhs5, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_rhs5), "rhs", "rhs", 5);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_lhs5), "lhs", "lhs", 5);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/eml/eml_div.m"), "context",
-                  "context", 6);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("coder.internal.div"), "name",
-                  "name", 6);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut("double"), "dominantType",
-                  "dominantType", 6);
-  sf_mex_addfield(*c9_info, c9_emlrt_marshallOut(
-    "[IXE]$matlabroot$/toolbox/coder/coder/+coder/+internal/div.p"), "resolved",
-                  "resolved", 6);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(1389311520U), "fileTimeLo",
-                  "fileTimeLo", 6);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "fileTimeHi",
-                  "fileTimeHi", 6);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeLo",
-                  "mFileTimeLo", 6);
-  sf_mex_addfield(*c9_info, c9_b_emlrt_marshallOut(0U), "mFileTimeHi",
-                  "mFileTimeHi", 6);
-  sf_mex_assign(&c9_rhs6, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_assign(&c9_lhs6, sf_mex_createcellmatrix(0, 1), false);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_rhs6), "rhs", "rhs", 6);
-  sf_mex_addfield(*c9_info, sf_mex_duplicatearraysafe(&c9_lhs6), "lhs", "lhs", 6);
   sf_mex_destroy(&c9_rhs0);
   sf_mex_destroy(&c9_lhs0);
-  sf_mex_destroy(&c9_rhs1);
-  sf_mex_destroy(&c9_lhs1);
-  sf_mex_destroy(&c9_rhs2);
-  sf_mex_destroy(&c9_lhs2);
-  sf_mex_destroy(&c9_rhs3);
-  sf_mex_destroy(&c9_lhs3);
-  sf_mex_destroy(&c9_rhs4);
-  sf_mex_destroy(&c9_lhs4);
-  sf_mex_destroy(&c9_rhs5);
-  sf_mex_destroy(&c9_lhs5);
-  sf_mex_destroy(&c9_rhs6);
-  sf_mex_destroy(&c9_lhs6);
 }
 
 static const mxArray *c9_emlrt_marshallOut(const char * c9_u)
@@ -612,134 +435,10 @@ static uint8_T c9_e_emlrt_marshallIn(SFc9_Tanques_quick_startInstanceStruct
   return c9_y;
 }
 
-static real_T c9_get_integral(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b)
-{
-  ssReadFromDataStoreElement(chartInstance->S, 0, NULL, c9_b);
-  if (chartInstance->c9_integral_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'integral\' (#319) in the initialization routine of the chart.\n");
-  }
-
-  return *chartInstance->c9_integral_address;
-}
-
-static void c9_set_integral(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b, real_T c9_c)
-{
-  ssWriteToDataStoreElement(chartInstance->S, 0, NULL, c9_b);
-  if (chartInstance->c9_integral_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'integral\' (#319) in the initialization routine of the chart.\n");
-  }
-
-  *chartInstance->c9_integral_address = c9_c;
-}
-
-static real_T *c9_access_integral(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b)
-{
-  real_T *c9_c;
-  ssReadFromDataStore(chartInstance->S, 0, NULL);
-  if (chartInstance->c9_integral_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'integral\' (#319) in the initialization routine of the chart.\n");
-  }
-
-  c9_c = chartInstance->c9_integral_address;
-  if (c9_b == 0) {
-    ssWriteToDataStore(chartInstance->S, 0, NULL);
-  }
-
-  return c9_c;
-}
-
-static real_T c9_get_pidPreviousTime(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b)
-{
-  ssReadFromDataStoreElement(chartInstance->S, 1, NULL, c9_b);
-  if (chartInstance->c9_pidPreviousTime_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'pidPreviousTime\' (#321) in the initialization routine of the chart.\n");
-  }
-
-  return *chartInstance->c9_pidPreviousTime_address;
-}
-
-static void c9_set_pidPreviousTime(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b, real_T c9_c)
-{
-  ssWriteToDataStoreElement(chartInstance->S, 1, NULL, c9_b);
-  if (chartInstance->c9_pidPreviousTime_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'pidPreviousTime\' (#321) in the initialization routine of the chart.\n");
-  }
-
-  *chartInstance->c9_pidPreviousTime_address = c9_c;
-}
-
-static real_T *c9_access_pidPreviousTime(SFc9_Tanques_quick_startInstanceStruct *
-  chartInstance, uint32_T c9_b)
-{
-  real_T *c9_c;
-  ssReadFromDataStore(chartInstance->S, 1, NULL);
-  if (chartInstance->c9_pidPreviousTime_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'pidPreviousTime\' (#321) in the initialization routine of the chart.\n");
-  }
-
-  c9_c = chartInstance->c9_pidPreviousTime_address;
-  if (c9_b == 0) {
-    ssWriteToDataStore(chartInstance->S, 1, NULL);
-  }
-
-  return c9_c;
-}
-
-static real_T c9_get_previousError(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b)
-{
-  ssReadFromDataStoreElement(chartInstance->S, 2, NULL, c9_b);
-  if (chartInstance->c9_previousError_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'previousError\' (#320) in the initialization routine of the chart.\n");
-  }
-
-  return *chartInstance->c9_previousError_address;
-}
-
-static void c9_set_previousError(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b, real_T c9_c)
-{
-  ssWriteToDataStoreElement(chartInstance->S, 2, NULL, c9_b);
-  if (chartInstance->c9_previousError_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'previousError\' (#320) in the initialization routine of the chart.\n");
-  }
-
-  *chartInstance->c9_previousError_address = c9_c;
-}
-
-static real_T *c9_access_previousError(SFc9_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c9_b)
-{
-  real_T *c9_c;
-  ssReadFromDataStore(chartInstance->S, 2, NULL);
-  if (chartInstance->c9_previousError_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'previousError\' (#320) in the initialization routine of the chart.\n");
-  }
-
-  c9_c = chartInstance->c9_previousError_address;
-  if (c9_b == 0) {
-    ssWriteToDataStore(chartInstance->S, 2, NULL);
-  }
-
-  return c9_c;
-}
-
 static void init_dsm_address_info(SFc9_Tanques_quick_startInstanceStruct
   *chartInstance)
 {
-  ssGetSFcnDataStoreNameAddrIdx(chartInstance->S, "integral", (void **)
-    &chartInstance->c9_integral_address, &chartInstance->c9_integral_index);
-  ssGetSFcnDataStoreNameAddrIdx(chartInstance->S, "pidPreviousTime", (void **)
-    &chartInstance->c9_pidPreviousTime_address,
-    &chartInstance->c9_pidPreviousTime_index);
-  ssGetSFcnDataStoreNameAddrIdx(chartInstance->S, "previousError", (void **)
-    &chartInstance->c9_previousError_address,
-    &chartInstance->c9_previousError_index);
+  (void)chartInstance;
 }
 
 /* SFunction Glue Code */
@@ -765,10 +464,10 @@ extern void utFree(void*);
 
 void sf_c9_Tanques_quick_start_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(600228464U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4233820989U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3823389971U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(626965176U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3621408316U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(447855523U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1022674229U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(4173021282U);
 }
 
 mxArray *sf_c9_Tanques_quick_start_get_autoinheritance_info(void)
@@ -780,14 +479,14 @@ mxArray *sf_c9_Tanques_quick_start_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("eWUzD8AfTJxTDzps3OFEbD");
+    mxArray *mxChecksum = mxCreateString("tuaRkZu4xBIlwzhZMYBWgG");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
   {
     const char *dataFields[] = { "size", "type", "complexity" };
 
-    mxArray *mxData = mxCreateStructMatrix(1,3,3,dataFields);
+    mxArray *mxData = mxCreateStructMatrix(1,2,3,dataFields);
 
     {
       mxArray *mxSize = mxCreateDoubleMatrix(1,2,mxREAL);
@@ -826,25 +525,6 @@ mxArray *sf_c9_Tanques_quick_start_get_autoinheritance_info(void)
     }
 
     mxSetField(mxData,1,"complexity",mxCreateDoubleScalar(0));
-
-    {
-      mxArray *mxSize = mxCreateDoubleMatrix(1,2,mxREAL);
-      double *pr = mxGetPr(mxSize);
-      pr[0] = (double)(1);
-      pr[1] = (double)(1);
-      mxSetField(mxData,2,"size",mxSize);
-    }
-
-    {
-      const char *typeFields[] = { "base", "fixpt" };
-
-      mxArray *mxType = mxCreateStructMatrix(1,1,2,typeFields);
-      mxSetField(mxType,0,"base",mxCreateDoubleScalar(10));
-      mxSetField(mxType,0,"fixpt",mxCreateDoubleMatrix(0,0,mxREAL));
-      mxSetField(mxData,2,"type",mxType);
-    }
-
-    mxSetField(mxData,2,"complexity",mxCreateDoubleScalar(0));
     mxSetField(mxAutoinheritanceInfo,0,"inputs",mxData);
   }
 
@@ -935,12 +615,12 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
            1,
            1,
            0,
-           7,
+           3,
            0,
            0,
            0,
            0,
-           0,
+           1,
            &(chartInstance->chartNumber),
            &(chartInstance->instanceNumber),
            (void *)S);
@@ -959,13 +639,9 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
             0,
             0,
             0);
-          _SFD_SET_DATA_PROPS(0,1,1,0,"kp");
-          _SFD_SET_DATA_PROPS(1,1,1,0,"kd");
-          _SFD_SET_DATA_PROPS(2,1,1,0,"error");
-          _SFD_SET_DATA_PROPS(3,2,0,1,"y");
-          _SFD_SET_DATA_PROPS(4,11,0,0,"integral");
-          _SFD_SET_DATA_PROPS(5,11,0,0,"previousError");
-          _SFD_SET_DATA_PROPS(6,11,0,0,"pidPreviousTime");
+          _SFD_SET_DATA_PROPS(0,1,1,0,"scalar");
+          _SFD_SET_DATA_PROPS(1,2,0,1,"y");
+          _SFD_SET_DATA_PROPS(2,1,1,0,"matrix");
           _SFD_STATE_INFO(0,0,2);
           _SFD_CH_SUBSTATE_COUNT(0);
           _SFD_CH_SUBSTATE_DECOMP(0);
@@ -981,38 +657,26 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,231);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,71);
+        _SFD_CV_INIT_SCRIPT(0,1,0,0,0,0,0,0,0,0);
+        _SFD_CV_INIT_SCRIPT_FCN(0,0,"scalar_x_matrix",0,-1,88);
         _SFD_SET_DATA_COMPILED_PROPS(0,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
           (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)NULL);
         _SFD_SET_DATA_COMPILED_PROPS(1,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)NULL);
+          (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)c9_sf_marshallIn);
         _SFD_SET_DATA_COMPILED_PROPS(2,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
           (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)NULL);
-        _SFD_SET_DATA_COMPILED_PROPS(3,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)c9_sf_marshallIn);
-        _SFD_SET_DATA_COMPILED_PROPS(4,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)c9_sf_marshallIn);
-        _SFD_SET_DATA_COMPILED_PROPS(5,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)c9_sf_marshallIn);
-        _SFD_SET_DATA_COMPILED_PROPS(6,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)c9_sf_marshallIn);
 
         {
-          real_T *c9_kp;
-          real_T *c9_kd;
-          real_T *c9_error;
+          real_T *c9_scalar;
           real_T *c9_y;
+          real_T *c9_matrix;
+          c9_matrix = (real_T *)ssGetInputPortSignal(chartInstance->S, 1);
           c9_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
-          c9_error = (real_T *)ssGetInputPortSignal(chartInstance->S, 2);
-          c9_kd = (real_T *)ssGetInputPortSignal(chartInstance->S, 1);
-          c9_kp = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
-          _SFD_SET_DATA_VALUE_PTR(0U, c9_kp);
-          _SFD_SET_DATA_VALUE_PTR(1U, c9_kd);
-          _SFD_SET_DATA_VALUE_PTR(2U, c9_error);
-          _SFD_SET_DATA_VALUE_PTR(3U, c9_y);
-          _SFD_SET_DATA_VALUE_PTR(4U, chartInstance->c9_integral_address);
-          _SFD_SET_DATA_VALUE_PTR(5U, chartInstance->c9_previousError_address);
-          _SFD_SET_DATA_VALUE_PTR(6U, chartInstance->c9_pidPreviousTime_address);
+          c9_scalar = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
+          _SFD_SET_DATA_VALUE_PTR(0U, c9_scalar);
+          _SFD_SET_DATA_VALUE_PTR(1U, c9_y);
+          _SFD_SET_DATA_VALUE_PTR(2U, c9_matrix);
         }
       }
     } else {
@@ -1025,7 +689,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization(void)
 {
-  return "SXgndczSCSmWWq58vTEjzE";
+  return "NhfocRYSXC7L3tbM10xMzG";
 }
 
 static void sf_opaque_initialize_c9_Tanques_quick_start(void *chartInstanceVar)
@@ -1183,9 +847,8 @@ static void mdlSetWorkWidths_c9_Tanques_quick_start(SimStruct *S)
     if (chartIsInlinable) {
       ssSetInputPortOptimOpts(S, 0, SS_REUSABLE_AND_LOCAL);
       ssSetInputPortOptimOpts(S, 1, SS_REUSABLE_AND_LOCAL);
-      ssSetInputPortOptimOpts(S, 2, SS_REUSABLE_AND_LOCAL);
       sf_mark_chart_expressionable_inputs(S,sf_get_instance_specialization(),
-        infoStruct,9,3);
+        infoStruct,9,2);
       sf_mark_chart_reusable_outputs(S,sf_get_instance_specialization(),
         infoStruct,9,1);
     }
@@ -1199,7 +862,7 @@ static void mdlSetWorkWidths_c9_Tanques_quick_start(SimStruct *S)
 
     {
       unsigned int inPortIdx;
-      for (inPortIdx=0; inPortIdx < 3; ++inPortIdx) {
+      for (inPortIdx=0; inPortIdx < 2; ++inPortIdx) {
         ssSetInputPortOptimizeInIR(S, inPortIdx, 1U);
       }
     }
@@ -1210,13 +873,13 @@ static void mdlSetWorkWidths_c9_Tanques_quick_start(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(3927604436U));
-  ssSetChecksum1(S,(1532743386U));
-  ssSetChecksum2(S,(1527827768U));
-  ssSetChecksum3(S,(993171317U));
+  ssSetChecksum0(S,(628283487U));
+  ssSetChecksum1(S,(3937042657U));
+  ssSetChecksum2(S,(511552493U));
+  ssSetChecksum3(S,(1009291431U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
-  ssSupportsMultipleExecInstances(S,0);
+  ssSupportsMultipleExecInstances(S,1);
 }
 
 static void mdlRTW_c9_Tanques_quick_start(SimStruct *S)

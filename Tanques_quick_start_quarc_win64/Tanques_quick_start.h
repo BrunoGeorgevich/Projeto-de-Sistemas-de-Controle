@@ -3,9 +3,9 @@
  *
  * Code generation for model "Tanques_quick_start".
  *
- * Model version              : 1.814
+ * Model version              : 1.843
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Tue Sep 18 12:25:04 2018
+ * C source code generated on : Mon Oct 08 13:14:10 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -795,48 +795,57 @@
 typedef struct {
   real_T TransferFcn;                  /* '<Root>/Transfer Fcn' */
   real_T TransferFcn1;                 /* '<Root>/Transfer Fcn1' */
-  real_T Integrator1[2];               /* '<S8>/Integrator1' */
-  real_T Sum2[2];                      /* '<Root>/Sum2' */
+  real_T UnitDelay[2];                 /* '<Root>/Unit Delay' */
+  real_T Constant5;                    /* '<Root>/Constant5' */
   real_T switch_input_signal;          /* '<Root>/switch_input_signal' */
   real_T offset;                       /* '<Root>/offset' */
   real_T step;                         /* '<Root>/step' */
   real_T RateTransition;               /* '<Root>/Rate Transition' */
   real_T MultiportSwitch;              /* '<Root>/Multiport Switch' */
   real_T TankEntry;                    /* '<Root>/Tank Entry' */
+  real_T TankHeightSwitch;             /* '<Root>/Tank Height Switch' */
   real_T Sum1;                         /* '<Root>/Sum1' */
+  real_T Sum4;                         /* '<Root>/Sum4' */
+  real_T ZeroConstant;                 /* '<Root>/Zero Constant' */
+  real_T ControllerEnabler;            /* '<Root>/Controller Enabler ' */
   real_T ControllerEntry;              /* '<Root>/Controller Entry' */
   real_T PID_Kp;                       /* '<Root>/PID_Kp' */
   real_T PID_Kd;                       /* '<Root>/PID_Kd' */
-  real_T Derivative;                   /* '<S6>/Derivative' */
-  real_T Integrator;                   /* '<S6>/Integrator' */
-  real_T Sum3;                         /* '<S6>/Sum3' */
+  real_T Derivative;                   /* '<S12>/Derivative' */
+  real_T Integrator;                   /* '<S12>/Integrator' */
+  real_T Sum3;                         /* '<S12>/Sum3' */
   real_T PID_Kp_g;                     /* '<Root>/PI-D_Kp' */
   real_T PID_Kd_h;                     /* '<Root>/PI-D_Kd' */
-  real_T Derivative_c;                 /* '<S5>/Derivative' */
-  real_T Integrator_j;                 /* '<S5>/Integrator' */
-  real_T Sum3_p;                       /* '<S5>/Sum3' */
+  real_T Derivative_c;                 /* '<S11>/Derivative' */
+  real_T Integrator_j;                 /* '<S11>/Integrator' */
+  real_T Sum3_p;                       /* '<S11>/Sum3' */
   real_T IPD_Kp;                       /* '<Root>/I-PD_Kp' */
   real_T IPD_Kd;                       /* '<Root>/I-PD_Kd' */
   real_T Derivative_g;                 /* '<S2>/Derivative' */
   real_T Integrator_b;                 /* '<S2>/Integrator' */
   real_T Sum3_j;                       /* '<S2>/Sum3' */
   real_T ControllerSwitch;             /* '<Root>/Controller Switch' */
-  real_T ControllerEnabler;            /* '<Root>/Controller Enabler ' */
+  real_T Switch;                       /* '<Root>/Switch' */
+  real_T Constant[2];                  /* '<Root>/Constant' */
+  real_T Constant1[2];                 /* '<Root>/Constant1' */
   real_T IPD_Ki;                       /* '<Root>/I-PD_Ki' */
   real_T PID_Ki;                       /* '<Root>/PI-D_Ki ' */
   real_T PID_Ki_k;                     /* '<Root>/PID_Ki' */
-  real_T Sum4[2];                      /* '<S8>/Sum4' */
-  real_T Sum4_g[2];                    /* '<S9>/Sum4' */
+  real_T Sum2[2];                      /* '<Root>/Sum2' */
   real_T VoltstocmTank1;               /* '<Root>/Volts to cm Tank 1 ' */
   real_T VoltstocmTank2;               /* '<Root>/Volts to cm Tank 2' */
   real_T amp;                          /* '<Root>/PRS' */
+  real_T y;                            /* '<Root>/MATLAB Function6' */
+  real_T y_n[2];                       /* '<Root>/MATLAB Function5' */
+  real_T y_m;                          /* '<Root>/MATLAB Function3' */
   real_T tensao;                       /* '<Root>/MATLAB Function2' */
   real_T tensao_h;                     /* '<Root>/MATLAB Function1' */
-  uint16_T FixPtSwitch;                /* '<S12>/FixPt Switch' */
+  uint16_T FixPtSwitch;                /* '<S16>/FixPt Switch' */
 } B_Tanques_quick_start_T;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
+  real_T UnitDelay_DSTATE[2];          /* '<Root>/Unit Delay' */
   real_T HILInitialize_AIMinimums[2];  /* '<Root>/HIL Initialize' */
   real_T HILInitialize_AIMaximums[2];  /* '<Root>/HIL Initialize' */
   real_T HILInitialize_AOMinimums[2];  /* '<Root>/HIL Initialize' */
@@ -844,20 +853,20 @@ typedef struct {
   real_T HILInitialize_AOVoltages[2];  /* '<Root>/HIL Initialize' */
   real_T HILInitialize_FilterFrequency[2];/* '<Root>/HIL Initialize' */
   real_T RateTransition_Buffer0;       /* '<Root>/Rate Transition' */
-  real_T TimeStampA;                   /* '<S6>/Derivative' */
-  real_T LastUAtTimeA;                 /* '<S6>/Derivative' */
-  real_T TimeStampB;                   /* '<S6>/Derivative' */
-  real_T LastUAtTimeB;                 /* '<S6>/Derivative' */
-  real_T TimeStampA_e;                 /* '<S5>/Derivative' */
-  real_T LastUAtTimeA_c;               /* '<S5>/Derivative' */
-  real_T TimeStampB_g;                 /* '<S5>/Derivative' */
-  real_T LastUAtTimeB_a;               /* '<S5>/Derivative' */
+  real_T TimeStampA;                   /* '<S12>/Derivative' */
+  real_T LastUAtTimeA;                 /* '<S12>/Derivative' */
+  real_T TimeStampB;                   /* '<S12>/Derivative' */
+  real_T LastUAtTimeB;                 /* '<S12>/Derivative' */
+  real_T TimeStampA_e;                 /* '<S11>/Derivative' */
+  real_T LastUAtTimeA_c;               /* '<S11>/Derivative' */
+  real_T TimeStampB_g;                 /* '<S11>/Derivative' */
+  real_T LastUAtTimeB_a;               /* '<S11>/Derivative' */
   real_T TimeStampA_h;                 /* '<S2>/Derivative' */
   real_T LastUAtTimeA_d;               /* '<S2>/Derivative' */
   real_T TimeStampB_c;                 /* '<S2>/Derivative' */
   real_T LastUAtTimeB_b;               /* '<S2>/Derivative' */
   real_T HILReadAnalog_Buffer[2];      /* '<Root>/HIL Read Analog' */
-  real_T RandomSource_STATE_DWORK[35]; /* '<S10>/Random Source' */
+  real_T RandomSource_STATE_DWORK[35]; /* '<S14>/Random Source' */
   real_T currAmp;                      /* '<Root>/currAmp' */
   real_T integral;                     /* '<Root>/integral' */
   real_T pidPreviousTime;              /* '<Root>/pidPreviousTime' */
@@ -871,9 +880,14 @@ typedef struct {
     void *LoggedData;
   } AlturadoTanque2cm_PWORK;           /* '<Root>/Altura do Tanque 2 (cm)' */
 
+  void *HILWriteAnalog_PWORK;          /* '<Root>/HIL Write Analog' */
   struct {
     void *LoggedData;
-  } OUTPUT_PWORK;                      /* '<Root>/OUTPUT' */
+  } Scope1_PWORK;                      /* '<Root>/Scope1' */
+
+  struct {
+    void *LoggedData;
+  } Scope7_PWORK;                      /* '<Root>/Scope7' */
 
   struct {
     void *LoggedData;
@@ -907,10 +921,6 @@ typedef struct {
     void *LoggedData;
   } TensonaBombaV_PWORK;               /* '<Root>/Tensão na Bomba (V)' */
 
-  struct {
-    void *LoggedData;
-  } state_PWORK;                       /* '<Root>/state' */
-
   void *HILReadAnalog_PWORK;           /* '<Root>/HIL Read Analog' */
   struct {
     void *LoggedData;
@@ -918,20 +928,20 @@ typedef struct {
 
   struct {
     void *LoggedData;
-  } controller_signals_PWORK;          /* '<S5>/controller_signals' */
+  } controller_signals_PWORK;          /* '<S11>/controller_signals' */
 
   struct {
     void *LoggedData;
-  } AcoesdeControle_PWORK;             /* '<S6>/Acoes de Controle' */
+  } AcoesdeControle_PWORK;             /* '<S12>/Acoes de Controle' */
 
   struct {
     void *LoggedData;
-  } Scope_PWORK;                       /* '<S6>/Scope' */
+  } Scope_PWORK;                       /* '<S12>/Scope' */
 
   int32_T HILInitialize_ClockModes;    /* '<Root>/HIL Initialize' */
   int32_T HILInitialize_QuadratureModes[2];/* '<Root>/HIL Initialize' */
   int32_T HILInitialize_InitialEICounts[2];/* '<Root>/HIL Initialize' */
-  uint32_T RandomSource_SEED_DWORK;    /* '<S10>/Random Source' */
+  uint32_T RandomSource_SEED_DWORK;    /* '<S14>/Random Source' */
   uint32_T method;                     /* '<Root>/PRS' */
   uint32_T state;                      /* '<Root>/PRS' */
   uint32_T state_e[2];                 /* '<Root>/PRS' */
@@ -946,33 +956,27 @@ typedef struct {
 typedef struct {
   real_T TransferFcn_CSTATE;           /* '<Root>/Transfer Fcn' */
   real_T TransferFcn1_CSTATE;          /* '<Root>/Transfer Fcn1' */
-  real_T Integrator1_CSTATE[2];        /* '<S8>/Integrator1' */
-  real_T Integrator_CSTATE[2];         /* '<S9>/Integrator' */
-  real_T Integrator_CSTATE_p;          /* '<S6>/Integrator' */
-  real_T Integrator_CSTATE_j;          /* '<S5>/Integrator' */
-  real_T Integrator_CSTATE_pj;         /* '<S2>/Integrator' */
+  real_T Integrator_CSTATE;            /* '<S12>/Integrator' */
+  real_T Integrator_CSTATE_j;          /* '<S11>/Integrator' */
+  real_T Integrator_CSTATE_p;          /* '<S2>/Integrator' */
 } X_Tanques_quick_start_T;
 
 /* State derivatives (auto storage) */
 typedef struct {
   real_T TransferFcn_CSTATE;           /* '<Root>/Transfer Fcn' */
   real_T TransferFcn1_CSTATE;          /* '<Root>/Transfer Fcn1' */
-  real_T Integrator1_CSTATE[2];        /* '<S8>/Integrator1' */
-  real_T Integrator_CSTATE[2];         /* '<S9>/Integrator' */
-  real_T Integrator_CSTATE_p;          /* '<S6>/Integrator' */
-  real_T Integrator_CSTATE_j;          /* '<S5>/Integrator' */
-  real_T Integrator_CSTATE_pj;         /* '<S2>/Integrator' */
+  real_T Integrator_CSTATE;            /* '<S12>/Integrator' */
+  real_T Integrator_CSTATE_j;          /* '<S11>/Integrator' */
+  real_T Integrator_CSTATE_p;          /* '<S2>/Integrator' */
 } XDot_Tanques_quick_start_T;
 
 /* State disabled  */
 typedef struct {
   boolean_T TransferFcn_CSTATE;        /* '<Root>/Transfer Fcn' */
   boolean_T TransferFcn1_CSTATE;       /* '<Root>/Transfer Fcn1' */
-  boolean_T Integrator1_CSTATE[2];     /* '<S8>/Integrator1' */
-  boolean_T Integrator_CSTATE[2];      /* '<S9>/Integrator' */
-  boolean_T Integrator_CSTATE_p;       /* '<S6>/Integrator' */
-  boolean_T Integrator_CSTATE_j;       /* '<S5>/Integrator' */
-  boolean_T Integrator_CSTATE_pj;      /* '<S2>/Integrator' */
+  boolean_T Integrator_CSTATE;         /* '<S12>/Integrator' */
+  boolean_T Integrator_CSTATE_j;       /* '<S11>/Integrator' */
+  boolean_T Integrator_CSTATE_p;       /* '<S2>/Integrator' */
 } XDis_Tanques_quick_start_T;
 
 #ifndef ODE1_INTG
@@ -1001,29 +1005,26 @@ typedef struct {
 
 /* Parameters (auto storage) */
 struct P_Tanques_quick_start_T_ {
-  real_T A[4];                         /* Variable: A
-                                        * Referenced by: '<S9>/A'
-                                        */
-  real_T B[2];                         /* Variable: B
-                                        * Referenced by: '<S9>/B'
-                                        */
-  real_T C[2];                         /* Variable: C
-                                        * Referenced by: '<S9>/C '
-                                        */
   real_T L[2];                         /* Variable: L
-                                        * Referenced by: '<S9>/L'
+                                        * Referenced by: '<Root>/Constant'
                                         */
   real_T a[4];                         /* Variable: a
-                                        * Referenced by: '<S8>/A2'
+                                        * Referenced by: '<Root>/Constant3'
                                         */
   real_T b[2];                         /* Variable: b
-                                        * Referenced by: '<S8>/B2'
+                                        * Referenced by: '<Root>/Constant1'
                                         */
   real_T c[2];                         /* Variable: c
-                                        * Referenced by: '<S8>/C2'
+                                        * Referenced by: '<Root>/Constant2'
+                                        */
+  real_T k[2];                         /* Variable: k
+                                        * Referenced by: '<Root>/Constant4'
+                                        */
+  real_T ke;                           /* Variable: ke
+                                        * Referenced by: '<Root>/Constant5'
                                         */
   real_T RandomSource_MinVal;          /* Mask Parameter: RandomSource_MinVal
-                                        * Referenced by: '<S10>/Random Source'
+                                        * Referenced by: '<S14>/Random Source'
                                         */
   real_T HILInitialize_analog_input_maxi;/* Mask Parameter: HILInitialize_analog_input_maxi
                                           * Referenced by: '<Root>/HIL Initialize'
@@ -1088,6 +1089,9 @@ struct P_Tanques_quick_start_T_ {
   uint32_T HILInitialize_analog_output_cha[2];/* Mask Parameter: HILInitialize_analog_output_cha
                                                * Referenced by: '<Root>/HIL Initialize'
                                                */
+  uint32_T HILWriteAnalog_channels;    /* Mask Parameter: HILWriteAnalog_channels
+                                        * Referenced by: '<Root>/HIL Write Analog'
+                                        */
   uint32_T HILReadAnalog_channels[2];  /* Mask Parameter: HILReadAnalog_channels
                                         * Referenced by: '<Root>/HIL Read Analog'
                                         */
@@ -1098,10 +1102,10 @@ struct P_Tanques_quick_start_T_ {
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
   uint32_T randP_seed;                 /* Mask Parameter: randP_seed
-                                        * Referenced by: '<S10>/Random Source'
+                                        * Referenced by: '<S14>/Random Source'
                                         */
   uint16_T WrapToZero_Threshold;       /* Mask Parameter: WrapToZero_Threshold
-                                        * Referenced by: '<S12>/FixPt Switch'
+                                        * Referenced by: '<S16>/FixPt Switch'
                                         */
   boolean_T HILInitialize_active;      /* Mask Parameter: HILInitialize_active
                                         * Referenced by: '<Root>/HIL Initialize'
@@ -1220,11 +1224,8 @@ struct P_Tanques_quick_start_T_ {
   real_T TransferFcn1_C;               /* Computed Parameter: TransferFcn1_C
                                         * Referenced by: '<Root>/Transfer Fcn1'
                                         */
-  real_T Integrator1_IC;               /* Expression: 0
-                                        * Referenced by: '<S8>/Integrator1'
-                                        */
-  real_T Integrator_IC[2];             /* Expression: [0;0]
-                                        * Referenced by: '<S9>/Integrator'
+  real_T UnitDelay_InitialCondition;   /* Expression: 0
+                                        * Referenced by: '<Root>/Unit Delay'
                                         */
   real_T switch_input_signal_Value;    /* Expression: 2
                                         * Referenced by: '<Root>/switch_input_signal'
@@ -1244,8 +1245,14 @@ struct P_Tanques_quick_start_T_ {
   real_T RateTransition_X0;            /* Expression: 0
                                         * Referenced by: '<Root>/Rate Transition'
                                         */
-  real_T TankEntry_Value;              /* Expression: 3
+  real_T TankEntry_Value;              /* Expression: 2
                                         * Referenced by: '<Root>/Tank Entry'
+                                        */
+  real_T ZeroConstant_Value;           /* Expression: 0
+                                        * Referenced by: '<Root>/Zero Constant'
+                                        */
+  real_T ControllerEnabler_Value;      /* Expression: 4
+                                        * Referenced by: '<Root>/Controller Enabler '
                                         */
   real_T ControllerEntry_Value;        /* Expression: 3
                                         * Referenced by: '<Root>/Controller Entry'
@@ -1256,14 +1263,14 @@ struct P_Tanques_quick_start_T_ {
   real_T PID_Kd_Gain;                  /* Expression: 0.001
                                         * Referenced by: '<Root>/PID_Kd'
                                         */
-  real_T Integrator_IC_e;              /* Expression: 0
-                                        * Referenced by: '<S6>/Integrator'
+  real_T Integrator_IC;                /* Expression: 0
+                                        * Referenced by: '<S12>/Integrator'
                                         */
   real_T Integrator_UpperSat;          /* Expression: inf
-                                        * Referenced by: '<S6>/Integrator'
+                                        * Referenced by: '<S12>/Integrator'
                                         */
   real_T Integrator_LowerSat;          /* Expression: -inf
-                                        * Referenced by: '<S6>/Integrator'
+                                        * Referenced by: '<S12>/Integrator'
                                         */
   real_T PID_Kp_Gain_b;                /* Expression: 2.2
                                         * Referenced by: '<Root>/PI-D_Kp'
@@ -1272,7 +1279,7 @@ struct P_Tanques_quick_start_T_ {
                                         * Referenced by: '<Root>/PI-D_Kd'
                                         */
   real_T Integrator_IC_b;              /* Expression: 0
-                                        * Referenced by: '<S5>/Integrator'
+                                        * Referenced by: '<S11>/Integrator'
                                         */
   real_T IPD_Kp_Gain;                  /* Expression: 1.3
                                         * Referenced by: '<Root>/I-PD_Kp'
@@ -1289,11 +1296,8 @@ struct P_Tanques_quick_start_T_ {
   real_T Integrator_LowerSat_g;        /* Expression: -1
                                         * Referenced by: '<S2>/Integrator'
                                         */
-  real_T ControllerEnabler_Value;      /* Expression: 2
-                                        * Referenced by: '<Root>/Controller Enabler '
-                                        */
-  real_T Gain_Gain;                    /* Expression: 1
-                                        * Referenced by: '<Root>/Gain'
+  real_T Switch_Threshold;             /* Expression: 28
+                                        * Referenced by: '<Root>/Switch'
                                         */
   real_T IPD_Ki_Gain;                  /* Expression: 0.05
                                         * Referenced by: '<Root>/I-PD_Ki'
@@ -1311,7 +1315,7 @@ struct P_Tanques_quick_start_T_ {
                                         * Referenced by: '<Root>/amax'
                                         */
   real_T RandomSource_MaxRTP;          /* Expression: MaxVal
-                                        * Referenced by: '<S10>/Random Source'
+                                        * Referenced by: '<S14>/Random Source'
                                         */
   real_T VoltstocmTank1_Gain;          /* Expression: 30/4.8
                                         * Referenced by: '<Root>/Volts to cm Tank 1 '
@@ -1332,10 +1336,10 @@ struct P_Tanques_quick_start_T_ {
                                         * Referenced by: '<Root>/previousError'
                                         */
   uint16_T Constant_Value;             /* Computed Parameter: Constant_Value
-                                        * Referenced by: '<S12>/Constant'
+                                        * Referenced by: '<S16>/Constant'
                                         */
   uint16_T FixPtConstant_Value;        /* Computed Parameter: FixPtConstant_Value
-                                        * Referenced by: '<S11>/FixPt Constant'
+                                        * Referenced by: '<S15>/FixPt Constant'
                                         */
   uint16_T Output_InitialCondition;    /* Computed Parameter: Output_InitialCondition
                                         * Referenced by: '<S1>/Output'
@@ -1351,6 +1355,9 @@ struct P_Tanques_quick_start_T_ {
                                         */
   uint16_T prevTime_InitialValue;      /* Computed Parameter: prevTime_InitialValue
                                         * Referenced by: '<Root>/prevTime'
+                                        */
+  boolean_T HILWriteAnalog_Active;     /* Computed Parameter: HILWriteAnalog_Active
+                                        * Referenced by: '<Root>/HIL Write Analog'
                                         */
   boolean_T HILReadAnalog_Active;      /* Computed Parameter: HILReadAnalog_Active
                                         * Referenced by: '<Root>/HIL Read Analog'
@@ -1388,7 +1395,7 @@ struct tag_RTM_Tanques_quick_start_T {
     boolean_T zCCacheNeedsReset;
     boolean_T derivCacheNeedsReset;
     boolean_T blkStateChange;
-    real_T odeF[1][9];
+    real_T odeF[1][5];
     ODE1_IntgData intgData;
     void *dwork;
   } ModelData;
@@ -1522,14 +1529,18 @@ extern RT_MODEL_Tanques_quick_start_T *const Tanques_quick_start_M;
  * '<S1>'   : 'Tanques_quick_start/Counter Free-Running'
  * '<S2>'   : 'Tanques_quick_start/I-PD'
  * '<S3>'   : 'Tanques_quick_start/MATLAB Function1'
- * '<S4>'   : 'Tanques_quick_start/MATLAB Function2'
- * '<S5>'   : 'Tanques_quick_start/PI-D'
- * '<S6>'   : 'Tanques_quick_start/PID'
- * '<S7>'   : 'Tanques_quick_start/PRS'
- * '<S8>'   : 'Tanques_quick_start/Subsystem'
- * '<S9>'   : 'Tanques_quick_start/Subsystem1'
- * '<S10>'  : 'Tanques_quick_start/randP'
- * '<S11>'  : 'Tanques_quick_start/Counter Free-Running/Increment Real World'
- * '<S12>'  : 'Tanques_quick_start/Counter Free-Running/Wrap To Zero'
+ * '<S4>'   : 'Tanques_quick_start/MATLAB Function10'
+ * '<S5>'   : 'Tanques_quick_start/MATLAB Function2'
+ * '<S6>'   : 'Tanques_quick_start/MATLAB Function3'
+ * '<S7>'   : 'Tanques_quick_start/MATLAB Function4'
+ * '<S8>'   : 'Tanques_quick_start/MATLAB Function5'
+ * '<S9>'   : 'Tanques_quick_start/MATLAB Function6'
+ * '<S10>'  : 'Tanques_quick_start/MATLAB Function7'
+ * '<S11>'  : 'Tanques_quick_start/PI-D'
+ * '<S12>'  : 'Tanques_quick_start/PID'
+ * '<S13>'  : 'Tanques_quick_start/PRS'
+ * '<S14>'  : 'Tanques_quick_start/randP'
+ * '<S15>'  : 'Tanques_quick_start/Counter Free-Running/Increment Real World'
+ * '<S16>'  : 'Tanques_quick_start/Counter Free-Running/Wrap To Zero'
  */
 #endif                                 /* RTW_HEADER_Tanques_quick_start_h_ */

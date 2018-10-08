@@ -1,708 +1,1024 @@
  Tanques_quick_start_sfun
 
- Timestamp is 5b75b1a4 (Thu Aug 16 14:17:24 2018)
+ Timestamp is 5bbb81a8 (Mon Oct 08 13:11:20 2018)
 
  Preferred load address is 0000000180000000
 
  Start         Length     Name                   Class
- 0001:00000000 0001baa4H .text                   CODE
- 0001:0001bab0 00000092H .text$x                 CODE
+ 0001:00000000 0003a854H .text                   CODE
+ 0001:0003a860 00000092H .text$x                 CODE
  0002:00000000 00000498H .idata$5                DATA
  0002:00000498 00000008H .CRT$XCA                DATA
  0002:000004a0 00000008H .CRT$XCZ                DATA
  0002:000004a8 00000008H .CRT$XIA                DATA
  0002:000004b0 00000008H .CRT$XIAA               DATA
  0002:000004b8 00000008H .CRT$XIZ                DATA
- 0002:000004c0 00000794H .rdata                  DATA
- 0002:00000c58 00000008H .rtc$IAA                DATA
- 0002:00000c60 00000008H .rtc$IZZ                DATA
- 0002:00000c68 00000008H .rtc$TAA                DATA
- 0002:00000c70 00000008H .rtc$TZZ                DATA
- 0002:00000c78 00000960H .xdata                  DATA
- 0002:000015d8 0000008cH .idata$2                DATA
- 0002:00001664 00000014H .idata$3                DATA
- 0002:00001678 00000498H .idata$4                DATA
- 0002:00001b10 00000cb8H .idata$6                DATA
- 0002:000027d0 0000005eH .edata                  DATA
- 0003:00000000 000056f8H .data                   DATA
- 0003:00005700 000006c8H .bss                    DATA
- 0004:00000000 00000bdcH .pdata                  DATA
+ 0002:000004c0 00000834H .rdata                  DATA
+ 0002:00000cf8 00000008H .rtc$IAA                DATA
+ 0002:00000d00 00000008H .rtc$IZZ                DATA
+ 0002:00000d08 00000008H .rtc$TAA                DATA
+ 0002:00000d10 00000008H .rtc$TZZ                DATA
+ 0002:00000d18 000011b0H .xdata                  DATA
+ 0002:00001ec8 0000008cH .idata$2                DATA
+ 0002:00001f54 00000014H .idata$3                DATA
+ 0002:00001f68 00000498H .idata$4                DATA
+ 0002:00002400 00000cb8H .idata$6                DATA
+ 0002:000030c0 0000005eH .edata                  DATA
+ 0003:00000000 0000e818H .data                   DATA
+ 0003:0000e820 00000738H .bss                    DATA
+ 0004:00000000 000017e8H .pdata                  DATA
 
   Address         Publics by Value              Rva+Base               Lib:Object
 
- 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
  0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
  0000:00000000       __ImageBase                0000000180000000     <linker-defined>
  0001:00000000       Tanques_quick_start_initializer 0000000180001000 f   Tanques_quick_start_sfun.obj
  0001:00000010       Tanques_quick_start_terminator 0000000180001010 f   Tanques_quick_start_sfun.obj
  0001:00000020       sf_Tanques_quick_start_method_dispatcher 0000000180001020 f   Tanques_quick_start_sfun.obj
- 0001:000000b0       sf_Tanques_quick_start_process_testpoint_info_call 00000001800010b0 f   Tanques_quick_start_sfun.obj
- 0001:00000210       sf_Tanques_quick_start_process_check_sum_call 0000000180001210 f   Tanques_quick_start_sfun.obj
- 0001:00000650       sf_Tanques_quick_start_autoinheritance_info 0000000180001650 f   Tanques_quick_start_sfun.obj
- 0001:00000860       sf_Tanques_quick_start_get_eml_resolved_functions_info 0000000180001860 f   Tanques_quick_start_sfun.obj
- 0001:00000a10       sf_Tanques_quick_start_third_party_uses_info 0000000180001a10 f   Tanques_quick_start_sfun.obj
- 0001:00000bc0       sf_Tanques_quick_start_updateBuildInfo_args_info 0000000180001bc0 f   Tanques_quick_start_sfun.obj
- 0001:00000d70       Tanques_quick_start_debug_initialize 0000000180001d70 f   Tanques_quick_start_sfun.obj
- 0001:00000df0       Tanques_quick_start_register_exported_symbols 0000000180001df0 f   Tanques_quick_start_sfun.obj
- 0001:00000e00       load_Tanques_quick_start_optimization_info 0000000180001e00 f   Tanques_quick_start_sfun.obj
- 0001:00000e50       unload_Tanques_quick_start_optimization_info 0000000180001e50 f   Tanques_quick_start_sfun.obj
- 0001:00000e80       sf_c1_Tanques_quick_start_get_eml_resolved_functions_info 0000000180001e80 f   c1_Tanques_quick_start.obj
- 0001:00000f00       sf_c1_Tanques_quick_start_get_check_sum 0000000180001f00 f   c1_Tanques_quick_start.obj
- 0001:00000f80       sf_c1_Tanques_quick_start_get_autoinheritance_info 0000000180001f80 f   c1_Tanques_quick_start.obj
- 0001:00001630       sf_c1_Tanques_quick_start_third_party_uses_info 0000000180002630 f   c1_Tanques_quick_start.obj
- 0001:00001660       sf_c1_Tanques_quick_start_updateBuildInfo_args_info 0000000180002660 f   c1_Tanques_quick_start.obj
- 0001:00001690       sf_internal_get_sim_state_c1_Tanques_quick_start 0000000180002690 f   c1_Tanques_quick_start.obj
- 0001:00001a00       sf_internal_set_sim_state_c1_Tanques_quick_start 0000000180002a00 f   c1_Tanques_quick_start.obj
- 0001:00001df0       c1_Tanques_quick_start_method_dispatcher 0000000180002df0 f   c1_Tanques_quick_start.obj
- 0001:00006330       sf_c2_Tanques_quick_start_get_eml_resolved_functions_info 0000000180007330 f   c2_Tanques_quick_start.obj
- 0001:0000a3f0       sf_c2_Tanques_quick_start_get_check_sum 000000018000b3f0 f   c2_Tanques_quick_start.obj
- 0001:0000a470       sf_c2_Tanques_quick_start_get_autoinheritance_info 000000018000b470 f   c2_Tanques_quick_start.obj
- 0001:0000aef0       sf_c2_Tanques_quick_start_third_party_uses_info 000000018000bef0 f   c2_Tanques_quick_start.obj
- 0001:0000af20       sf_c2_Tanques_quick_start_updateBuildInfo_args_info 000000018000bf20 f   c2_Tanques_quick_start.obj
- 0001:0000af50       sf_internal_get_sim_state_c2_Tanques_quick_start 000000018000bf50 f   c2_Tanques_quick_start.obj
- 0001:0000b760       sf_internal_set_sim_state_c2_Tanques_quick_start 000000018000c760 f   c2_Tanques_quick_start.obj
- 0001:0000c220       c2_Tanques_quick_start_method_dispatcher 000000018000d220 f   c2_Tanques_quick_start.obj
- 0001:00011b00       sf_c3_Tanques_quick_start_get_eml_resolved_functions_info 0000000180012b00 f   c3_Tanques_quick_start.obj
- 0001:00011b80       sf_c3_Tanques_quick_start_get_check_sum 0000000180012b80 f   c3_Tanques_quick_start.obj
- 0001:00011c00       sf_c3_Tanques_quick_start_get_autoinheritance_info 0000000180012c00 f   c3_Tanques_quick_start.obj
- 0001:00012170       sf_c3_Tanques_quick_start_third_party_uses_info 0000000180013170 f   c3_Tanques_quick_start.obj
- 0001:000121a0       sf_c3_Tanques_quick_start_updateBuildInfo_args_info 00000001800131a0 f   c3_Tanques_quick_start.obj
- 0001:000121d0       sf_internal_get_sim_state_c3_Tanques_quick_start 00000001800131d0 f   c3_Tanques_quick_start.obj
- 0001:00012530       sf_internal_set_sim_state_c3_Tanques_quick_start 0000000180013530 f   c3_Tanques_quick_start.obj
- 0001:00012920       c3_Tanques_quick_start_method_dispatcher 0000000180013920 f   c3_Tanques_quick_start.obj
- 0001:000148d0       sf_process_check_sum_call  00000001800158d0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00014920       sf_process_testpoint_info_call 0000000180015920 f   Tanques_quick_start_sfun_registry.obj
- 0001:00014970       sf_process_autoinheritance_call 0000000180015970 f   Tanques_quick_start_sfun_registry.obj
- 0001:00014b10       sf_process_get_third_party_uses_info_call 0000000180015b10 f   Tanques_quick_start_sfun_registry.obj
- 0001:00014cb0       sf_process_get_updateBuildInfo_args_info_call 0000000180015cb0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00014e50       sf_process_get_eml_resolved_functions_info_call 0000000180015e50 f   Tanques_quick_start_sfun_registry.obj
- 0001:00014fd0       sf_mex_unlock_call         0000000180015fd0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015080       sf_machine_global_initializer_called 0000000180016080 f   Tanques_quick_start_sfun_registry.obj
- 0001:000150b0       sf_machine_global_method_dispatcher 00000001800160b0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015110       sf_machine_global_terminator 0000000180016110 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015160       sf_register_machine_exported_symbols 0000000180016160 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015180       callCustomFcn              0000000180016180 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015190       sf_machine_global_initializer 0000000180016190 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015210       mdlGetSimState             0000000180016210 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015290       mdlSetSimState             0000000180016290 f   Tanques_quick_start_sfun_registry.obj
- 0001:000152d0       _ssSetStateAbsTol          00000001800162d0 f   Tanques_quick_start_sfun_registry.obj
- 0001:000153b0       _ssGetAbsTol               00000001800163b0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015420       _ssSetInputPortMatrixDimensions 0000000180016420 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015530       _ssSetOutputPortMatrixDimensions 0000000180016530 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015640       _ssSetInputPortVectorDimension 0000000180016640 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015710       _ssSetOutputPortVectorDimension 0000000180016710 f   Tanques_quick_start_sfun_registry.obj
- 0001:000157e0       ssIsRunTimeParamTunable    00000001800167e0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015850       ssGetSFuncBlockHandle      0000000180016850 f   Tanques_quick_start_sfun_registry.obj
- 0001:000158c0       _ssGetCurrentInputPortWidth 00000001800168c0 f   Tanques_quick_start_sfun_registry.obj
- 0001:000159e0       _ssGetCurrentOutputPortWidth 00000001800169e0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015b00       _ssGetCallSystemNumFcnCallDestinations 0000000180016b00 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015b70       ssWarning                  0000000180016b70 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015c80       ssGetIsZeroCrossControlDisabled 0000000180016c80 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015cf0       ssSetIsInputPortUsedForContZcSignal 0000000180016cf0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015d60       ssSetZcSignalIsZcElementDisc 0000000180016d60 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015e10       ssSetZcSignalName          0000000180016e10 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015e80       ssSetZcSignalWidth         0000000180016e80 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015ef0       ssSetZcSignalZcEventType   0000000180016ef0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015f60       ssSetZcSignalType          0000000180016f60 f   Tanques_quick_start_sfun_registry.obj
- 0001:00015fd0       ssSetZcSignalZcTol         0000000180016fd0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016040       ssSetZcSignalNeedsEventNotification 0000000180017040 f   Tanques_quick_start_sfun_registry.obj
- 0001:000160b0       ssCreateAndAddZcSignalInfo 00000001800170b0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016120       ssCloneAndAddZcSignalInfo  0000000180017120 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016190       ssGetNumZcSignals          0000000180017190 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016200       ssGetZcSignalVector        0000000180017200 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016270       ssGetZcSignalZcEvents      0000000180017270 f   Tanques_quick_start_sfun_registry.obj
- 0001:000162e0       ssGetZcSignalName          00000001800172e0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016350       ssGetZcSignalWidth         0000000180017350 f   Tanques_quick_start_sfun_registry.obj
- 0001:000163c0       ssGetZcSignalZcEventType   00000001800173c0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016430       ssGetZcSignalType          0000000180017430 f   Tanques_quick_start_sfun_registry.obj
- 0001:000164a0       ssGetZcSignalZcTol         00000001800174a0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016520       ssGetZcSignalNeedsEventNotification 0000000180017520 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016590       ssGetZcSignalIsZcElementDisc 0000000180017590 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016630       ssGetIsInputPortElementContinuous 0000000180017630 f   Tanques_quick_start_sfun_registry.obj
- 0001:000166d0       _ssGetInputPortSignalPtrsFcn 00000001800176d0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016990       _ssGetInputPortSignalFcn   0000000180017990 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016bb0       _ssSetInputPortDirectFeedThroughFcn 0000000180017bb0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016d10       _ssSetInputPortReusableFcn 0000000180017d10 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016e00       _ssSetOutputPortReusableFcn 0000000180017e00 f   Tanques_quick_start_sfun_registry.obj
- 0001:00016ee0       ssGetDTypeIdFromMxArray    0000000180017ee0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00017000       ssWriteRTWStr              0000000180018000 f   Tanques_quick_start_sfun_registry.obj
- 0001:00017060       ssWriteRTWMxVectParam      0000000180018060 f   Tanques_quick_start_sfun_registry.obj
- 0001:000170c0       ssWriteRTWMx2dMatParam     00000001800180c0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00017140       ssWriteRTWNameValuePair    0000000180018140 f   Tanques_quick_start_sfun_registry.obj
- 0001:00017630       ssWriteRTWParameters       0000000180018630 f   Tanques_quick_start_sfun_registry.obj
- 0001:00017c30       ssWriteRTWParamSettings    0000000180018c30 f   Tanques_quick_start_sfun_registry.obj
- 0001:00018300       ssWriteRTWWorkVect         0000000180019300 f   Tanques_quick_start_sfun_registry.obj
- 0001:00018800       mexFunction                0000000180019800 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001acb0       ProcessMexSfunctionEveryCall 000000018001bcb0 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001ae32       sf_debug_set_machine_data_thresholds 000000018001be32 f   sf_runtime:sf_runtime.dll
- 0001:0001ae38       sf_debug_set_machine_event_thresholds 000000018001be38 f   sf_runtime:sf_runtime.dll
- 0001:0001ae3e       sf_debug_initialize_machine 000000018001be3e f   sf_runtime:sf_runtime.dll
- 0001:0001ae44       sf_load_rtw_optimization_info 000000018001be44 f   sf_runtime:sf_runtime.dll
- 0001:0001ae4a       sf_mex_assign              000000018001be4a f   sf_runtime:sf_runtime.dll
- 0001:0001ae50       sf_mex_create              000000018001be50 f   sf_runtime:sf_runtime.dll
- 0001:0001ae56       sf_mex_error_message       000000018001be56 f   sf_runtime:sf_runtime.dll
- 0001:0001ae5c       sf_mex_call_matlab         000000018001be5c f   sf_runtime:sf_runtime.dll
- 0001:0001ae62       sf_mex_setcell             000000018001be62 f   sf_runtime:sf_runtime.dll
- 0001:0001ae68       sf_mex_createcellmatrix    000000018001be68 f   sf_runtime:sf_runtime.dll
- 0001:0001ae6e       sf_mex_decode_encoded_mx_struct_array 000000018001be6e f   sf_runtime:sf_runtime.dll
- 0001:0001ae74       sf_mex_destroy             000000018001be74 f   sf_runtime:sf_runtime.dll
- 0001:0001ae7a       sf_mex_getcell             000000018001be7a f   sf_runtime:sf_runtime.dll
- 0001:0001ae80       sf_mex_dup                 000000018001be80 f   sf_runtime:sf_runtime.dll
- 0001:0001ae86       sf_mex_import              000000018001be86 f   sf_runtime:sf_runtime.dll
- 0001:0001ae8c       sf_set_rtw_dwork_info      000000018001be8c f   sf_runtime:sf_runtime.dll
- 0001:0001ae92       sf_mark_chart_reusable_outputs 000000018001be92 f   sf_runtime:sf_runtime.dll
- 0001:0001ae98       sf_mark_chart_expressionable_inputs 000000018001be98 f   sf_runtime:sf_runtime.dll
- 0001:0001ae9e       sf_update_buildInfo        000000018001be9e f   sf_runtime:sf_runtime.dll
- 0001:0001aea4       sf_rtw_info_uint_prop      000000018001bea4 f   sf_runtime:sf_runtime.dll
- 0001:0001aeaa       sf_is_chart_inlinable      000000018001beaa f   sf_runtime:sf_runtime.dll
- 0001:0001aeb0       sim_mode_is_external       000000018001beb0 f   sf_runtime:sf_runtime.dll
- 0001:0001aeb6       sim_mode_is_rtw_gen        000000018001beb6 f   sf_runtime:sf_runtime.dll
- 0001:0001aebc       sf_debug_reset_current_state_configuration 000000018001bebc f   sf_runtime:sf_runtime.dll
- 0001:0001aec2       sf_debug_set_instance_data_value_ptr 000000018001bec2 f   sf_runtime:sf_runtime.dll
- 0001:0001aec8       sf_debug_set_chart_data_compiled_props 000000018001bec8 f   sf_runtime:sf_runtime.dll
- 0001:0001aece       cv_eml_init_mcdc           000000018001bece f   sf_runtime:sf_runtime.dll
- 0001:0001aed4       cv_eml_init_if             000000018001bed4 f   sf_runtime:sf_runtime.dll
- 0001:0001aeda       cv_eml_init_fcn            000000018001beda f   sf_runtime:sf_runtime.dll
- 0001:0001aee0       cv_eml_init_script         000000018001bee0 f   sf_runtime:sf_runtime.dll
- 0001:0001aee6       sf_debug_cv_init_trans     000000018001bee6 f   sf_runtime:sf_runtime.dll
- 0001:0001aeec       sf_debug_cv_init_state     000000018001beec f   sf_runtime:sf_runtime.dll
- 0001:0001aef2       sf_debug_cv_init_chart     000000018001bef2 f   sf_runtime:sf_runtime.dll
- 0001:0001aef8       sf_debug_set_chart_decomposition 000000018001bef8 f   sf_runtime:sf_runtime.dll
- 0001:0001aefe       sf_debug_set_chart_substate_count 000000018001befe f   sf_runtime:sf_runtime.dll
- 0001:0001af04       sf_debug_set_chart_state_info 000000018001bf04 f   sf_runtime:sf_runtime.dll
- 0001:0001af0a       sf_debug_set_chart_data_props 000000018001bf0a f   sf_runtime:sf_runtime.dll
- 0001:0001af10       sf_debug_set_chart_event_thresholds 000000018001bf10 f   sf_runtime:sf_runtime.dll
- 0001:0001af16       sf_debug_set_chart_disable_implicit_casting 000000018001bf16 f   sf_runtime:sf_runtime.dll
- 0001:0001af1c       sf_debug_initialize_chart  000000018001bf1c f   sf_runtime:sf_runtime.dll
- 0001:0001af22       sf_get_time                000000018001bf22 f   sf_runtime:sf_runtime.dll
- 0001:0001af28       sf_debug_check_for_state_inconsistency 000000018001bf28 f   sf_runtime:sf_runtime.dll
- 0001:0001af2e       sf_debug_symbol_scope_pop  000000018001bf2e f   sf_runtime:sf_runtime.dll
- 0001:0001af34       eml_debug_line_call        000000018001bf34 f   sf_runtime:sf_runtime.dll
- 0001:0001af3a       cv_eml_eval                000000018001bf3a f   sf_runtime:sf_runtime.dll
- 0001:0001af40       sf_debug_symbol_scope_add_eml 000000018001bf40 f   sf_runtime:sf_runtime.dll
- 0001:0001af46       sf_debug_symbol_scope_add_eml_importable 000000018001bf46 f   sf_runtime:sf_runtime.dll
- 0001:0001af4c       sf_debug_symbol_scope_push_eml 000000018001bf4c f   sf_runtime:sf_runtime.dll
- 0001:0001af52       sf_debug_data_range_wrapper 000000018001bf52 f   sf_runtime:sf_runtime.dll
- 0001:0001af58       sf_debug_call              000000018001bf58 f   sf_runtime:sf_runtime.dll
- 0001:0001af5e       sf_debug_symbol_scope_push 000000018001bf5e f   sf_runtime:sf_runtime.dll
- 0001:0001af64       sf_clear_rtw_identifier    000000018001bf64 f   sf_runtime:sf_runtime.dll
- 0001:0001af6a       sf_mex_emlrtNameCapturePostProcessR2012a 000000018001bf6a f   sf_runtime:sf_runtime.dll
- 0001:0001af70       sf_mex_createstruct        000000018001bf70 f   sf_runtime:sf_runtime.dll
- 0001:0001af76       sf_mex_duplicatearraysafe  000000018001bf76 f   sf_runtime:sf_runtime.dll
- 0001:0001af7c       sf_mex_addfield            000000018001bf7c f   sf_runtime:sf_runtime.dll
- 0001:0001af82       cv_script_init_fcn         000000018001bf82 f   sf_runtime:sf_runtime.dll
- 0001:0001af88       cv_script_init_script      000000018001bf88 f   sf_runtime:sf_runtime.dll
- 0001:0001af8e       cv_eml_init_saturation     000000018001bf8e f   sf_runtime:sf_runtime.dll
- 0001:0001af94       sf_debug_set_script_translation 000000018001bf94 f   sf_runtime:sf_runtime.dll
- 0001:0001af9a       sf_debug_get_script_id     000000018001bf9a f   sf_runtime:sf_runtime.dll
- 0001:0001afa0       cv_script_eval             000000018001bfa0 f   sf_runtime:sf_runtime.dll
- 0001:0001afa6       cv_eval_saturation         000000018001bfa6 f   sf_runtime:sf_runtime.dll
- 0001:0001afac       sf_debug_eml_data_array_bounds_error_check 000000018001bfac f   sf_runtime:sf_runtime.dll
- 0001:0001afb2       sf_debug_integer_check     000000018001bfb2 f   sf_runtime:sf_runtime.dll
- 0001:0001afb8       sf_mex_call_debug          000000018001bfb8 f   sf_runtime:sf_runtime.dll
- 0001:0001afbe       sf_debug_terminate         000000018001bfbe f   sf_runtime:sf_runtime.dll
- 0001:0001afc4       sf_debug_create_debug_instance_struct 000000018001bfc4 f   sf_runtime:sf_runtime.dll
- 0001:0001afca       sf_debug_api               000000018001bfca f   sf_runtime:sf_runtime.dll
- 0001:0001afd0       callMdlMethodAndReportError 000000018001bfd0 f   sf_runtime:sf_runtime.dll
- 0001:0001afd6       call_sf_machine_global_method_dispatcher 000000018001bfd6 f   sf_runtime:sf_runtime.dll
- 0001:0001afdc       sf_clear_error_manager_info 000000018001bfdc f   sf_runtime:sf_runtime.dll
- 0001:0001afe2       sf_mex_error_direct_call   000000018001bfe2 f   sf_runtime:sf_runtime.dll
- 0001:0001afe8       mxCreateDoubleMatrix_730   000000018001bfe8 f   libmx:libmx.dll
- 0001:0001afee       mxGetScalar                000000018001bfee f   libmx:libmx.dll
- 0001:0001aff4       mxGetString_730            000000018001bff4 f   libmx:libmx.dll
- 0001:0001affa       mxIsChar                   000000018001bffa f   libmx:libmx.dll
- 0001:0001b000       mxGetPr                    000000018001c000 f   libmx:libmx.dll
- 0001:0001b006       mxDestroyArray             000000018001c006 f   libmx:libmx.dll
- 0001:0001b00c       mxDuplicateArray           000000018001c00c f   libmx:libmx.dll
- 0001:0001b012       mxCreateDoubleScalar       000000018001c012 f   libmx:libmx.dll
- 0001:0001b018       mxSetField_730             000000018001c018 f   libmx:libmx.dll
- 0001:0001b01e       mxCreateString             000000018001c01e f   libmx:libmx.dll
- 0001:0001b024       mxCreateStructMatrix_730   000000018001c024 f   libmx:libmx.dll
- 0001:0001b02a       mxCreateCellMatrix_730     000000018001c02a f   libmx:libmx.dll
- 0001:0001b030       mxIsEmpty                  000000018001c030 f   libmx:libmx.dll
- 0001:0001b036       mxGetClassID               000000018001c036 f   libmx:libmx.dll
- 0001:0001b03c       mxIsNumeric                000000018001c03c f   libmx:libmx.dll
- 0001:0001b042       mxIsComplex                000000018001c042 f   libmx:libmx.dll
- 0001:0001b048       mxGetN                     000000018001c048 f   libmx:libmx.dll
- 0001:0001b04e       mxGetM                     000000018001c04e f   libmx:libmx.dll
- 0001:0001b054       mxCalloc                   000000018001c054 f   libmx:libmx.dll
- 0001:0001b05a       mexMakeArrayPersistent     000000018001c05a f   libmex:libmex.dll
- 0001:0001b060       mexUnlock                  000000018001c060 f   libmex:libmex.dll
- 0001:0001b066       mexIsLocked                000000018001c066 f   libmex:libmex.dll
- 0001:0001b06c       mexWarnMsgTxt              000000018001c06c f   libmex:libmex.dll
- 0001:0001b072       mexCallMATLAB              000000018001c072 f   libmex:libmex.dll
- 0001:0001b078       mexErrMsgTxt               000000018001c078 f   libmex:libmex.dll
- 0001:0001b07e       mexLock                    000000018001c07e f   libmex:libmex.dll
- 0001:0001b084       utMalloc                   000000018001c084 f   libut:libut.dll
- 0001:0001b08a       utFree                     000000018001c08a f   libut:libut.dll
- 0001:0001b090       muDoubleScalarRound        000000018001c090 f   libmwmathutil:libmwmathutil.dll
- 0001:0001b098       __GSHandlerCheckCommon     000000018001c098 f   MSVCRT:gshandler.obj
- 0001:0001b0fc       __GSHandlerCheck           000000018001c0fc f   MSVCRT:gshandler.obj
- 0001:0001b11a       strcmp                     000000018001c11a f   MSVCRT:MSVCR100.dll
- 0001:0001b130       __security_check_cookie    000000018001c130 f   MSVCRT:amdsecgs.obj
- 0001:0001b150       memset                     000000018001c150 f   MSVCRT:MSVCR100.dll
- 0001:0001b156       strlen                     000000018001c156 f   MSVCRT:MSVCR100.dll
- 0001:0001b15c       free                       000000018001c15c f   MSVCRT:MSVCR100.dll
- 0001:0001b162       sprintf                    000000018001c162 f   MSVCRT:MSVCR100.dll
- 0001:0001b168       malloc                     000000018001c168 f   MSVCRT:MSVCR100.dll
- 0001:0001b16e       strcat                     000000018001c16e f   MSVCRT:MSVCR100.dll
- 0001:0001b174       memcpy                     000000018001c174 f   MSVCRT:MSVCR100.dll
- 0001:0001b17c       NtCurrentTeb               000000018001c17c f i MSVCRT:crtdll.obj
- 0001:0001b1e8       _CRT_INIT                  000000018001c1e8 f   MSVCRT:crtdll.obj
- 0001:0001b580       _DllMainCRTStartup         000000018001c580 f   MSVCRT:crtdll.obj
- 0001:0001b5c0       __report_gsfailure         000000018001c5c0 f   MSVCRT:gs_report.obj
- 0001:0001b70c       __clean_type_info_names    000000018001c70c f   MSVCRT:tncleanup.obj
- 0001:0001b718       _onexit                    000000018001c718 f   MSVCRT:atonexit.obj
- 0001:0001b7c8       atexit                     000000018001c7c8 f   MSVCRT:atonexit.obj
- 0001:0001b7e0       _RTC_Initialize            000000018001c7e0 f   MSVCRT:_initsect_.obj
- 0001:0001b818       _RTC_Terminate             000000018001c818 f   MSVCRT:_initsect_.obj
- 0001:0001b850       _malloc_crt                000000018001c850 f   MSVCRT:MSVCR100.dll
- 0001:0001b860       _ValidateImageBase         000000018001c860 f   MSVCRT:pesect.obj
- 0001:0001b890       _FindPESection             000000018001c890 f   MSVCRT:pesect.obj
- 0001:0001b8e0       _IsNonwritableInCurrentImage 000000018001c8e0 f   MSVCRT:pesect.obj
- 0001:0001b922       _initterm                  000000018001c922 f   MSVCRT:MSVCR100.dll
- 0001:0001b928       _initterm_e                000000018001c928 f   MSVCRT:MSVCR100.dll
- 0001:0001b92e       _encoded_null              000000018001c92e f   MSVCRT:MSVCR100.dll
- 0001:0001b934       _amsg_exit                 000000018001c934 f   MSVCRT:MSVCR100.dll
- 0001:0001b93a       __C_specific_handler       000000018001c93a f   MSVCRT:MSVCR100.dll
- 0001:0001b940       __CppXcptFilter            000000018001c940 f   MSVCRT:MSVCR100.dll
- 0001:0001b948       DllMain                    000000018001c948 f   MSVCRT:dllmain.obj
- 0001:0001b96c       __security_init_cookie     000000018001c96c f   MSVCRT:gs_support.obj
- 0001:0001ba20       __crt_debugger_hook        000000018001ca20 f   MSVCRT:MSVCR100.dll
- 0001:0001ba26       __clean_type_info_names_internal 000000018001ca26 f   MSVCRT:MSVCR100.dll
- 0001:0001ba2c       _unlock                    000000018001ca2c f   MSVCRT:MSVCR100.dll
- 0001:0001ba32       __dllonexit                000000018001ca32 f   MSVCRT:MSVCR100.dll
- 0001:0001ba38       _lock                      000000018001ca38 f   MSVCRT:MSVCR100.dll
- 0001:0001ba3e       EncodePointer              000000018001ca3e f   kernel32:KERNEL32.dll
- 0001:0001ba44       DecodePointer              000000018001ca44 f   kernel32:KERNEL32.dll
- 0001:0001ba4a       Sleep                      000000018001ca4a f   kernel32:KERNEL32.dll
- 0001:0001ba50       TerminateProcess           000000018001ca50 f   kernel32:KERNEL32.dll
- 0001:0001ba56       GetCurrentProcess          000000018001ca56 f   kernel32:KERNEL32.dll
- 0001:0001ba5c       UnhandledExceptionFilter   000000018001ca5c f   kernel32:KERNEL32.dll
- 0001:0001ba62       SetUnhandledExceptionFilter 000000018001ca62 f   kernel32:KERNEL32.dll
- 0001:0001ba68       IsDebuggerPresent          000000018001ca68 f   kernel32:KERNEL32.dll
- 0001:0001ba6e       RtlVirtualUnwind           000000018001ca6e f   kernel32:KERNEL32.dll
- 0001:0001ba74       RtlLookupFunctionEntry     000000018001ca74 f   kernel32:KERNEL32.dll
- 0001:0001ba7a       RtlCaptureContext          000000018001ca7a f   kernel32:KERNEL32.dll
- 0001:0001ba80       DisableThreadLibraryCalls  000000018001ca80 f   kernel32:KERNEL32.dll
- 0001:0001ba86       QueryPerformanceCounter    000000018001ca86 f   kernel32:KERNEL32.dll
- 0001:0001ba8c       GetTickCount               000000018001ca8c f   kernel32:KERNEL32.dll
- 0001:0001ba92       GetCurrentThreadId         000000018001ca92 f   kernel32:KERNEL32.dll
- 0001:0001ba98       GetCurrentProcessId        000000018001ca98 f   kernel32:KERNEL32.dll
- 0001:0001ba9e       GetSystemTimeAsFileTime    000000018001ca9e f   kernel32:KERNEL32.dll
- 0002:00000000       __imp_GetCurrentProcessId  000000018001d000     kernel32:KERNEL32.dll
- 0002:00000008       __imp_GetCurrentThreadId   000000018001d008     kernel32:KERNEL32.dll
- 0002:00000010       __imp_GetTickCount         000000018001d010     kernel32:KERNEL32.dll
- 0002:00000018       __imp_QueryPerformanceCounter 000000018001d018     kernel32:KERNEL32.dll
- 0002:00000020       __imp_DisableThreadLibraryCalls 000000018001d020     kernel32:KERNEL32.dll
- 0002:00000028       __imp_RtlCaptureContext    000000018001d028     kernel32:KERNEL32.dll
- 0002:00000030       __imp_RtlLookupFunctionEntry 000000018001d030     kernel32:KERNEL32.dll
- 0002:00000038       __imp_RtlVirtualUnwind     000000018001d038     kernel32:KERNEL32.dll
- 0002:00000040       __imp_IsDebuggerPresent    000000018001d040     kernel32:KERNEL32.dll
- 0002:00000048       __imp_SetUnhandledExceptionFilter 000000018001d048     kernel32:KERNEL32.dll
- 0002:00000050       __imp_UnhandledExceptionFilter 000000018001d050     kernel32:KERNEL32.dll
- 0002:00000058       __imp_GetCurrentProcess    000000018001d058     kernel32:KERNEL32.dll
- 0002:00000060       __imp_TerminateProcess     000000018001d060     kernel32:KERNEL32.dll
- 0002:00000068       __imp_Sleep                000000018001d068     kernel32:KERNEL32.dll
- 0002:00000070       __imp_DecodePointer        000000018001d070     kernel32:KERNEL32.dll
- 0002:00000078       __imp_EncodePointer        000000018001d078     kernel32:KERNEL32.dll
- 0002:00000080       __imp_GetSystemTimeAsFileTime 000000018001d080     kernel32:KERNEL32.dll
- 0002:00000088       \177KERNEL32_NULL_THUNK_DATA 000000018001d088     kernel32:KERNEL32.dll
- 0002:00000090       __imp__onexit              000000018001d090     MSVCRT:MSVCR100.dll
- 0002:00000098       __imp__lock                000000018001d098     MSVCRT:MSVCR100.dll
- 0002:000000a0       __imp___dllonexit          000000018001d0a0     MSVCRT:MSVCR100.dll
- 0002:000000a8       __imp__unlock              000000018001d0a8     MSVCRT:MSVCR100.dll
- 0002:000000b0       __imp___clean_type_info_names_internal 000000018001d0b0     MSVCRT:MSVCR100.dll
- 0002:000000b8       __imp___crt_debugger_hook  000000018001d0b8     MSVCRT:MSVCR100.dll
- 0002:000000c0       __imp___CppXcptFilter      000000018001d0c0     MSVCRT:MSVCR100.dll
- 0002:000000c8       __imp___C_specific_handler 000000018001d0c8     MSVCRT:MSVCR100.dll
- 0002:000000d0       __imp__amsg_exit           000000018001d0d0     MSVCRT:MSVCR100.dll
- 0002:000000d8       __imp__encoded_null        000000018001d0d8     MSVCRT:MSVCR100.dll
- 0002:000000e0       __imp__initterm_e          000000018001d0e0     MSVCRT:MSVCR100.dll
- 0002:000000e8       __imp__initterm            000000018001d0e8     MSVCRT:MSVCR100.dll
- 0002:000000f0       __imp__malloc_crt          000000018001d0f0     MSVCRT:MSVCR100.dll
- 0002:000000f8       __imp_memcpy               000000018001d0f8     MSVCRT:MSVCR100.dll
- 0002:00000100       __imp_strcat               000000018001d100     MSVCRT:MSVCR100.dll
- 0002:00000108       __imp_malloc               000000018001d108     MSVCRT:MSVCR100.dll
- 0002:00000110       __imp_sprintf              000000018001d110     MSVCRT:MSVCR100.dll
- 0002:00000118       __imp_free                 000000018001d118     MSVCRT:MSVCR100.dll
- 0002:00000120       __imp_strlen               000000018001d120     MSVCRT:MSVCR100.dll
- 0002:00000128       __imp_memset               000000018001d128     MSVCRT:MSVCR100.dll
- 0002:00000130       __imp_strcmp               000000018001d130     MSVCRT:MSVCR100.dll
- 0002:00000138       \177MSVCR100_NULL_THUNK_DATA 000000018001d138     MSVCRT:MSVCR100.dll
- 0002:00000140       __imp_mexCallMATLAB        000000018001d140     libmex:libmex.dll
- 0002:00000148       __imp_mexUnlock            000000018001d148     libmex:libmex.dll
- 0002:00000150       __imp_mexLock              000000018001d150     libmex:libmex.dll
- 0002:00000158       __imp_mexErrMsgTxt         000000018001d158     libmex:libmex.dll
- 0002:00000160       __imp_mexMakeArrayPersistent 000000018001d160     libmex:libmex.dll
- 0002:00000168       __imp_mexWarnMsgTxt        000000018001d168     libmex:libmex.dll
- 0002:00000170       __imp_mexIsLocked          000000018001d170     libmex:libmex.dll
- 0002:00000178       \177libmex_NULL_THUNK_DATA 000000018001d178     libmex:libmex.dll
- 0002:00000180       __imp_muDoubleScalarRound  000000018001d180     libmwmathutil:libmwmathutil.dll
- 0002:00000188       \177libmwmathutil_NULL_THUNK_DATA 000000018001d188     libmwmathutil:libmwmathutil.dll
- 0002:00000190       __imp_mxCalloc             000000018001d190     libmx:libmx.dll
- 0002:00000198       __imp_mxGetM               000000018001d198     libmx:libmx.dll
- 0002:000001a0       __imp_mxGetN               000000018001d1a0     libmx:libmx.dll
- 0002:000001a8       __imp_mxIsComplex          000000018001d1a8     libmx:libmx.dll
- 0002:000001b0       __imp_mxIsNumeric          000000018001d1b0     libmx:libmx.dll
- 0002:000001b8       __imp_mxGetClassID         000000018001d1b8     libmx:libmx.dll
- 0002:000001c0       __imp_mxIsEmpty            000000018001d1c0     libmx:libmx.dll
- 0002:000001c8       __imp_mxCreateCellMatrix_730 000000018001d1c8     libmx:libmx.dll
- 0002:000001d0       __imp_mxCreateStructMatrix_730 000000018001d1d0     libmx:libmx.dll
- 0002:000001d8       __imp_mxCreateString       000000018001d1d8     libmx:libmx.dll
- 0002:000001e0       __imp_mxCreateDoubleScalar 000000018001d1e0     libmx:libmx.dll
- 0002:000001e8       __imp_mxDuplicateArray     000000018001d1e8     libmx:libmx.dll
- 0002:000001f0       __imp_mxDestroyArray       000000018001d1f0     libmx:libmx.dll
- 0002:000001f8       __imp_mxGetPr              000000018001d1f8     libmx:libmx.dll
- 0002:00000200       __imp_mxIsChar             000000018001d200     libmx:libmx.dll
- 0002:00000208       __imp_mxGetString_730      000000018001d208     libmx:libmx.dll
- 0002:00000210       __imp_mxGetScalar          000000018001d210     libmx:libmx.dll
- 0002:00000218       __imp_mxCreateDoubleMatrix_730 000000018001d218     libmx:libmx.dll
- 0002:00000220       __imp_mxSetField_730       000000018001d220     libmx:libmx.dll
- 0002:00000228       \177libmx_NULL_THUNK_DATA  000000018001d228     libmx:libmx.dll
- 0002:00000230       __imp_utMalloc             000000018001d230     libut:libut.dll
- 0002:00000238       __imp_utFree               000000018001d238     libut:libut.dll
- 0002:00000240       \177libut_NULL_THUNK_DATA  000000018001d240     libut:libut.dll
- 0002:00000248       __imp_callMdlMethodAndReportError 000000018001d248     sf_runtime:sf_runtime.dll
- 0002:00000250       __imp_sf_debug_api         000000018001d250     sf_runtime:sf_runtime.dll
- 0002:00000258       __imp_sf_debug_create_debug_instance_struct 000000018001d258     sf_runtime:sf_runtime.dll
- 0002:00000260       __imp_sf_debug_terminate   000000018001d260     sf_runtime:sf_runtime.dll
- 0002:00000268       __imp_sf_mex_call_debug    000000018001d268     sf_runtime:sf_runtime.dll
- 0002:00000270       __imp_sf_debug_integer_check 000000018001d270     sf_runtime:sf_runtime.dll
- 0002:00000278       __imp_sf_debug_eml_data_array_bounds_error_check 000000018001d278     sf_runtime:sf_runtime.dll
- 0002:00000280       __imp_cv_eval_saturation   000000018001d280     sf_runtime:sf_runtime.dll
- 0002:00000288       __imp_cv_script_eval       000000018001d288     sf_runtime:sf_runtime.dll
- 0002:00000290       __imp_sf_update_buildInfo  000000018001d290     sf_runtime:sf_runtime.dll
- 0002:00000298       __imp_sf_debug_get_script_id 000000018001d298     sf_runtime:sf_runtime.dll
- 0002:000002a0       __imp_sf_debug_set_script_translation 000000018001d2a0     sf_runtime:sf_runtime.dll
- 0002:000002a8       __imp_cv_eml_init_saturation 000000018001d2a8     sf_runtime:sf_runtime.dll
- 0002:000002b0       __imp_cv_script_init_script 000000018001d2b0     sf_runtime:sf_runtime.dll
- 0002:000002b8       __imp_sf_mex_error_direct_call 000000018001d2b8     sf_runtime:sf_runtime.dll
- 0002:000002c0       __imp_sf_mex_addfield      000000018001d2c0     sf_runtime:sf_runtime.dll
- 0002:000002c8       __imp_sf_mex_duplicatearraysafe 000000018001d2c8     sf_runtime:sf_runtime.dll
- 0002:000002d0       __imp_sf_mex_createstruct  000000018001d2d0     sf_runtime:sf_runtime.dll
- 0002:000002d8       __imp_sf_mex_emlrtNameCapturePostProcessR2012a 000000018001d2d8     sf_runtime:sf_runtime.dll
- 0002:000002e0       __imp_sf_clear_rtw_identifier 000000018001d2e0     sf_runtime:sf_runtime.dll
- 0002:000002e8       __imp_sf_debug_symbol_scope_push 000000018001d2e8     sf_runtime:sf_runtime.dll
- 0002:000002f0       __imp_sf_debug_call        000000018001d2f0     sf_runtime:sf_runtime.dll
- 0002:000002f8       __imp_sf_debug_data_range_wrapper 000000018001d2f8     sf_runtime:sf_runtime.dll
- 0002:00000300       __imp_sf_debug_symbol_scope_push_eml 000000018001d300     sf_runtime:sf_runtime.dll
- 0002:00000308       __imp_sf_debug_symbol_scope_add_eml_importable 000000018001d308     sf_runtime:sf_runtime.dll
- 0002:00000310       __imp_sf_debug_symbol_scope_add_eml 000000018001d310     sf_runtime:sf_runtime.dll
- 0002:00000318       __imp_cv_eml_eval          000000018001d318     sf_runtime:sf_runtime.dll
- 0002:00000320       __imp_eml_debug_line_call  000000018001d320     sf_runtime:sf_runtime.dll
- 0002:00000328       __imp_sf_debug_symbol_scope_pop 000000018001d328     sf_runtime:sf_runtime.dll
- 0002:00000330       __imp_sf_clear_error_manager_info 000000018001d330     sf_runtime:sf_runtime.dll
- 0002:00000338       __imp_cv_script_init_fcn   000000018001d338     sf_runtime:sf_runtime.dll
- 0002:00000340       __imp_call_sf_machine_global_method_dispatcher 000000018001d340     sf_runtime:sf_runtime.dll
- 0002:00000348       __imp_sf_debug_check_for_state_inconsistency 000000018001d348     sf_runtime:sf_runtime.dll
- 0002:00000350       __imp_sf_get_time          000000018001d350     sf_runtime:sf_runtime.dll
- 0002:00000358       __imp_sf_debug_initialize_chart 000000018001d358     sf_runtime:sf_runtime.dll
- 0002:00000360       __imp_sf_debug_set_chart_disable_implicit_casting 000000018001d360     sf_runtime:sf_runtime.dll
- 0002:00000368       __imp_sf_debug_set_chart_event_thresholds 000000018001d368     sf_runtime:sf_runtime.dll
- 0002:00000370       __imp_sf_debug_set_chart_data_props 000000018001d370     sf_runtime:sf_runtime.dll
- 0002:00000378       __imp_sf_debug_set_chart_state_info 000000018001d378     sf_runtime:sf_runtime.dll
- 0002:00000380       __imp_sf_debug_set_chart_substate_count 000000018001d380     sf_runtime:sf_runtime.dll
- 0002:00000388       __imp_sf_debug_set_chart_decomposition 000000018001d388     sf_runtime:sf_runtime.dll
- 0002:00000390       __imp_sf_debug_cv_init_chart 000000018001d390     sf_runtime:sf_runtime.dll
- 0002:00000398       __imp_sf_debug_cv_init_state 000000018001d398     sf_runtime:sf_runtime.dll
- 0002:000003a0       __imp_sf_debug_cv_init_trans 000000018001d3a0     sf_runtime:sf_runtime.dll
- 0002:000003a8       __imp_cv_eml_init_script   000000018001d3a8     sf_runtime:sf_runtime.dll
- 0002:000003b0       __imp_cv_eml_init_fcn      000000018001d3b0     sf_runtime:sf_runtime.dll
- 0002:000003b8       __imp_cv_eml_init_if       000000018001d3b8     sf_runtime:sf_runtime.dll
- 0002:000003c0       __imp_cv_eml_init_mcdc     000000018001d3c0     sf_runtime:sf_runtime.dll
- 0002:000003c8       __imp_sf_debug_set_chart_data_compiled_props 000000018001d3c8     sf_runtime:sf_runtime.dll
- 0002:000003d0       __imp_sf_debug_set_instance_data_value_ptr 000000018001d3d0     sf_runtime:sf_runtime.dll
- 0002:000003d8       __imp_sf_debug_reset_current_state_configuration 000000018001d3d8     sf_runtime:sf_runtime.dll
- 0002:000003e0       __imp_sim_mode_is_rtw_gen  000000018001d3e0     sf_runtime:sf_runtime.dll
- 0002:000003e8       __imp_sim_mode_is_external 000000018001d3e8     sf_runtime:sf_runtime.dll
- 0002:000003f0       __imp_sf_is_chart_inlinable 000000018001d3f0     sf_runtime:sf_runtime.dll
- 0002:000003f8       __imp_sf_rtw_info_uint_prop 000000018001d3f8     sf_runtime:sf_runtime.dll
- 0002:00000400       __imp_sf_mark_chart_expressionable_inputs 000000018001d400     sf_runtime:sf_runtime.dll
- 0002:00000408       __imp_sf_mark_chart_reusable_outputs 000000018001d408     sf_runtime:sf_runtime.dll
- 0002:00000410       __imp_sf_set_rtw_dwork_info 000000018001d410     sf_runtime:sf_runtime.dll
- 0002:00000418       __imp_sf_mex_import        000000018001d418     sf_runtime:sf_runtime.dll
- 0002:00000420       __imp_sf_mex_dup           000000018001d420     sf_runtime:sf_runtime.dll
- 0002:00000428       __imp_sf_mex_getcell       000000018001d428     sf_runtime:sf_runtime.dll
- 0002:00000430       __imp_sf_mex_destroy       000000018001d430     sf_runtime:sf_runtime.dll
- 0002:00000438       __imp_sf_mex_decode_encoded_mx_struct_array 000000018001d438     sf_runtime:sf_runtime.dll
- 0002:00000440       __imp_sf_mex_createcellmatrix 000000018001d440     sf_runtime:sf_runtime.dll
- 0002:00000448       __imp_sf_mex_setcell       000000018001d448     sf_runtime:sf_runtime.dll
- 0002:00000450       __imp_sf_mex_call_matlab   000000018001d450     sf_runtime:sf_runtime.dll
- 0002:00000458       __imp_sf_mex_error_message 000000018001d458     sf_runtime:sf_runtime.dll
- 0002:00000460       __imp_sf_mex_create        000000018001d460     sf_runtime:sf_runtime.dll
- 0002:00000468       __imp_sf_mex_assign        000000018001d468     sf_runtime:sf_runtime.dll
- 0002:00000470       __imp_sf_load_rtw_optimization_info 000000018001d470     sf_runtime:sf_runtime.dll
- 0002:00000478       __imp_sf_debug_initialize_machine 000000018001d478     sf_runtime:sf_runtime.dll
- 0002:00000480       __imp_sf_debug_set_machine_event_thresholds 000000018001d480     sf_runtime:sf_runtime.dll
- 0002:00000488       __imp_sf_debug_set_machine_data_thresholds 000000018001d488     sf_runtime:sf_runtime.dll
- 0002:00000490       \177sf_runtime_NULL_THUNK_DATA 000000018001d490     sf_runtime:sf_runtime.dll
- 0002:00000498       __xc_a                     000000018001d498     MSVCRT:cinitexe.obj
- 0002:000004a0       __xc_z                     000000018001d4a0     MSVCRT:cinitexe.obj
- 0002:000004a8       __xi_a                     000000018001d4a8     MSVCRT:cinitexe.obj
- 0002:000004b8       __xi_z                     000000018001d4b8     MSVCRT:cinitexe.obj
- 0002:000004c0       __real@41e87ef87a000000    000000018001d4c0     Tanques_quick_start_sfun.obj
- 0002:000004c8       __real@41d3bc7bb4c00000    000000018001d4c8     Tanques_quick_start_sfun.obj
- 0002:000004d0       __real@41e0b014c5800000    000000018001d4d0     Tanques_quick_start_sfun.obj
- 0002:000004d8       __real@41cafd0655800000    000000018001d4d8     Tanques_quick_start_sfun.obj
- 0002:000004e0       __real@41ad4b2baa000000    000000018001d4e0     Tanques_quick_start_sfun.obj
- 0002:000004e8       __real@41e4f54984000000    000000018001d4e8     Tanques_quick_start_sfun.obj
- 0002:000004f0       __real@41e2ce78c3a00000    000000018001d4f0     Tanques_quick_start_sfun.obj
- 0002:000004f8       __real@41e6fa90b7000000    000000018001d4f8     Tanques_quick_start_sfun.obj
- 0002:00000500       __real@41eee38c5d200000    000000018001d500     Tanques_quick_start_sfun.obj
- 0002:00000508       __real@41c85f06fb000000    000000018001d508     Tanques_quick_start_sfun.obj
- 0002:00000510       __real@41e984d80e800000    000000018001d510     Tanques_quick_start_sfun.obj
- 0002:00000518       __real@41c3e3b2f3800000    000000018001d518     Tanques_quick_start_sfun.obj
- 0002:00000520       __real@41e844c963200000    000000018001d520     Tanques_quick_start_sfun.obj
- 0002:00000528       __real@41cf34175a000000    000000018001d528     Tanques_quick_start_sfun.obj
- 0002:00000530       __real@41d35d689f400000    000000018001d530     Tanques_quick_start_sfun.obj
- 0002:00000538       __real@41e37a97cd600000    000000018001d538     Tanques_quick_start_sfun.obj
- 0002:00000540       __real@41b47d8fd5000000    000000018001d540     c1_Tanques_quick_start.obj
- 0002:00000548       __real@41ddb4061b800000    000000018001d548     c1_Tanques_quick_start.obj
- 0002:00000550       __real@41ce22818f800000    000000018001d550     c1_Tanques_quick_start.obj
- 0002:00000558       __real@41bd97306b000000    000000018001d558     c1_Tanques_quick_start.obj
- 0002:00000560       __real@4024000000000000    000000018001d560     c1_Tanques_quick_start.obj
- 0002:00000568       __real@3ff0000000000000    000000018001d568     c1_Tanques_quick_start.obj
- 0002:00000570       __real@3fe199999999999a    000000018001d570     c1_Tanques_quick_start.obj
- 0002:00000578       __real@3fe0000000000000    000000018001d578     c1_Tanques_quick_start.obj
- 0002:00000580       __real@3fe6666666666666    000000018001d580     c1_Tanques_quick_start.obj
- 0002:00000588       __real@3ff8000000000000    000000018001d588     c1_Tanques_quick_start.obj
- 0002:00000590       __real@3fe947ae147ae148    000000018001d590     c1_Tanques_quick_start.obj
- 0002:00000598       __real@3fe999999999999a    000000018001d598     c1_Tanques_quick_start.obj
- 0002:000005a0       __real@3feccccccccccccd    000000018001d5a0     c1_Tanques_quick_start.obj
- 0002:000005a8       __real@4018000000000000    000000018001d5a8     c1_Tanques_quick_start.obj
- 0002:000005b0       __real@4014000000000000    000000018001d5b0     c1_Tanques_quick_start.obj
- 0002:000005c0       __mask@@NegDouble@         000000018001d5c0     c1_Tanques_quick_start.obj
- 0002:000005d0       __real@4000000000000000    000000018001d5d0     c1_Tanques_quick_start.obj
- 0002:000005d8       __real@403e000000000000    000000018001d5d8     c1_Tanques_quick_start.obj
- 0002:000005e0       __real@c010000000000000    000000018001d5e0     c1_Tanques_quick_start.obj
- 0002:000005e8       __real@4010000000000000    000000018001d5e8     c1_Tanques_quick_start.obj
- 0002:000005f0       __real@4008000000000000    000000018001d5f0     c1_Tanques_quick_start.obj
- 0002:000005f8       __real@41d4c38e79c00000    000000018001d5f8     c2_Tanques_quick_start.obj
- 0002:00000600       __real@41e411a6d7200000    000000018001d600     c2_Tanques_quick_start.obj
- 0002:00000608       __real@41e9302220600000    000000018001d608     c2_Tanques_quick_start.obj
- 0002:00000610       __real@41d4808f70400000    000000018001d610     c2_Tanques_quick_start.obj
- 0002:00000618       __real@3defffffffffffff    000000018001d618     c2_Tanques_quick_start.obj
- 0002:00000620       __real@3e00000000200000    000000018001d620     c2_Tanques_quick_start.obj
- 0002:00000628       __real@40b5710000000000    000000018001d628     c2_Tanques_quick_start.obj
- 0002:00000630       __real@0000000000000000    000000018001d630     c2_Tanques_quick_start.obj
- 0002:00000638       __real@41f0000000000000    000000018001d638     c2_Tanques_quick_start.obj
- 0002:00000640       __real@3ca0000000000000    000000018001d640     c2_Tanques_quick_start.obj
- 0002:00000648       __real@4190000000000000    000000018001d648     c2_Tanques_quick_start.obj
- 0002:00000650       __real@406c800000000000    000000018001d650     c2_Tanques_quick_start.obj
- 0002:00000658       __real@4078d00000000000    000000018001d658     c2_Tanques_quick_start.obj
- 0002:00000660       __real@4083880000000000    000000018001d660     c2_Tanques_quick_start.obj
- 0002:00000668       __real@41db82529fc00000    000000018001d668     c3_Tanques_quick_start.obj
- 0002:00000670       __real@41ea990af1e00000    000000018001d670     c3_Tanques_quick_start.obj
- 0002:00000678       __real@41e02eee4e200000    000000018001d678     c3_Tanques_quick_start.obj
- 0002:00000680       __real@41aa6396a2000000    000000018001d680     c3_Tanques_quick_start.obj
- 0002:00000690       DYNAMIC_DIMENSION_DEF      000000018001d690     Tanques_quick_start_sfun_registry.obj
- 0002:000006b0       _ssBadLevel2InputAccessMsg 000000018001d6b0     Tanques_quick_start_sfun_registry.obj
- 0002:00000840       _ssBadLevel2DirectFeedMsg  000000018001d840     Tanques_quick_start_sfun_registry.obj
- 0002:00000980       _ssBadLevel2DirectFeedSolutionMsg 000000018001d980     Tanques_quick_start_sfun_registry.obj
- 0002:000009f0       _ssBadLevel2ZeroDirectFeedMsg 000000018001d9f0     Tanques_quick_start_sfun_registry.obj
- 0002:00000b30       _ssBadLevel2ZeroDirectFeedMsg2 000000018001db30     Tanques_quick_start_sfun_registry.obj
- 0002:00000c18       __real@bff0000000000000    000000018001dc18     Tanques_quick_start_sfun_registry.obj
- 0002:00000c20       __real@41602cbca0000000    000000018001dc20     Tanques_quick_start_sfun_registry.obj
- 0002:00000c28       _pDefaultRawDllMain        000000018001dc28     MSVCRT:crtdll.obj
- 0002:00000c28       _pRawDllMain               000000018001dc28     MSVCRT:crtdll.obj
- 0002:00000c40       ?ProcessDetach@NativeDll@<CrtImplementationDetails>@@0IB 000000018001dc40     MSVCRT:tncleanup.obj
- 0002:00000c44       ?ProcessAttach@NativeDll@<CrtImplementationDetails>@@0IB 000000018001dc44     MSVCRT:tncleanup.obj
- 0002:00000c48       ?ThreadAttach@NativeDll@<CrtImplementationDetails>@@0IB 000000018001dc48     MSVCRT:tncleanup.obj
- 0002:00000c4c       ?ThreadDetach@NativeDll@<CrtImplementationDetails>@@0IB 000000018001dc4c     MSVCRT:tncleanup.obj
- 0002:00000c50       ?ProcessVerifier@NativeDll@<CrtImplementationDetails>@@0IB 000000018001dc50     MSVCRT:tncleanup.obj
- 0002:00000c58       __rtc_iaa                  000000018001dc58     MSVCRT:_initsect_.obj
- 0002:00000c60       __rtc_izz                  000000018001dc60     MSVCRT:_initsect_.obj
- 0002:00000c68       __rtc_taa                  000000018001dc68     MSVCRT:_initsect_.obj
- 0002:00000c70       __rtc_tzz                  000000018001dc70     MSVCRT:_initsect_.obj
- 0002:000015d8       __IMPORT_DESCRIPTOR_sf_runtime 000000018001e5d8     sf_runtime:sf_runtime.dll
- 0002:000015ec       __IMPORT_DESCRIPTOR_libmx  000000018001e5ec     libmx:libmx.dll
- 0002:00001600       __IMPORT_DESCRIPTOR_libmex 000000018001e600     libmex:libmex.dll
- 0002:00001614       __IMPORT_DESCRIPTOR_libut  000000018001e614     libut:libut.dll
- 0002:00001628       __IMPORT_DESCRIPTOR_libmwmathutil 000000018001e628     libmwmathutil:libmwmathutil.dll
- 0002:0000163c       __IMPORT_DESCRIPTOR_MSVCR100 000000018001e63c     MSVCRT:MSVCR100.dll
- 0002:00001650       __IMPORT_DESCRIPTOR_KERNEL32 000000018001e650     kernel32:KERNEL32.dll
- 0002:00001664       __NULL_IMPORT_DESCRIPTOR   000000018001e664     sf_runtime:sf_runtime.dll
- 0003:00004ad0       DYNAMIC_DIMENSION          0000000180024ad0     Tanques_quick_start_sfun_registry.obj
- 0003:000056d8       __security_cookie          00000001800256d8     MSVCRT:gs_cookie.obj
- 0003:000056e0       __security_cookie_complement 00000001800256e0     MSVCRT:gs_cookie.obj
- 0003:000056e8       _fltused                   00000001800256e8     MSVCRT:dllsupp.obj
- 0003:000056f0       __native_dllmain_reason    00000001800256f0     MSVCRT:natstart.obj
- 0003:000056f4       __native_vcclrit_reason    00000001800256f4     MSVCRT:natstart.obj
- 0003:00005808       sfGlobalDebugInstanceStruct 0000000180025808     Tanques_quick_start_sfun_registry.obj
- 0003:00005d90       ?__type_info_root_node@@3U__type_info_node@@A 0000000180025d90     MSVCRT:tncleanup.obj
- 0003:00005da0       _Tanques_quick_startMachineNumber_ 0000000180025da0     <common>
- 0003:00005da4       __native_startup_state     0000000180025da4     <common>
- 0003:00005da8       __native_startup_lock      0000000180025da8     <common>
- 0003:00005db0       __onexitend                0000000180025db0     <common>
- 0003:00005db8       __onexitbegin              0000000180025db8     <common>
- 0003:00005dc0       __dyn_tls_init_callback    0000000180025dc0     <common>
+ 0001:00000180       sf_Tanques_quick_start_process_testpoint_info_call 0000000180001180 f   Tanques_quick_start_sfun.obj
+ 0001:000002e0       sf_Tanques_quick_start_process_check_sum_call 00000001800012e0 f   Tanques_quick_start_sfun.obj
+ 0001:000007b0       sf_Tanques_quick_start_autoinheritance_info 00000001800017b0 f   Tanques_quick_start_sfun.obj
+ 0001:00000ba0       sf_Tanques_quick_start_get_eml_resolved_functions_info 0000000180001ba0 f   Tanques_quick_start_sfun.obj
+ 0001:00000ed0       sf_Tanques_quick_start_third_party_uses_info 0000000180001ed0 f   Tanques_quick_start_sfun.obj
+ 0001:000011c0       sf_Tanques_quick_start_updateBuildInfo_args_info 00000001800021c0 f   Tanques_quick_start_sfun.obj
+ 0001:000014b0       Tanques_quick_start_debug_initialize 00000001800024b0 f   Tanques_quick_start_sfun.obj
+ 0001:00001530       Tanques_quick_start_register_exported_symbols 0000000180002530 f   Tanques_quick_start_sfun.obj
+ 0001:00001540       load_Tanques_quick_start_optimization_info 0000000180002540 f   Tanques_quick_start_sfun.obj
+ 0001:00001590       unload_Tanques_quick_start_optimization_info 0000000180002590 f   Tanques_quick_start_sfun.obj
+ 0001:000015c0       sf_c1_Tanques_quick_start_get_eml_resolved_functions_info 00000001800025c0 f   c1_Tanques_quick_start.obj
+ 0001:00001640       sf_c1_Tanques_quick_start_get_check_sum 0000000180002640 f   c1_Tanques_quick_start.obj
+ 0001:000016c0       sf_c1_Tanques_quick_start_get_autoinheritance_info 00000001800026c0 f   c1_Tanques_quick_start.obj
+ 0001:00001d70       sf_c1_Tanques_quick_start_third_party_uses_info 0000000180002d70 f   c1_Tanques_quick_start.obj
+ 0001:00001da0       sf_c1_Tanques_quick_start_updateBuildInfo_args_info 0000000180002da0 f   c1_Tanques_quick_start.obj
+ 0001:00001dd0       sf_internal_get_sim_state_c1_Tanques_quick_start 0000000180002dd0 f   c1_Tanques_quick_start.obj
+ 0001:00002140       sf_internal_set_sim_state_c1_Tanques_quick_start 0000000180003140 f   c1_Tanques_quick_start.obj
+ 0001:00002530       c1_Tanques_quick_start_method_dispatcher 0000000180003530 f   c1_Tanques_quick_start.obj
+ 0001:00006a70       sf_c2_Tanques_quick_start_get_eml_resolved_functions_info 0000000180007a70 f   c2_Tanques_quick_start.obj
+ 0001:0000ab30       sf_c2_Tanques_quick_start_get_check_sum 000000018000bb30 f   c2_Tanques_quick_start.obj
+ 0001:0000abb0       sf_c2_Tanques_quick_start_get_autoinheritance_info 000000018000bbb0 f   c2_Tanques_quick_start.obj
+ 0001:0000b630       sf_c2_Tanques_quick_start_third_party_uses_info 000000018000c630 f   c2_Tanques_quick_start.obj
+ 0001:0000b660       sf_c2_Tanques_quick_start_updateBuildInfo_args_info 000000018000c660 f   c2_Tanques_quick_start.obj
+ 0001:0000b690       sf_internal_get_sim_state_c2_Tanques_quick_start 000000018000c690 f   c2_Tanques_quick_start.obj
+ 0001:0000bea0       sf_internal_set_sim_state_c2_Tanques_quick_start 000000018000cea0 f   c2_Tanques_quick_start.obj
+ 0001:0000c960       c2_Tanques_quick_start_method_dispatcher 000000018000d960 f   c2_Tanques_quick_start.obj
+ 0001:00012240       sf_c3_Tanques_quick_start_get_eml_resolved_functions_info 0000000180013240 f   c3_Tanques_quick_start.obj
+ 0001:000122c0       sf_c3_Tanques_quick_start_get_check_sum 00000001800132c0 f   c3_Tanques_quick_start.obj
+ 0001:00012340       sf_c3_Tanques_quick_start_get_autoinheritance_info 0000000180013340 f   c3_Tanques_quick_start.obj
+ 0001:000128b0       sf_c3_Tanques_quick_start_third_party_uses_info 00000001800138b0 f   c3_Tanques_quick_start.obj
+ 0001:000128e0       sf_c3_Tanques_quick_start_updateBuildInfo_args_info 00000001800138e0 f   c3_Tanques_quick_start.obj
+ 0001:00012910       sf_internal_get_sim_state_c3_Tanques_quick_start 0000000180013910 f   c3_Tanques_quick_start.obj
+ 0001:00012c70       sf_internal_set_sim_state_c3_Tanques_quick_start 0000000180013c70 f   c3_Tanques_quick_start.obj
+ 0001:00013060       c3_Tanques_quick_start_method_dispatcher 0000000180014060 f   c3_Tanques_quick_start.obj
+ 0001:00015010       sf_c4_Tanques_quick_start_get_eml_resolved_functions_info 0000000180016010 f   c4_Tanques_quick_start.obj
+ 0001:00015850       sf_c4_Tanques_quick_start_get_check_sum 0000000180016850 f   c4_Tanques_quick_start.obj
+ 0001:000158d0       sf_c4_Tanques_quick_start_get_autoinheritance_info 00000001800168d0 f   c4_Tanques_quick_start.obj
+ 0001:00015e40       sf_c4_Tanques_quick_start_third_party_uses_info 0000000180016e40 f   c4_Tanques_quick_start.obj
+ 0001:00015e70       sf_c4_Tanques_quick_start_updateBuildInfo_args_info 0000000180016e70 f   c4_Tanques_quick_start.obj
+ 0001:00015ea0       sf_internal_get_sim_state_c4_Tanques_quick_start 0000000180016ea0 f   c4_Tanques_quick_start.obj
+ 0001:00016240       sf_internal_set_sim_state_c4_Tanques_quick_start 0000000180017240 f   c4_Tanques_quick_start.obj
+ 0001:000166a0       c4_Tanques_quick_start_method_dispatcher 00000001800176a0 f   c4_Tanques_quick_start.obj
+ 0001:00018b80       sf_c5_Tanques_quick_start_get_eml_resolved_functions_info 0000000180019b80 f   c5_Tanques_quick_start.obj
+ 0001:0001c4f0       sf_c5_Tanques_quick_start_get_check_sum 000000018001d4f0 f   c5_Tanques_quick_start.obj
+ 0001:0001c570       sf_c5_Tanques_quick_start_get_autoinheritance_info 000000018001d570 f   c5_Tanques_quick_start.obj
+ 0001:0001cae0       sf_c5_Tanques_quick_start_third_party_uses_info 000000018001dae0 f   c5_Tanques_quick_start.obj
+ 0001:0001cb10       sf_c5_Tanques_quick_start_updateBuildInfo_args_info 000000018001db10 f   c5_Tanques_quick_start.obj
+ 0001:0001cb40       sf_internal_get_sim_state_c5_Tanques_quick_start 000000018001db40 f   c5_Tanques_quick_start.obj
+ 0001:0001ceb0       sf_internal_set_sim_state_c5_Tanques_quick_start 000000018001deb0 f   c5_Tanques_quick_start.obj
+ 0001:0001d2a0       c5_Tanques_quick_start_method_dispatcher 000000018001e2a0 f   c5_Tanques_quick_start.obj
+ 0001:0001fc50       sf_c6_Tanques_quick_start_get_eml_resolved_functions_info 0000000180020c50 f   c6_Tanques_quick_start.obj
+ 0001:00020490       sf_c6_Tanques_quick_start_get_check_sum 0000000180021490 f   c6_Tanques_quick_start.obj
+ 0001:00020510       sf_c6_Tanques_quick_start_get_autoinheritance_info 0000000180021510 f   c6_Tanques_quick_start.obj
+ 0001:00020a80       sf_c6_Tanques_quick_start_third_party_uses_info 0000000180021a80 f   c6_Tanques_quick_start.obj
+ 0001:00020ab0       sf_c6_Tanques_quick_start_updateBuildInfo_args_info 0000000180021ab0 f   c6_Tanques_quick_start.obj
+ 0001:00020ae0       sf_internal_get_sim_state_c6_Tanques_quick_start 0000000180021ae0 f   c6_Tanques_quick_start.obj
+ 0001:00020e70       sf_internal_set_sim_state_c6_Tanques_quick_start 0000000180021e70 f   c6_Tanques_quick_start.obj
+ 0001:000212d0       c6_Tanques_quick_start_method_dispatcher 00000001800222d0 f   c6_Tanques_quick_start.obj
+ 0001:000237a0       sf_c7_Tanques_quick_start_get_eml_resolved_functions_info 00000001800247a0 f   c7_Tanques_quick_start.obj
+ 0001:00025b00       sf_c7_Tanques_quick_start_get_check_sum 0000000180026b00 f   c7_Tanques_quick_start.obj
+ 0001:00025b80       sf_c7_Tanques_quick_start_get_autoinheritance_info 0000000180026b80 f   c7_Tanques_quick_start.obj
+ 0001:000260f0       sf_c7_Tanques_quick_start_third_party_uses_info 00000001800270f0 f   c7_Tanques_quick_start.obj
+ 0001:00026120       sf_c7_Tanques_quick_start_updateBuildInfo_args_info 0000000180027120 f   c7_Tanques_quick_start.obj
+ 0001:00026150       sf_internal_get_sim_state_c7_Tanques_quick_start 0000000180027150 f   c7_Tanques_quick_start.obj
+ 0001:000264e0       sf_internal_set_sim_state_c7_Tanques_quick_start 00000001800274e0 f   c7_Tanques_quick_start.obj
+ 0001:00026940       c7_Tanques_quick_start_method_dispatcher 0000000180027940 f   c7_Tanques_quick_start.obj
+ 0001:000294c0       sf_c8_Tanques_quick_start_get_eml_resolved_functions_info 000000018002a4c0 f   c8_Tanques_quick_start.obj
+ 0001:0002ce30       sf_c8_Tanques_quick_start_get_check_sum 000000018002de30 f   c8_Tanques_quick_start.obj
+ 0001:0002ceb0       sf_c8_Tanques_quick_start_get_autoinheritance_info 000000018002deb0 f   c8_Tanques_quick_start.obj
+ 0001:0002d420       sf_c8_Tanques_quick_start_third_party_uses_info 000000018002e420 f   c8_Tanques_quick_start.obj
+ 0001:0002d450       sf_c8_Tanques_quick_start_updateBuildInfo_args_info 000000018002e450 f   c8_Tanques_quick_start.obj
+ 0001:0002d480       sf_internal_get_sim_state_c8_Tanques_quick_start 000000018002e480 f   c8_Tanques_quick_start.obj
+ 0001:0002d7e0       sf_internal_set_sim_state_c8_Tanques_quick_start 000000018002e7e0 f   c8_Tanques_quick_start.obj
+ 0001:0002dbd0       c8_Tanques_quick_start_method_dispatcher 000000018002ebd0 f   c8_Tanques_quick_start.obj
+ 0001:000305a0       sf_c9_Tanques_quick_start_get_eml_resolved_functions_info 00000001800315a0 f   c9_Tanques_quick_start.obj
+ 0001:00030970       sf_c9_Tanques_quick_start_get_check_sum 0000000180031970 f   c9_Tanques_quick_start.obj
+ 0001:000309f0       sf_c9_Tanques_quick_start_get_autoinheritance_info 00000001800319f0 f   c9_Tanques_quick_start.obj
+ 0001:00030f60       sf_c9_Tanques_quick_start_third_party_uses_info 0000000180031f60 f   c9_Tanques_quick_start.obj
+ 0001:00030f90       sf_c9_Tanques_quick_start_updateBuildInfo_args_info 0000000180031f90 f   c9_Tanques_quick_start.obj
+ 0001:00030fc0       sf_internal_get_sim_state_c9_Tanques_quick_start 0000000180031fc0 f   c9_Tanques_quick_start.obj
+ 0001:00031330       sf_internal_set_sim_state_c9_Tanques_quick_start 0000000180032330 f   c9_Tanques_quick_start.obj
+ 0001:00031720       c9_Tanques_quick_start_method_dispatcher 0000000180032720 f   c9_Tanques_quick_start.obj
+ 0001:00033680       sf_process_check_sum_call  0000000180034680 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000336d0       sf_process_testpoint_info_call 00000001800346d0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033720       sf_process_autoinheritance_call 0000000180034720 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000338c0       sf_process_get_third_party_uses_info_call 00000001800348c0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033a60       sf_process_get_updateBuildInfo_args_info_call 0000000180034a60 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033c00       sf_process_get_eml_resolved_functions_info_call 0000000180034c00 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033d80       sf_mex_unlock_call         0000000180034d80 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033e30       sf_machine_global_initializer_called 0000000180034e30 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033e60       sf_machine_global_method_dispatcher 0000000180034e60 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033ec0       sf_machine_global_terminator 0000000180034ec0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033f10       sf_register_machine_exported_symbols 0000000180034f10 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033f30       callCustomFcn              0000000180034f30 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033f40       sf_machine_global_initializer 0000000180034f40 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00033fc0       mdlGetSimState             0000000180034fc0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034040       mdlSetSimState             0000000180035040 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034080       _ssSetStateAbsTol          0000000180035080 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034160       _ssGetAbsTol               0000000180035160 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000341d0       _ssSetInputPortMatrixDimensions 00000001800351d0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000342e0       _ssSetOutputPortMatrixDimensions 00000001800352e0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000343f0       _ssSetInputPortVectorDimension 00000001800353f0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000344c0       _ssSetOutputPortVectorDimension 00000001800354c0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034590       ssIsRunTimeParamTunable    0000000180035590 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034600       ssGetSFuncBlockHandle      0000000180035600 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034670       _ssGetCurrentInputPortWidth 0000000180035670 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034790       _ssGetCurrentOutputPortWidth 0000000180035790 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000348b0       _ssGetCallSystemNumFcnCallDestinations 00000001800358b0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034920       ssWarning                  0000000180035920 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034a30       ssGetIsZeroCrossControlDisabled 0000000180035a30 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034aa0       ssSetIsInputPortUsedForContZcSignal 0000000180035aa0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034b10       ssSetZcSignalIsZcElementDisc 0000000180035b10 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034bc0       ssSetZcSignalName          0000000180035bc0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034c30       ssSetZcSignalWidth         0000000180035c30 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034ca0       ssSetZcSignalZcEventType   0000000180035ca0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034d10       ssSetZcSignalType          0000000180035d10 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034d80       ssSetZcSignalZcTol         0000000180035d80 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034df0       ssSetZcSignalNeedsEventNotification 0000000180035df0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034e60       ssCreateAndAddZcSignalInfo 0000000180035e60 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034ed0       ssCloneAndAddZcSignalInfo  0000000180035ed0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034f40       ssGetNumZcSignals          0000000180035f40 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00034fb0       ssGetZcSignalVector        0000000180035fb0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035020       ssGetZcSignalZcEvents      0000000180036020 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035090       ssGetZcSignalName          0000000180036090 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035100       ssGetZcSignalWidth         0000000180036100 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035170       ssGetZcSignalZcEventType   0000000180036170 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000351e0       ssGetZcSignalType          00000001800361e0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035250       ssGetZcSignalZcTol         0000000180036250 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000352d0       ssGetZcSignalNeedsEventNotification 00000001800362d0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035340       ssGetZcSignalIsZcElementDisc 0000000180036340 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000353e0       ssGetIsInputPortElementContinuous 00000001800363e0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035480       _ssGetInputPortSignalPtrsFcn 0000000180036480 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035740       _ssGetInputPortSignalFcn   0000000180036740 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035960       _ssSetInputPortDirectFeedThroughFcn 0000000180036960 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035ac0       _ssSetInputPortReusableFcn 0000000180036ac0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035bb0       _ssSetOutputPortReusableFcn 0000000180036bb0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035c90       ssGetDTypeIdFromMxArray    0000000180036c90 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035db0       ssWriteRTWStr              0000000180036db0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035e10       ssWriteRTWMxVectParam      0000000180036e10 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035e70       ssWriteRTWMx2dMatParam     0000000180036e70 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00035ef0       ssWriteRTWNameValuePair    0000000180036ef0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000363e0       ssWriteRTWParameters       00000001800373e0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000369e0       ssWriteRTWParamSettings    00000001800379e0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000370b0       ssWriteRTWWorkVect         00000001800380b0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000375b0       mexFunction                00000001800385b0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00039a60       ProcessMexSfunctionEveryCall 000000018003aa60 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00039be2       sf_debug_set_machine_data_thresholds 000000018003abe2 f   sf_runtime:sf_runtime.dll
+ 0001:00039be8       sf_debug_set_machine_event_thresholds 000000018003abe8 f   sf_runtime:sf_runtime.dll
+ 0001:00039bee       sf_debug_initialize_machine 000000018003abee f   sf_runtime:sf_runtime.dll
+ 0001:00039bf4       sf_load_rtw_optimization_info 000000018003abf4 f   sf_runtime:sf_runtime.dll
+ 0001:00039bfa       sf_mex_assign              000000018003abfa f   sf_runtime:sf_runtime.dll
+ 0001:00039c00       sf_mex_create              000000018003ac00 f   sf_runtime:sf_runtime.dll
+ 0001:00039c06       sf_mex_error_message       000000018003ac06 f   sf_runtime:sf_runtime.dll
+ 0001:00039c0c       sf_mex_call_matlab         000000018003ac0c f   sf_runtime:sf_runtime.dll
+ 0001:00039c12       sf_mex_setcell             000000018003ac12 f   sf_runtime:sf_runtime.dll
+ 0001:00039c18       sf_mex_createcellmatrix    000000018003ac18 f   sf_runtime:sf_runtime.dll
+ 0001:00039c1e       sf_mex_decode_encoded_mx_struct_array 000000018003ac1e f   sf_runtime:sf_runtime.dll
+ 0001:00039c24       sf_mex_destroy             000000018003ac24 f   sf_runtime:sf_runtime.dll
+ 0001:00039c2a       sf_mex_getcell             000000018003ac2a f   sf_runtime:sf_runtime.dll
+ 0001:00039c30       sf_mex_dup                 000000018003ac30 f   sf_runtime:sf_runtime.dll
+ 0001:00039c36       sf_mex_import              000000018003ac36 f   sf_runtime:sf_runtime.dll
+ 0001:00039c3c       sf_set_rtw_dwork_info      000000018003ac3c f   sf_runtime:sf_runtime.dll
+ 0001:00039c42       sf_mark_chart_reusable_outputs 000000018003ac42 f   sf_runtime:sf_runtime.dll
+ 0001:00039c48       sf_mark_chart_expressionable_inputs 000000018003ac48 f   sf_runtime:sf_runtime.dll
+ 0001:00039c4e       sf_update_buildInfo        000000018003ac4e f   sf_runtime:sf_runtime.dll
+ 0001:00039c54       sf_rtw_info_uint_prop      000000018003ac54 f   sf_runtime:sf_runtime.dll
+ 0001:00039c5a       sf_is_chart_inlinable      000000018003ac5a f   sf_runtime:sf_runtime.dll
+ 0001:00039c60       sim_mode_is_external       000000018003ac60 f   sf_runtime:sf_runtime.dll
+ 0001:00039c66       sim_mode_is_rtw_gen        000000018003ac66 f   sf_runtime:sf_runtime.dll
+ 0001:00039c6c       sf_debug_reset_current_state_configuration 000000018003ac6c f   sf_runtime:sf_runtime.dll
+ 0001:00039c72       sf_debug_set_instance_data_value_ptr 000000018003ac72 f   sf_runtime:sf_runtime.dll
+ 0001:00039c78       sf_debug_set_chart_data_compiled_props 000000018003ac78 f   sf_runtime:sf_runtime.dll
+ 0001:00039c7e       cv_eml_init_mcdc           000000018003ac7e f   sf_runtime:sf_runtime.dll
+ 0001:00039c84       cv_eml_init_if             000000018003ac84 f   sf_runtime:sf_runtime.dll
+ 0001:00039c8a       cv_eml_init_fcn            000000018003ac8a f   sf_runtime:sf_runtime.dll
+ 0001:00039c90       cv_eml_init_script         000000018003ac90 f   sf_runtime:sf_runtime.dll
+ 0001:00039c96       sf_debug_cv_init_trans     000000018003ac96 f   sf_runtime:sf_runtime.dll
+ 0001:00039c9c       sf_debug_cv_init_state     000000018003ac9c f   sf_runtime:sf_runtime.dll
+ 0001:00039ca2       sf_debug_cv_init_chart     000000018003aca2 f   sf_runtime:sf_runtime.dll
+ 0001:00039ca8       sf_debug_set_chart_decomposition 000000018003aca8 f   sf_runtime:sf_runtime.dll
+ 0001:00039cae       sf_debug_set_chart_substate_count 000000018003acae f   sf_runtime:sf_runtime.dll
+ 0001:00039cb4       sf_debug_set_chart_state_info 000000018003acb4 f   sf_runtime:sf_runtime.dll
+ 0001:00039cba       sf_debug_set_chart_data_props 000000018003acba f   sf_runtime:sf_runtime.dll
+ 0001:00039cc0       sf_debug_set_chart_event_thresholds 000000018003acc0 f   sf_runtime:sf_runtime.dll
+ 0001:00039cc6       sf_debug_set_chart_disable_implicit_casting 000000018003acc6 f   sf_runtime:sf_runtime.dll
+ 0001:00039ccc       sf_debug_initialize_chart  000000018003accc f   sf_runtime:sf_runtime.dll
+ 0001:00039cd2       sf_get_time                000000018003acd2 f   sf_runtime:sf_runtime.dll
+ 0001:00039cd8       sf_debug_check_for_state_inconsistency 000000018003acd8 f   sf_runtime:sf_runtime.dll
+ 0001:00039cde       sf_debug_symbol_scope_pop  000000018003acde f   sf_runtime:sf_runtime.dll
+ 0001:00039ce4       eml_debug_line_call        000000018003ace4 f   sf_runtime:sf_runtime.dll
+ 0001:00039cea       cv_eml_eval                000000018003acea f   sf_runtime:sf_runtime.dll
+ 0001:00039cf0       sf_debug_symbol_scope_add_eml 000000018003acf0 f   sf_runtime:sf_runtime.dll
+ 0001:00039cf6       sf_debug_symbol_scope_add_eml_importable 000000018003acf6 f   sf_runtime:sf_runtime.dll
+ 0001:00039cfc       sf_debug_symbol_scope_push_eml 000000018003acfc f   sf_runtime:sf_runtime.dll
+ 0001:00039d02       sf_debug_data_range_wrapper 000000018003ad02 f   sf_runtime:sf_runtime.dll
+ 0001:00039d08       sf_debug_call              000000018003ad08 f   sf_runtime:sf_runtime.dll
+ 0001:00039d0e       sf_debug_symbol_scope_push 000000018003ad0e f   sf_runtime:sf_runtime.dll
+ 0001:00039d14       sf_clear_rtw_identifier    000000018003ad14 f   sf_runtime:sf_runtime.dll
+ 0001:00039d1a       sf_mex_emlrtNameCapturePostProcessR2012a 000000018003ad1a f   sf_runtime:sf_runtime.dll
+ 0001:00039d20       sf_mex_createstruct        000000018003ad20 f   sf_runtime:sf_runtime.dll
+ 0001:00039d26       sf_mex_duplicatearraysafe  000000018003ad26 f   sf_runtime:sf_runtime.dll
+ 0001:00039d2c       sf_mex_addfield            000000018003ad2c f   sf_runtime:sf_runtime.dll
+ 0001:00039d32       cv_script_init_fcn         000000018003ad32 f   sf_runtime:sf_runtime.dll
+ 0001:00039d38       cv_script_init_script      000000018003ad38 f   sf_runtime:sf_runtime.dll
+ 0001:00039d3e       cv_eml_init_saturation     000000018003ad3e f   sf_runtime:sf_runtime.dll
+ 0001:00039d44       sf_debug_set_script_translation 000000018003ad44 f   sf_runtime:sf_runtime.dll
+ 0001:00039d4a       sf_debug_get_script_id     000000018003ad4a f   sf_runtime:sf_runtime.dll
+ 0001:00039d50       cv_script_eval             000000018003ad50 f   sf_runtime:sf_runtime.dll
+ 0001:00039d56       cv_eval_saturation         000000018003ad56 f   sf_runtime:sf_runtime.dll
+ 0001:00039d5c       sf_debug_eml_data_array_bounds_error_check 000000018003ad5c f   sf_runtime:sf_runtime.dll
+ 0001:00039d62       sf_debug_integer_check     000000018003ad62 f   sf_runtime:sf_runtime.dll
+ 0001:00039d68       sf_mex_call_debug          000000018003ad68 f   sf_runtime:sf_runtime.dll
+ 0001:00039d6e       sf_debug_terminate         000000018003ad6e f   sf_runtime:sf_runtime.dll
+ 0001:00039d74       sf_debug_create_debug_instance_struct 000000018003ad74 f   sf_runtime:sf_runtime.dll
+ 0001:00039d7a       sf_debug_api               000000018003ad7a f   sf_runtime:sf_runtime.dll
+ 0001:00039d80       callMdlMethodAndReportError 000000018003ad80 f   sf_runtime:sf_runtime.dll
+ 0001:00039d86       call_sf_machine_global_method_dispatcher 000000018003ad86 f   sf_runtime:sf_runtime.dll
+ 0001:00039d8c       sf_clear_error_manager_info 000000018003ad8c f   sf_runtime:sf_runtime.dll
+ 0001:00039d92       sf_mex_error_direct_call   000000018003ad92 f   sf_runtime:sf_runtime.dll
+ 0001:00039d98       mxCreateDoubleMatrix_730   000000018003ad98 f   libmx:libmx.dll
+ 0001:00039d9e       mxGetScalar                000000018003ad9e f   libmx:libmx.dll
+ 0001:00039da4       mxGetString_730            000000018003ada4 f   libmx:libmx.dll
+ 0001:00039daa       mxIsChar                   000000018003adaa f   libmx:libmx.dll
+ 0001:00039db0       mxGetPr                    000000018003adb0 f   libmx:libmx.dll
+ 0001:00039db6       mxDestroyArray             000000018003adb6 f   libmx:libmx.dll
+ 0001:00039dbc       mxDuplicateArray           000000018003adbc f   libmx:libmx.dll
+ 0001:00039dc2       mxCreateDoubleScalar       000000018003adc2 f   libmx:libmx.dll
+ 0001:00039dc8       mxSetField_730             000000018003adc8 f   libmx:libmx.dll
+ 0001:00039dce       mxCreateString             000000018003adce f   libmx:libmx.dll
+ 0001:00039dd4       mxCreateStructMatrix_730   000000018003add4 f   libmx:libmx.dll
+ 0001:00039dda       mxCreateCellMatrix_730     000000018003adda f   libmx:libmx.dll
+ 0001:00039de0       mxIsEmpty                  000000018003ade0 f   libmx:libmx.dll
+ 0001:00039de6       mxGetClassID               000000018003ade6 f   libmx:libmx.dll
+ 0001:00039dec       mxIsNumeric                000000018003adec f   libmx:libmx.dll
+ 0001:00039df2       mxIsComplex                000000018003adf2 f   libmx:libmx.dll
+ 0001:00039df8       mxGetN                     000000018003adf8 f   libmx:libmx.dll
+ 0001:00039dfe       mxGetM                     000000018003adfe f   libmx:libmx.dll
+ 0001:00039e04       mxCalloc                   000000018003ae04 f   libmx:libmx.dll
+ 0001:00039e0a       mexMakeArrayPersistent     000000018003ae0a f   libmex:libmex.dll
+ 0001:00039e10       mexUnlock                  000000018003ae10 f   libmex:libmex.dll
+ 0001:00039e16       mexIsLocked                000000018003ae16 f   libmex:libmex.dll
+ 0001:00039e1c       mexWarnMsgTxt              000000018003ae1c f   libmex:libmex.dll
+ 0001:00039e22       mexCallMATLAB              000000018003ae22 f   libmex:libmex.dll
+ 0001:00039e28       mexErrMsgTxt               000000018003ae28 f   libmex:libmex.dll
+ 0001:00039e2e       mexLock                    000000018003ae2e f   libmex:libmex.dll
+ 0001:00039e34       utMalloc                   000000018003ae34 f   libut:libut.dll
+ 0001:00039e3a       utFree                     000000018003ae3a f   libut:libut.dll
+ 0001:00039e40       muDoubleScalarRound        000000018003ae40 f   libmwmathutil:libmwmathutil.dll
+ 0001:00039e48       __GSHandlerCheckCommon     000000018003ae48 f   MSVCRT:gshandler.obj
+ 0001:00039eac       __GSHandlerCheck           000000018003aeac f   MSVCRT:gshandler.obj
+ 0001:00039eca       strcmp                     000000018003aeca f   MSVCRT:MSVCR100.dll
+ 0001:00039ee0       __security_check_cookie    000000018003aee0 f   MSVCRT:amdsecgs.obj
+ 0001:00039f00       memset                     000000018003af00 f   MSVCRT:MSVCR100.dll
+ 0001:00039f06       strlen                     000000018003af06 f   MSVCRT:MSVCR100.dll
+ 0001:00039f0c       free                       000000018003af0c f   MSVCRT:MSVCR100.dll
+ 0001:00039f12       sprintf                    000000018003af12 f   MSVCRT:MSVCR100.dll
+ 0001:00039f18       malloc                     000000018003af18 f   MSVCRT:MSVCR100.dll
+ 0001:00039f1e       strcat                     000000018003af1e f   MSVCRT:MSVCR100.dll
+ 0001:00039f24       memcpy                     000000018003af24 f   MSVCRT:MSVCR100.dll
+ 0001:00039f2c       NtCurrentTeb               000000018003af2c f i MSVCRT:crtdll.obj
+ 0001:00039f98       _CRT_INIT                  000000018003af98 f   MSVCRT:crtdll.obj
+ 0001:0003a330       _DllMainCRTStartup         000000018003b330 f   MSVCRT:crtdll.obj
+ 0001:0003a370       __report_gsfailure         000000018003b370 f   MSVCRT:gs_report.obj
+ 0001:0003a4bc       __clean_type_info_names    000000018003b4bc f   MSVCRT:tncleanup.obj
+ 0001:0003a4c8       _onexit                    000000018003b4c8 f   MSVCRT:atonexit.obj
+ 0001:0003a578       atexit                     000000018003b578 f   MSVCRT:atonexit.obj
+ 0001:0003a590       _RTC_Initialize            000000018003b590 f   MSVCRT:_initsect_.obj
+ 0001:0003a5c8       _RTC_Terminate             000000018003b5c8 f   MSVCRT:_initsect_.obj
+ 0001:0003a600       _malloc_crt                000000018003b600 f   MSVCRT:MSVCR100.dll
+ 0001:0003a610       _ValidateImageBase         000000018003b610 f   MSVCRT:pesect.obj
+ 0001:0003a640       _FindPESection             000000018003b640 f   MSVCRT:pesect.obj
+ 0001:0003a690       _IsNonwritableInCurrentImage 000000018003b690 f   MSVCRT:pesect.obj
+ 0001:0003a6d2       _initterm                  000000018003b6d2 f   MSVCRT:MSVCR100.dll
+ 0001:0003a6d8       _initterm_e                000000018003b6d8 f   MSVCRT:MSVCR100.dll
+ 0001:0003a6de       _encoded_null              000000018003b6de f   MSVCRT:MSVCR100.dll
+ 0001:0003a6e4       _amsg_exit                 000000018003b6e4 f   MSVCRT:MSVCR100.dll
+ 0001:0003a6ea       __C_specific_handler       000000018003b6ea f   MSVCRT:MSVCR100.dll
+ 0001:0003a6f0       __CppXcptFilter            000000018003b6f0 f   MSVCRT:MSVCR100.dll
+ 0001:0003a6f8       DllMain                    000000018003b6f8 f   MSVCRT:dllmain.obj
+ 0001:0003a71c       __security_init_cookie     000000018003b71c f   MSVCRT:gs_support.obj
+ 0001:0003a7d0       __crt_debugger_hook        000000018003b7d0 f   MSVCRT:MSVCR100.dll
+ 0001:0003a7d6       __clean_type_info_names_internal 000000018003b7d6 f   MSVCRT:MSVCR100.dll
+ 0001:0003a7dc       _unlock                    000000018003b7dc f   MSVCRT:MSVCR100.dll
+ 0001:0003a7e2       __dllonexit                000000018003b7e2 f   MSVCRT:MSVCR100.dll
+ 0001:0003a7e8       _lock                      000000018003b7e8 f   MSVCRT:MSVCR100.dll
+ 0001:0003a7ee       EncodePointer              000000018003b7ee f   kernel32:KERNEL32.dll
+ 0001:0003a7f4       DecodePointer              000000018003b7f4 f   kernel32:KERNEL32.dll
+ 0001:0003a7fa       Sleep                      000000018003b7fa f   kernel32:KERNEL32.dll
+ 0001:0003a800       TerminateProcess           000000018003b800 f   kernel32:KERNEL32.dll
+ 0001:0003a806       GetCurrentProcess          000000018003b806 f   kernel32:KERNEL32.dll
+ 0001:0003a80c       UnhandledExceptionFilter   000000018003b80c f   kernel32:KERNEL32.dll
+ 0001:0003a812       SetUnhandledExceptionFilter 000000018003b812 f   kernel32:KERNEL32.dll
+ 0001:0003a818       IsDebuggerPresent          000000018003b818 f   kernel32:KERNEL32.dll
+ 0001:0003a81e       RtlVirtualUnwind           000000018003b81e f   kernel32:KERNEL32.dll
+ 0001:0003a824       RtlLookupFunctionEntry     000000018003b824 f   kernel32:KERNEL32.dll
+ 0001:0003a82a       RtlCaptureContext          000000018003b82a f   kernel32:KERNEL32.dll
+ 0001:0003a830       DisableThreadLibraryCalls  000000018003b830 f   kernel32:KERNEL32.dll
+ 0001:0003a836       QueryPerformanceCounter    000000018003b836 f   kernel32:KERNEL32.dll
+ 0001:0003a83c       GetTickCount               000000018003b83c f   kernel32:KERNEL32.dll
+ 0001:0003a842       GetCurrentThreadId         000000018003b842 f   kernel32:KERNEL32.dll
+ 0001:0003a848       GetCurrentProcessId        000000018003b848 f   kernel32:KERNEL32.dll
+ 0001:0003a84e       GetSystemTimeAsFileTime    000000018003b84e f   kernel32:KERNEL32.dll
+ 0002:00000000       __imp_GetCurrentProcessId  000000018003c000     kernel32:KERNEL32.dll
+ 0002:00000008       __imp_GetCurrentThreadId   000000018003c008     kernel32:KERNEL32.dll
+ 0002:00000010       __imp_GetTickCount         000000018003c010     kernel32:KERNEL32.dll
+ 0002:00000018       __imp_QueryPerformanceCounter 000000018003c018     kernel32:KERNEL32.dll
+ 0002:00000020       __imp_DisableThreadLibraryCalls 000000018003c020     kernel32:KERNEL32.dll
+ 0002:00000028       __imp_RtlCaptureContext    000000018003c028     kernel32:KERNEL32.dll
+ 0002:00000030       __imp_RtlLookupFunctionEntry 000000018003c030     kernel32:KERNEL32.dll
+ 0002:00000038       __imp_RtlVirtualUnwind     000000018003c038     kernel32:KERNEL32.dll
+ 0002:00000040       __imp_IsDebuggerPresent    000000018003c040     kernel32:KERNEL32.dll
+ 0002:00000048       __imp_SetUnhandledExceptionFilter 000000018003c048     kernel32:KERNEL32.dll
+ 0002:00000050       __imp_UnhandledExceptionFilter 000000018003c050     kernel32:KERNEL32.dll
+ 0002:00000058       __imp_GetCurrentProcess    000000018003c058     kernel32:KERNEL32.dll
+ 0002:00000060       __imp_TerminateProcess     000000018003c060     kernel32:KERNEL32.dll
+ 0002:00000068       __imp_Sleep                000000018003c068     kernel32:KERNEL32.dll
+ 0002:00000070       __imp_DecodePointer        000000018003c070     kernel32:KERNEL32.dll
+ 0002:00000078       __imp_EncodePointer        000000018003c078     kernel32:KERNEL32.dll
+ 0002:00000080       __imp_GetSystemTimeAsFileTime 000000018003c080     kernel32:KERNEL32.dll
+ 0002:00000088       \177KERNEL32_NULL_THUNK_DATA 000000018003c088     kernel32:KERNEL32.dll
+ 0002:00000090       __imp__onexit              000000018003c090     MSVCRT:MSVCR100.dll
+ 0002:00000098       __imp__lock                000000018003c098     MSVCRT:MSVCR100.dll
+ 0002:000000a0       __imp___dllonexit          000000018003c0a0     MSVCRT:MSVCR100.dll
+ 0002:000000a8       __imp__unlock              000000018003c0a8     MSVCRT:MSVCR100.dll
+ 0002:000000b0       __imp___clean_type_info_names_internal 000000018003c0b0     MSVCRT:MSVCR100.dll
+ 0002:000000b8       __imp___crt_debugger_hook  000000018003c0b8     MSVCRT:MSVCR100.dll
+ 0002:000000c0       __imp___CppXcptFilter      000000018003c0c0     MSVCRT:MSVCR100.dll
+ 0002:000000c8       __imp___C_specific_handler 000000018003c0c8     MSVCRT:MSVCR100.dll
+ 0002:000000d0       __imp__amsg_exit           000000018003c0d0     MSVCRT:MSVCR100.dll
+ 0002:000000d8       __imp__encoded_null        000000018003c0d8     MSVCRT:MSVCR100.dll
+ 0002:000000e0       __imp__initterm_e          000000018003c0e0     MSVCRT:MSVCR100.dll
+ 0002:000000e8       __imp__initterm            000000018003c0e8     MSVCRT:MSVCR100.dll
+ 0002:000000f0       __imp__malloc_crt          000000018003c0f0     MSVCRT:MSVCR100.dll
+ 0002:000000f8       __imp_memcpy               000000018003c0f8     MSVCRT:MSVCR100.dll
+ 0002:00000100       __imp_strcat               000000018003c100     MSVCRT:MSVCR100.dll
+ 0002:00000108       __imp_malloc               000000018003c108     MSVCRT:MSVCR100.dll
+ 0002:00000110       __imp_sprintf              000000018003c110     MSVCRT:MSVCR100.dll
+ 0002:00000118       __imp_free                 000000018003c118     MSVCRT:MSVCR100.dll
+ 0002:00000120       __imp_strlen               000000018003c120     MSVCRT:MSVCR100.dll
+ 0002:00000128       __imp_memset               000000018003c128     MSVCRT:MSVCR100.dll
+ 0002:00000130       __imp_strcmp               000000018003c130     MSVCRT:MSVCR100.dll
+ 0002:00000138       \177MSVCR100_NULL_THUNK_DATA 000000018003c138     MSVCRT:MSVCR100.dll
+ 0002:00000140       __imp_mexCallMATLAB        000000018003c140     libmex:libmex.dll
+ 0002:00000148       __imp_mexUnlock            000000018003c148     libmex:libmex.dll
+ 0002:00000150       __imp_mexLock              000000018003c150     libmex:libmex.dll
+ 0002:00000158       __imp_mexErrMsgTxt         000000018003c158     libmex:libmex.dll
+ 0002:00000160       __imp_mexMakeArrayPersistent 000000018003c160     libmex:libmex.dll
+ 0002:00000168       __imp_mexWarnMsgTxt        000000018003c168     libmex:libmex.dll
+ 0002:00000170       __imp_mexIsLocked          000000018003c170     libmex:libmex.dll
+ 0002:00000178       \177libmex_NULL_THUNK_DATA 000000018003c178     libmex:libmex.dll
+ 0002:00000180       __imp_muDoubleScalarRound  000000018003c180     libmwmathutil:libmwmathutil.dll
+ 0002:00000188       \177libmwmathutil_NULL_THUNK_DATA 000000018003c188     libmwmathutil:libmwmathutil.dll
+ 0002:00000190       __imp_mxCalloc             000000018003c190     libmx:libmx.dll
+ 0002:00000198       __imp_mxGetM               000000018003c198     libmx:libmx.dll
+ 0002:000001a0       __imp_mxGetN               000000018003c1a0     libmx:libmx.dll
+ 0002:000001a8       __imp_mxIsComplex          000000018003c1a8     libmx:libmx.dll
+ 0002:000001b0       __imp_mxIsNumeric          000000018003c1b0     libmx:libmx.dll
+ 0002:000001b8       __imp_mxGetClassID         000000018003c1b8     libmx:libmx.dll
+ 0002:000001c0       __imp_mxIsEmpty            000000018003c1c0     libmx:libmx.dll
+ 0002:000001c8       __imp_mxCreateCellMatrix_730 000000018003c1c8     libmx:libmx.dll
+ 0002:000001d0       __imp_mxCreateStructMatrix_730 000000018003c1d0     libmx:libmx.dll
+ 0002:000001d8       __imp_mxCreateString       000000018003c1d8     libmx:libmx.dll
+ 0002:000001e0       __imp_mxCreateDoubleScalar 000000018003c1e0     libmx:libmx.dll
+ 0002:000001e8       __imp_mxDuplicateArray     000000018003c1e8     libmx:libmx.dll
+ 0002:000001f0       __imp_mxDestroyArray       000000018003c1f0     libmx:libmx.dll
+ 0002:000001f8       __imp_mxGetPr              000000018003c1f8     libmx:libmx.dll
+ 0002:00000200       __imp_mxIsChar             000000018003c200     libmx:libmx.dll
+ 0002:00000208       __imp_mxGetString_730      000000018003c208     libmx:libmx.dll
+ 0002:00000210       __imp_mxGetScalar          000000018003c210     libmx:libmx.dll
+ 0002:00000218       __imp_mxCreateDoubleMatrix_730 000000018003c218     libmx:libmx.dll
+ 0002:00000220       __imp_mxSetField_730       000000018003c220     libmx:libmx.dll
+ 0002:00000228       \177libmx_NULL_THUNK_DATA  000000018003c228     libmx:libmx.dll
+ 0002:00000230       __imp_utMalloc             000000018003c230     libut:libut.dll
+ 0002:00000238       __imp_utFree               000000018003c238     libut:libut.dll
+ 0002:00000240       \177libut_NULL_THUNK_DATA  000000018003c240     libut:libut.dll
+ 0002:00000248       __imp_callMdlMethodAndReportError 000000018003c248     sf_runtime:sf_runtime.dll
+ 0002:00000250       __imp_sf_debug_api         000000018003c250     sf_runtime:sf_runtime.dll
+ 0002:00000258       __imp_sf_debug_create_debug_instance_struct 000000018003c258     sf_runtime:sf_runtime.dll
+ 0002:00000260       __imp_sf_debug_terminate   000000018003c260     sf_runtime:sf_runtime.dll
+ 0002:00000268       __imp_sf_mex_call_debug    000000018003c268     sf_runtime:sf_runtime.dll
+ 0002:00000270       __imp_sf_debug_integer_check 000000018003c270     sf_runtime:sf_runtime.dll
+ 0002:00000278       __imp_sf_debug_eml_data_array_bounds_error_check 000000018003c278     sf_runtime:sf_runtime.dll
+ 0002:00000280       __imp_cv_eval_saturation   000000018003c280     sf_runtime:sf_runtime.dll
+ 0002:00000288       __imp_cv_script_eval       000000018003c288     sf_runtime:sf_runtime.dll
+ 0002:00000290       __imp_sf_update_buildInfo  000000018003c290     sf_runtime:sf_runtime.dll
+ 0002:00000298       __imp_sf_debug_get_script_id 000000018003c298     sf_runtime:sf_runtime.dll
+ 0002:000002a0       __imp_sf_debug_set_script_translation 000000018003c2a0     sf_runtime:sf_runtime.dll
+ 0002:000002a8       __imp_cv_eml_init_saturation 000000018003c2a8     sf_runtime:sf_runtime.dll
+ 0002:000002b0       __imp_cv_script_init_script 000000018003c2b0     sf_runtime:sf_runtime.dll
+ 0002:000002b8       __imp_sf_mex_error_direct_call 000000018003c2b8     sf_runtime:sf_runtime.dll
+ 0002:000002c0       __imp_sf_mex_addfield      000000018003c2c0     sf_runtime:sf_runtime.dll
+ 0002:000002c8       __imp_sf_mex_duplicatearraysafe 000000018003c2c8     sf_runtime:sf_runtime.dll
+ 0002:000002d0       __imp_sf_mex_createstruct  000000018003c2d0     sf_runtime:sf_runtime.dll
+ 0002:000002d8       __imp_sf_mex_emlrtNameCapturePostProcessR2012a 000000018003c2d8     sf_runtime:sf_runtime.dll
+ 0002:000002e0       __imp_sf_clear_rtw_identifier 000000018003c2e0     sf_runtime:sf_runtime.dll
+ 0002:000002e8       __imp_sf_debug_symbol_scope_push 000000018003c2e8     sf_runtime:sf_runtime.dll
+ 0002:000002f0       __imp_sf_debug_call        000000018003c2f0     sf_runtime:sf_runtime.dll
+ 0002:000002f8       __imp_sf_debug_data_range_wrapper 000000018003c2f8     sf_runtime:sf_runtime.dll
+ 0002:00000300       __imp_sf_debug_symbol_scope_push_eml 000000018003c300     sf_runtime:sf_runtime.dll
+ 0002:00000308       __imp_sf_debug_symbol_scope_add_eml_importable 000000018003c308     sf_runtime:sf_runtime.dll
+ 0002:00000310       __imp_sf_debug_symbol_scope_add_eml 000000018003c310     sf_runtime:sf_runtime.dll
+ 0002:00000318       __imp_cv_eml_eval          000000018003c318     sf_runtime:sf_runtime.dll
+ 0002:00000320       __imp_eml_debug_line_call  000000018003c320     sf_runtime:sf_runtime.dll
+ 0002:00000328       __imp_sf_debug_symbol_scope_pop 000000018003c328     sf_runtime:sf_runtime.dll
+ 0002:00000330       __imp_sf_clear_error_manager_info 000000018003c330     sf_runtime:sf_runtime.dll
+ 0002:00000338       __imp_cv_script_init_fcn   000000018003c338     sf_runtime:sf_runtime.dll
+ 0002:00000340       __imp_call_sf_machine_global_method_dispatcher 000000018003c340     sf_runtime:sf_runtime.dll
+ 0002:00000348       __imp_sf_debug_check_for_state_inconsistency 000000018003c348     sf_runtime:sf_runtime.dll
+ 0002:00000350       __imp_sf_get_time          000000018003c350     sf_runtime:sf_runtime.dll
+ 0002:00000358       __imp_sf_debug_initialize_chart 000000018003c358     sf_runtime:sf_runtime.dll
+ 0002:00000360       __imp_sf_debug_set_chart_disable_implicit_casting 000000018003c360     sf_runtime:sf_runtime.dll
+ 0002:00000368       __imp_sf_debug_set_chart_event_thresholds 000000018003c368     sf_runtime:sf_runtime.dll
+ 0002:00000370       __imp_sf_debug_set_chart_data_props 000000018003c370     sf_runtime:sf_runtime.dll
+ 0002:00000378       __imp_sf_debug_set_chart_state_info 000000018003c378     sf_runtime:sf_runtime.dll
+ 0002:00000380       __imp_sf_debug_set_chart_substate_count 000000018003c380     sf_runtime:sf_runtime.dll
+ 0002:00000388       __imp_sf_debug_set_chart_decomposition 000000018003c388     sf_runtime:sf_runtime.dll
+ 0002:00000390       __imp_sf_debug_cv_init_chart 000000018003c390     sf_runtime:sf_runtime.dll
+ 0002:00000398       __imp_sf_debug_cv_init_state 000000018003c398     sf_runtime:sf_runtime.dll
+ 0002:000003a0       __imp_sf_debug_cv_init_trans 000000018003c3a0     sf_runtime:sf_runtime.dll
+ 0002:000003a8       __imp_cv_eml_init_script   000000018003c3a8     sf_runtime:sf_runtime.dll
+ 0002:000003b0       __imp_cv_eml_init_fcn      000000018003c3b0     sf_runtime:sf_runtime.dll
+ 0002:000003b8       __imp_cv_eml_init_if       000000018003c3b8     sf_runtime:sf_runtime.dll
+ 0002:000003c0       __imp_cv_eml_init_mcdc     000000018003c3c0     sf_runtime:sf_runtime.dll
+ 0002:000003c8       __imp_sf_debug_set_chart_data_compiled_props 000000018003c3c8     sf_runtime:sf_runtime.dll
+ 0002:000003d0       __imp_sf_debug_set_instance_data_value_ptr 000000018003c3d0     sf_runtime:sf_runtime.dll
+ 0002:000003d8       __imp_sf_debug_reset_current_state_configuration 000000018003c3d8     sf_runtime:sf_runtime.dll
+ 0002:000003e0       __imp_sim_mode_is_rtw_gen  000000018003c3e0     sf_runtime:sf_runtime.dll
+ 0002:000003e8       __imp_sim_mode_is_external 000000018003c3e8     sf_runtime:sf_runtime.dll
+ 0002:000003f0       __imp_sf_is_chart_inlinable 000000018003c3f0     sf_runtime:sf_runtime.dll
+ 0002:000003f8       __imp_sf_rtw_info_uint_prop 000000018003c3f8     sf_runtime:sf_runtime.dll
+ 0002:00000400       __imp_sf_mark_chart_expressionable_inputs 000000018003c400     sf_runtime:sf_runtime.dll
+ 0002:00000408       __imp_sf_mark_chart_reusable_outputs 000000018003c408     sf_runtime:sf_runtime.dll
+ 0002:00000410       __imp_sf_set_rtw_dwork_info 000000018003c410     sf_runtime:sf_runtime.dll
+ 0002:00000418       __imp_sf_mex_import        000000018003c418     sf_runtime:sf_runtime.dll
+ 0002:00000420       __imp_sf_mex_dup           000000018003c420     sf_runtime:sf_runtime.dll
+ 0002:00000428       __imp_sf_mex_getcell       000000018003c428     sf_runtime:sf_runtime.dll
+ 0002:00000430       __imp_sf_mex_destroy       000000018003c430     sf_runtime:sf_runtime.dll
+ 0002:00000438       __imp_sf_mex_decode_encoded_mx_struct_array 000000018003c438     sf_runtime:sf_runtime.dll
+ 0002:00000440       __imp_sf_mex_createcellmatrix 000000018003c440     sf_runtime:sf_runtime.dll
+ 0002:00000448       __imp_sf_mex_setcell       000000018003c448     sf_runtime:sf_runtime.dll
+ 0002:00000450       __imp_sf_mex_call_matlab   000000018003c450     sf_runtime:sf_runtime.dll
+ 0002:00000458       __imp_sf_mex_error_message 000000018003c458     sf_runtime:sf_runtime.dll
+ 0002:00000460       __imp_sf_mex_create        000000018003c460     sf_runtime:sf_runtime.dll
+ 0002:00000468       __imp_sf_mex_assign        000000018003c468     sf_runtime:sf_runtime.dll
+ 0002:00000470       __imp_sf_load_rtw_optimization_info 000000018003c470     sf_runtime:sf_runtime.dll
+ 0002:00000478       __imp_sf_debug_initialize_machine 000000018003c478     sf_runtime:sf_runtime.dll
+ 0002:00000480       __imp_sf_debug_set_machine_event_thresholds 000000018003c480     sf_runtime:sf_runtime.dll
+ 0002:00000488       __imp_sf_debug_set_machine_data_thresholds 000000018003c488     sf_runtime:sf_runtime.dll
+ 0002:00000490       \177sf_runtime_NULL_THUNK_DATA 000000018003c490     sf_runtime:sf_runtime.dll
+ 0002:00000498       __xc_a                     000000018003c498     MSVCRT:cinitexe.obj
+ 0002:000004a0       __xc_z                     000000018003c4a0     MSVCRT:cinitexe.obj
+ 0002:000004a8       __xi_a                     000000018003c4a8     MSVCRT:cinitexe.obj
+ 0002:000004b8       __xi_z                     000000018003c4b8     MSVCRT:cinitexe.obj
+ 0002:000004c0       __real@41e6ceb878000000    000000018003c4c0     Tanques_quick_start_sfun.obj
+ 0002:000004c8       __real@41c042ebc6000000    000000018003c4c8     Tanques_quick_start_sfun.obj
+ 0002:000004d0       __real@41e0a3a4e9000000    000000018003c4d0     Tanques_quick_start_sfun.obj
+ 0002:000004d8       __real@41e1029562200000    000000018003c4d8     Tanques_quick_start_sfun.obj
+ 0002:000004e0       __real@41ad4b2baa000000    000000018003c4e0     Tanques_quick_start_sfun.obj
+ 0002:000004e8       __real@41e4f54984000000    000000018003c4e8     Tanques_quick_start_sfun.obj
+ 0002:000004f0       __real@41e2ce78c3a00000    000000018003c4f0     Tanques_quick_start_sfun.obj
+ 0002:000004f8       __real@41e6fa90b7000000    000000018003c4f8     Tanques_quick_start_sfun.obj
+ 0002:00000500       __real@41b3235e55000000    000000018003c500     Tanques_quick_start_sfun.obj
+ 0002:00000508       __real@41ed0dfb83800000    000000018003c508     Tanques_quick_start_sfun.obj
+ 0002:00000510       __real@41e84ebc51800000    000000018003c510     Tanques_quick_start_sfun.obj
+ 0002:00000518       __real@419ff82770000000    000000018003c518     Tanques_quick_start_sfun.obj
+ 0002:00000520       __real@41e844c963200000    000000018003c520     Tanques_quick_start_sfun.obj
+ 0002:00000528       __real@41cf34175a000000    000000018003c528     Tanques_quick_start_sfun.obj
+ 0002:00000530       __real@41d35d689f400000    000000018003c530     Tanques_quick_start_sfun.obj
+ 0002:00000538       __real@41e37a97cd600000    000000018003c538     Tanques_quick_start_sfun.obj
+ 0002:00000540       __real@41b47d8fd5000000    000000018003c540     c1_Tanques_quick_start.obj
+ 0002:00000548       __real@41ddb4061b800000    000000018003c548     c1_Tanques_quick_start.obj
+ 0002:00000550       __real@41ce22818f800000    000000018003c550     c1_Tanques_quick_start.obj
+ 0002:00000558       __real@41bd97306b000000    000000018003c558     c1_Tanques_quick_start.obj
+ 0002:00000560       __real@4024000000000000    000000018003c560     c1_Tanques_quick_start.obj
+ 0002:00000568       __real@3ff0000000000000    000000018003c568     c1_Tanques_quick_start.obj
+ 0002:00000570       __real@3fe199999999999a    000000018003c570     c1_Tanques_quick_start.obj
+ 0002:00000578       __real@3fe0000000000000    000000018003c578     c1_Tanques_quick_start.obj
+ 0002:00000580       __real@3fe6666666666666    000000018003c580     c1_Tanques_quick_start.obj
+ 0002:00000588       __real@3ff8000000000000    000000018003c588     c1_Tanques_quick_start.obj
+ 0002:00000590       __real@3fe947ae147ae148    000000018003c590     c1_Tanques_quick_start.obj
+ 0002:00000598       __real@3fe999999999999a    000000018003c598     c1_Tanques_quick_start.obj
+ 0002:000005a0       __real@3feccccccccccccd    000000018003c5a0     c1_Tanques_quick_start.obj
+ 0002:000005a8       __real@4018000000000000    000000018003c5a8     c1_Tanques_quick_start.obj
+ 0002:000005b0       __real@4014000000000000    000000018003c5b0     c1_Tanques_quick_start.obj
+ 0002:000005c0       __mask@@NegDouble@         000000018003c5c0     c1_Tanques_quick_start.obj
+ 0002:000005d0       __real@4000000000000000    000000018003c5d0     c1_Tanques_quick_start.obj
+ 0002:000005d8       __real@403e000000000000    000000018003c5d8     c1_Tanques_quick_start.obj
+ 0002:000005e0       __real@c010000000000000    000000018003c5e0     c1_Tanques_quick_start.obj
+ 0002:000005e8       __real@4010000000000000    000000018003c5e8     c1_Tanques_quick_start.obj
+ 0002:000005f0       __real@4008000000000000    000000018003c5f0     c1_Tanques_quick_start.obj
+ 0002:000005f8       __real@41d4c38e79c00000    000000018003c5f8     c2_Tanques_quick_start.obj
+ 0002:00000600       __real@41e411a6d7200000    000000018003c600     c2_Tanques_quick_start.obj
+ 0002:00000608       __real@41e9302220600000    000000018003c608     c2_Tanques_quick_start.obj
+ 0002:00000610       __real@41d4808f70400000    000000018003c610     c2_Tanques_quick_start.obj
+ 0002:00000618       __real@3defffffffffffff    000000018003c618     c2_Tanques_quick_start.obj
+ 0002:00000620       __real@3e00000000200000    000000018003c620     c2_Tanques_quick_start.obj
+ 0002:00000628       __real@40b5710000000000    000000018003c628     c2_Tanques_quick_start.obj
+ 0002:00000630       __real@0000000000000000    000000018003c630     c2_Tanques_quick_start.obj
+ 0002:00000638       __real@41f0000000000000    000000018003c638     c2_Tanques_quick_start.obj
+ 0002:00000640       __real@3ca0000000000000    000000018003c640     c2_Tanques_quick_start.obj
+ 0002:00000648       __real@4190000000000000    000000018003c648     c2_Tanques_quick_start.obj
+ 0002:00000650       __real@406c800000000000    000000018003c650     c2_Tanques_quick_start.obj
+ 0002:00000658       __real@4078d00000000000    000000018003c658     c2_Tanques_quick_start.obj
+ 0002:00000660       __real@4083880000000000    000000018003c660     c2_Tanques_quick_start.obj
+ 0002:00000668       __real@41db82529fc00000    000000018003c668     c3_Tanques_quick_start.obj
+ 0002:00000670       __real@41ea990af1e00000    000000018003c670     c3_Tanques_quick_start.obj
+ 0002:00000678       __real@41e02eee4e200000    000000018003c678     c3_Tanques_quick_start.obj
+ 0002:00000680       __real@41aa6396a2000000    000000018003c680     c3_Tanques_quick_start.obj
+ 0002:00000688       __real@41e9b5e4f1800000    000000018003c688     c4_Tanques_quick_start.obj
+ 0002:00000690       __real@41dafd1fec400000    000000018003c690     c4_Tanques_quick_start.obj
+ 0002:00000698       __real@41e12e0058c00000    000000018003c698     c4_Tanques_quick_start.obj
+ 0002:000006a0       __real@41ec3d4e25200000    000000018003c6a0     c4_Tanques_quick_start.obj
+ 0002:000006a8       __real@41bf2327c1000000    000000018003c6a8     c5_Tanques_quick_start.obj
+ 0002:000006b0       __real@41e12d40d4200000    000000018003c6b0     c5_Tanques_quick_start.obj
+ 0002:000006b8       __real@41ec50114ea00000    000000018003c6b8     c5_Tanques_quick_start.obj
+ 0002:000006c0       __real@41a47acfbc000000    000000018003c6c0     c5_Tanques_quick_start.obj
+ 0002:000006c8       __real@41ec39b4b3000000    000000018003c6c8     c6_Tanques_quick_start.obj
+ 0002:000006d0       __real@41e65e6a74a00000    000000018003c6d0     c6_Tanques_quick_start.obj
+ 0002:000006d8       __real@41d3203689800000    000000018003c6d8     c6_Tanques_quick_start.obj
+ 0002:000006e0       __real@41b5884545000000    000000018003c6e0     c6_Tanques_quick_start.obj
+ 0002:000006e8       __real@41eb646933200000    000000018003c6e8     c7_Tanques_quick_start.obj
+ 0002:000006f0       __real@41e219069f800000    000000018003c6f0     c7_Tanques_quick_start.obj
+ 0002:000006f8       __real@41b3203f38000000    000000018003c6f8     c7_Tanques_quick_start.obj
+ 0002:00000700       __real@41e6673445800000    000000018003c700     c7_Tanques_quick_start.obj
+ 0002:00000708       __real@41ef17680c400000    000000018003c708     c9_Tanques_quick_start.obj
+ 0002:00000710       __real@41ce7a629a800000    000000018003c710     c9_Tanques_quick_start.obj
+ 0002:00000718       __real@41bab1bba3000000    000000018003c718     c9_Tanques_quick_start.obj
+ 0002:00000720       __real@41eafb49c7800000    000000018003c720     c9_Tanques_quick_start.obj
+ 0002:00000730       DYNAMIC_DIMENSION_DEF      000000018003c730     Tanques_quick_start_sfun_registry.obj
+ 0002:00000750       _ssBadLevel2InputAccessMsg 000000018003c750     Tanques_quick_start_sfun_registry.obj
+ 0002:000008e0       _ssBadLevel2DirectFeedMsg  000000018003c8e0     Tanques_quick_start_sfun_registry.obj
+ 0002:00000a20       _ssBadLevel2DirectFeedSolutionMsg 000000018003ca20     Tanques_quick_start_sfun_registry.obj
+ 0002:00000a90       _ssBadLevel2ZeroDirectFeedMsg 000000018003ca90     Tanques_quick_start_sfun_registry.obj
+ 0002:00000bd0       _ssBadLevel2ZeroDirectFeedMsg2 000000018003cbd0     Tanques_quick_start_sfun_registry.obj
+ 0002:00000cb8       __real@bff0000000000000    000000018003ccb8     Tanques_quick_start_sfun_registry.obj
+ 0002:00000cc0       __real@41602cbca0000000    000000018003ccc0     Tanques_quick_start_sfun_registry.obj
+ 0002:00000cc8       _pRawDllMain               000000018003ccc8     MSVCRT:crtdll.obj
+ 0002:00000cc8       _pDefaultRawDllMain        000000018003ccc8     MSVCRT:crtdll.obj
+ 0002:00000ce0       ?ProcessDetach@NativeDll@<CrtImplementationDetails>@@0IB 000000018003cce0     MSVCRT:tncleanup.obj
+ 0002:00000ce4       ?ProcessAttach@NativeDll@<CrtImplementationDetails>@@0IB 000000018003cce4     MSVCRT:tncleanup.obj
+ 0002:00000ce8       ?ThreadAttach@NativeDll@<CrtImplementationDetails>@@0IB 000000018003cce8     MSVCRT:tncleanup.obj
+ 0002:00000cec       ?ThreadDetach@NativeDll@<CrtImplementationDetails>@@0IB 000000018003ccec     MSVCRT:tncleanup.obj
+ 0002:00000cf0       ?ProcessVerifier@NativeDll@<CrtImplementationDetails>@@0IB 000000018003ccf0     MSVCRT:tncleanup.obj
+ 0002:00000cf8       __rtc_iaa                  000000018003ccf8     MSVCRT:_initsect_.obj
+ 0002:00000d00       __rtc_izz                  000000018003cd00     MSVCRT:_initsect_.obj
+ 0002:00000d08       __rtc_taa                  000000018003cd08     MSVCRT:_initsect_.obj
+ 0002:00000d10       __rtc_tzz                  000000018003cd10     MSVCRT:_initsect_.obj
+ 0002:00001ec8       __IMPORT_DESCRIPTOR_sf_runtime 000000018003dec8     sf_runtime:sf_runtime.dll
+ 0002:00001edc       __IMPORT_DESCRIPTOR_libmx  000000018003dedc     libmx:libmx.dll
+ 0002:00001ef0       __IMPORT_DESCRIPTOR_libmex 000000018003def0     libmex:libmex.dll
+ 0002:00001f04       __IMPORT_DESCRIPTOR_libut  000000018003df04     libut:libut.dll
+ 0002:00001f18       __IMPORT_DESCRIPTOR_libmwmathutil 000000018003df18     libmwmathutil:libmwmathutil.dll
+ 0002:00001f2c       __IMPORT_DESCRIPTOR_MSVCR100 000000018003df2c     MSVCRT:MSVCR100.dll
+ 0002:00001f40       __IMPORT_DESCRIPTOR_KERNEL32 000000018003df40     kernel32:KERNEL32.dll
+ 0002:00001f54       __NULL_IMPORT_DESCRIPTOR   000000018003df54     sf_runtime:sf_runtime.dll
+ 0003:0000dbf0       DYNAMIC_DIMENSION          000000018004dbf0     Tanques_quick_start_sfun_registry.obj
+ 0003:0000e7f8       __security_cookie          000000018004e7f8     MSVCRT:gs_cookie.obj
+ 0003:0000e800       __security_cookie_complement 000000018004e800     MSVCRT:gs_cookie.obj
+ 0003:0000e808       _fltused                   000000018004e808     MSVCRT:dllsupp.obj
+ 0003:0000e810       __native_dllmain_reason    000000018004e810     MSVCRT:natstart.obj
+ 0003:0000e814       __native_vcclrit_reason    000000018004e814     MSVCRT:natstart.obj
+ 0003:0000e998       sfGlobalDebugInstanceStruct 000000018004e998     Tanques_quick_start_sfun_registry.obj
+ 0003:0000ef20       ?__type_info_root_node@@3U__type_info_node@@A 000000018004ef20     MSVCRT:tncleanup.obj
+ 0003:0000ef30       _Tanques_quick_startMachineNumber_ 000000018004ef30     <common>
+ 0003:0000ef34       __native_startup_state     000000018004ef34     <common>
+ 0003:0000ef38       __native_startup_lock      000000018004ef38     <common>
+ 0003:0000ef40       __onexitend                000000018004ef40     <common>
+ 0003:0000ef48       __onexitbegin              000000018004ef48     <common>
+ 0003:0000ef50       __dyn_tls_init_callback    000000018004ef50     <common>
 
- entry point at        0001:0001b580
+ entry point at        0001:0003a330
 
  Static symbols
 
- 0001:00001790       get_sim_state_c1_Tanques_quick_start 0000000180002790 f   c1_Tanques_quick_start.obj
- 0001:00001940       sf_get_sim_state_info_c1_Tanques_quick_start 0000000180002940 f   c1_Tanques_quick_start.obj
- 0001:00001b10       set_sim_state_c1_Tanques_quick_start 0000000180002b10 f   c1_Tanques_quick_start.obj
- 0001:00001bf0       c1_update_debugger_state_c1_Tanques_quick_start 0000000180002bf0 f   c1_Tanques_quick_start.obj
- 0001:00001c00       c1_emlrt_marshallIn        0000000180002c00 f   c1_Tanques_quick_start.obj
- 0001:00001c70       c1_b_emlrt_marshallIn      0000000180002c70 f   c1_Tanques_quick_start.obj
- 0001:00001d00       c1_d_emlrt_marshallIn      0000000180002d00 f   c1_Tanques_quick_start.obj
- 0001:00001d60       c1_e_emlrt_marshallIn      0000000180002d60 f   c1_Tanques_quick_start.obj
- 0001:00001e60       mdlProcessParameters_c1_Tanques_quick_start 0000000180002e60 f   c1_Tanques_quick_start.obj
- 0001:00001f40       initialize_params_c1_Tanques_quick_start 0000000180002f40 f   c1_Tanques_quick_start.obj
- 0001:00001f50       mdlSetWorkWidths_c1_Tanques_quick_start 0000000180002f50 f   c1_Tanques_quick_start.obj
- 0001:00002480       sf_get_instance_specialization 0000000180003480 f   c1_Tanques_quick_start.obj
- 0001:00002490       mdlStart_c1_Tanques_quick_start 0000000180003490 f   c1_Tanques_quick_start.obj
- 0001:000026c0       init_dsm_address_info      00000001800036c0 f   c1_Tanques_quick_start.obj
- 0001:000026d0       chart_debug_initialization 00000001800036d0 f   c1_Tanques_quick_start.obj
- 0001:00003880       init_script_number_translation 0000000180004880 f   c1_Tanques_quick_start.obj
- 0001:000038a0       c1_sf_marshallOut          00000001800048a0 f   c1_Tanques_quick_start.obj
- 0001:00003950       c1_sf_marshallIn           0000000180004950 f   c1_Tanques_quick_start.obj
- 0001:000039f0       sf_opaque_initialize_c1_Tanques_quick_start 00000001800049f0 f   c1_Tanques_quick_start.obj
- 0001:00003a30       initialize_c1_Tanques_quick_start 0000000180004a30 f   c1_Tanques_quick_start.obj
- 0001:00003a80       sf_opaque_enable_c1_Tanques_quick_start 0000000180004a80 f   c1_Tanques_quick_start.obj
- 0001:00003aa0       enable_c1_Tanques_quick_start 0000000180004aa0 f   c1_Tanques_quick_start.obj
- 0001:00003ad0       sf_opaque_disable_c1_Tanques_quick_start 0000000180004ad0 f   c1_Tanques_quick_start.obj
- 0001:00003af0       disable_c1_Tanques_quick_start 0000000180004af0 f   c1_Tanques_quick_start.obj
- 0001:00003b20       sf_opaque_gateway_c1_Tanques_quick_start 0000000180004b20 f   c1_Tanques_quick_start.obj
- 0001:00003b40       sf_gateway_c1_Tanques_quick_start 0000000180004b40 f   c1_Tanques_quick_start.obj
- 0001:000061c0       sf_opaque_get_sim_state_c1_Tanques_quick_start 00000001800071c0 f   c1_Tanques_quick_start.obj
- 0001:000061e0       sf_opaque_set_sim_state_c1_Tanques_quick_start 00000001800071e0 f   c1_Tanques_quick_start.obj
- 0001:00006210       sf_opaque_terminate_c1_Tanques_quick_start 0000000180007210 f   c1_Tanques_quick_start.obj
- 0001:000062b0       finalize_c1_Tanques_quick_start 00000001800072b0 f   c1_Tanques_quick_start.obj
- 0001:000062c0       sf_opaque_init_subchart_simstructs 00000001800072c0 f   c1_Tanques_quick_start.obj
- 0001:000062e0       initSimStructsc1_Tanques_quick_start 00000001800072e0 f   c1_Tanques_quick_start.obj
- 0001:000062f0       mdlRTW_c1_Tanques_quick_start 00000001800072f0 f   c1_Tanques_quick_start.obj
- 0001:000063a0       c2_info_helper             00000001800073a0 f   c2_Tanques_quick_start.obj
- 0001:0000a2f0       c2_emlrt_marshallOut       000000018000b2f0 f   c2_Tanques_quick_start.obj
- 0001:0000a380       c2_b_emlrt_marshallOut     000000018000b380 f   c2_Tanques_quick_start.obj
- 0001:0000b050       get_sim_state_c2_Tanques_quick_start 000000018000c050 f   c2_Tanques_quick_start.obj
- 0001:0000b6a0       sf_get_sim_state_info_c2_Tanques_quick_start 000000018000c6a0 f   c2_Tanques_quick_start.obj
- 0001:0000b870       set_sim_state_c2_Tanques_quick_start 000000018000c870 f   c2_Tanques_quick_start.obj
- 0001:0000bb00       c2_update_debugger_state_c2_Tanques_quick_start 000000018000cb00 f   c2_Tanques_quick_start.obj
- 0001:0000bb10       c2_emlrt_marshallIn        000000018000cb10 f   c2_Tanques_quick_start.obj
- 0001:0000bb80       c2_b_emlrt_marshallIn      000000018000cb80 f   c2_Tanques_quick_start.obj
- 0001:0000bc10       c2_e_emlrt_marshallIn      000000018000cc10 f   c2_Tanques_quick_start.obj
- 0001:0000bc70       c2_f_emlrt_marshallIn      000000018000cc70 f   c2_Tanques_quick_start.obj
- 0001:0000bd20       c2_g_emlrt_marshallIn      000000018000cd20 f   c2_Tanques_quick_start.obj
- 0001:0000bd80       c2_h_emlrt_marshallIn      000000018000cd80 f   c2_Tanques_quick_start.obj
- 0001:0000be30       c2_i_emlrt_marshallIn      000000018000ce30 f   c2_Tanques_quick_start.obj
- 0001:0000bea0       c2_j_emlrt_marshallIn      000000018000cea0 f   c2_Tanques_quick_start.obj
- 0001:0000bfd0       c2_k_emlrt_marshallIn      000000018000cfd0 f   c2_Tanques_quick_start.obj
- 0001:0000c040       c2_l_emlrt_marshallIn      000000018000d040 f   c2_Tanques_quick_start.obj
- 0001:0000c130       c2_m_emlrt_marshallIn      000000018000d130 f   c2_Tanques_quick_start.obj
- 0001:0000c190       c2_n_emlrt_marshallIn      000000018000d190 f   c2_Tanques_quick_start.obj
- 0001:0000c290       mdlProcessParameters_c2_Tanques_quick_start 000000018000d290 f   c2_Tanques_quick_start.obj
- 0001:0000c370       initialize_params_c2_Tanques_quick_start 000000018000d370 f   c2_Tanques_quick_start.obj
- 0001:0000c380       mdlSetWorkWidths_c2_Tanques_quick_start 000000018000d380 f   c2_Tanques_quick_start.obj
- 0001:0000c940       sf_get_instance_specialization 000000018000d940 f   c2_Tanques_quick_start.obj
- 0001:0000c950       mdlStart_c2_Tanques_quick_start 000000018000d950 f   c2_Tanques_quick_start.obj
- 0001:0000cb80       init_dsm_address_info      000000018000db80 f   c2_Tanques_quick_start.obj
- 0001:0000cd90       chart_debug_initialization 000000018000dd90 f   c2_Tanques_quick_start.obj
- 0001:0000e260       init_script_number_translation 000000018000f260 f   c2_Tanques_quick_start.obj
- 0001:0000e2b0       c2_sf_marshallOut          000000018000f2b0 f   c2_Tanques_quick_start.obj
- 0001:0000e360       c2_sf_marshallIn           000000018000f360 f   c2_Tanques_quick_start.obj
- 0001:0000e400       c2_b_sf_marshallOut        000000018000f400 f   c2_Tanques_quick_start.obj
- 0001:0000e4b0       c2_c_sf_marshallIn         000000018000f4b0 f   c2_Tanques_quick_start.obj
- 0001:0000e550       c2_d_emlrt_marshallIn      000000018000f550 f   c2_Tanques_quick_start.obj
- 0001:0000e5e0       sf_opaque_initialize_c2_Tanques_quick_start 000000018000f5e0 f   c2_Tanques_quick_start.obj
- 0001:0000e620       initialize_c2_Tanques_quick_start 000000018000f620 f   c2_Tanques_quick_start.obj
- 0001:0000e6a0       sf_opaque_enable_c2_Tanques_quick_start 000000018000f6a0 f   c2_Tanques_quick_start.obj
- 0001:0000e6c0       enable_c2_Tanques_quick_start 000000018000f6c0 f   c2_Tanques_quick_start.obj
- 0001:0000e6f0       sf_opaque_disable_c2_Tanques_quick_start 000000018000f6f0 f   c2_Tanques_quick_start.obj
- 0001:0000e710       disable_c2_Tanques_quick_start 000000018000f710 f   c2_Tanques_quick_start.obj
- 0001:0000e740       sf_opaque_gateway_c2_Tanques_quick_start 000000018000f740 f   c2_Tanques_quick_start.obj
- 0001:0000e760       sf_gateway_c2_Tanques_quick_start 000000018000f760 f   c2_Tanques_quick_start.obj
- 0001:0000fe90       c2_rand                    0000000180010e90 f   c2_Tanques_quick_start.obj
- 0001:0000feb0       c2_eml_rand                0000000180010eb0 f   c2_Tanques_quick_start.obj
- 0001:000102f0       c2_eml_rand_mt19937ar      00000001800112f0 f   c2_Tanques_quick_start.obj
- 0001:00010360       c2_b_twister_state_vector  0000000180011360 f   c2_Tanques_quick_start.obj
- 0001:000105b0       c2_c_eml_rand_mt19937ar    00000001800115b0 f   c2_Tanques_quick_start.obj
- 0001:000113f0       c2_eml_error               00000001800123f0 f   c2_Tanques_quick_start.obj
- 0001:00011540       c2_get_currAmp             0000000180012540 f   c2_Tanques_quick_start.obj
- 0001:000115f0       c2_set_currAmp             00000001800125f0 f   c2_Tanques_quick_start.obj
- 0001:000116b0       c2_get_currPeriod          00000001800126b0 f   c2_Tanques_quick_start.obj
- 0001:00011760       c2_set_currPeriod          0000000180012760 f   c2_Tanques_quick_start.obj
- 0001:00011820       c2_get_prevTime            0000000180012820 f   c2_Tanques_quick_start.obj
- 0001:000118d0       c2_set_prevTime            00000001800128d0 f   c2_Tanques_quick_start.obj
- 0001:00011990       sf_opaque_get_sim_state_c2_Tanques_quick_start 0000000180012990 f   c2_Tanques_quick_start.obj
- 0001:000119b0       sf_opaque_set_sim_state_c2_Tanques_quick_start 00000001800129b0 f   c2_Tanques_quick_start.obj
- 0001:000119e0       sf_opaque_terminate_c2_Tanques_quick_start 00000001800129e0 f   c2_Tanques_quick_start.obj
- 0001:00011a80       finalize_c2_Tanques_quick_start 0000000180012a80 f   c2_Tanques_quick_start.obj
- 0001:00011a90       sf_opaque_init_subchart_simstructs 0000000180012a90 f   c2_Tanques_quick_start.obj
- 0001:00011ab0       initSimStructsc2_Tanques_quick_start 0000000180012ab0 f   c2_Tanques_quick_start.obj
- 0001:00011ac0       mdlRTW_c2_Tanques_quick_start 0000000180012ac0 f   c2_Tanques_quick_start.obj
- 0001:000122d0       get_sim_state_c3_Tanques_quick_start 00000001800132d0 f   c3_Tanques_quick_start.obj
- 0001:00012470       sf_get_sim_state_info_c3_Tanques_quick_start 0000000180013470 f   c3_Tanques_quick_start.obj
- 0001:00012640       set_sim_state_c3_Tanques_quick_start 0000000180013640 f   c3_Tanques_quick_start.obj
- 0001:00012720       c3_update_debugger_state_c3_Tanques_quick_start 0000000180013720 f   c3_Tanques_quick_start.obj
- 0001:00012730       c3_emlrt_marshallIn        0000000180013730 f   c3_Tanques_quick_start.obj
- 0001:000127a0       c3_b_emlrt_marshallIn      00000001800137a0 f   c3_Tanques_quick_start.obj
- 0001:00012830       c3_d_emlrt_marshallIn      0000000180013830 f   c3_Tanques_quick_start.obj
- 0001:00012890       c3_e_emlrt_marshallIn      0000000180013890 f   c3_Tanques_quick_start.obj
- 0001:00012990       mdlProcessParameters_c3_Tanques_quick_start 0000000180013990 f   c3_Tanques_quick_start.obj
- 0001:00012a70       initialize_params_c3_Tanques_quick_start 0000000180013a70 f   c3_Tanques_quick_start.obj
- 0001:00012a80       mdlSetWorkWidths_c3_Tanques_quick_start 0000000180013a80 f   c3_Tanques_quick_start.obj
- 0001:00012f80       sf_get_instance_specialization 0000000180013f80 f   c3_Tanques_quick_start.obj
- 0001:00012f90       mdlStart_c3_Tanques_quick_start 0000000180013f90 f   c3_Tanques_quick_start.obj
- 0001:000131c0       init_dsm_address_info      00000001800141c0 f   c3_Tanques_quick_start.obj
- 0001:000131d0       chart_debug_initialization 00000001800141d0 f   c3_Tanques_quick_start.obj
- 0001:00013b40       init_script_number_translation 0000000180014b40 f   c3_Tanques_quick_start.obj
- 0001:00013b60       c3_sf_marshallOut          0000000180014b60 f   c3_Tanques_quick_start.obj
- 0001:00013c10       c3_sf_marshallIn           0000000180014c10 f   c3_Tanques_quick_start.obj
- 0001:00013cb0       sf_opaque_initialize_c3_Tanques_quick_start 0000000180014cb0 f   c3_Tanques_quick_start.obj
- 0001:00013cf0       initialize_c3_Tanques_quick_start 0000000180014cf0 f   c3_Tanques_quick_start.obj
- 0001:00013d40       sf_opaque_enable_c3_Tanques_quick_start 0000000180014d40 f   c3_Tanques_quick_start.obj
- 0001:00013d60       enable_c3_Tanques_quick_start 0000000180014d60 f   c3_Tanques_quick_start.obj
- 0001:00013d90       sf_opaque_disable_c3_Tanques_quick_start 0000000180014d90 f   c3_Tanques_quick_start.obj
- 0001:00013db0       disable_c3_Tanques_quick_start 0000000180014db0 f   c3_Tanques_quick_start.obj
- 0001:00013de0       sf_opaque_gateway_c3_Tanques_quick_start 0000000180014de0 f   c3_Tanques_quick_start.obj
- 0001:00013e00       sf_gateway_c3_Tanques_quick_start 0000000180014e00 f   c3_Tanques_quick_start.obj
- 0001:00014760       sf_opaque_get_sim_state_c3_Tanques_quick_start 0000000180015760 f   c3_Tanques_quick_start.obj
- 0001:00014780       sf_opaque_set_sim_state_c3_Tanques_quick_start 0000000180015780 f   c3_Tanques_quick_start.obj
- 0001:000147b0       sf_opaque_terminate_c3_Tanques_quick_start 00000001800157b0 f   c3_Tanques_quick_start.obj
- 0001:00014850       finalize_c3_Tanques_quick_start 0000000180015850 f   c3_Tanques_quick_start.obj
- 0001:00014860       sf_opaque_init_subchart_simstructs 0000000180015860 f   c3_Tanques_quick_start.obj
- 0001:00014880       initSimStructsc3_Tanques_quick_start 0000000180015880 f   c3_Tanques_quick_start.obj
- 0001:00014890       mdlRTW_c3_Tanques_quick_start 0000000180015890 f   c3_Tanques_quick_start.obj
- 0001:00015250       getChartInfoFromSimStruct  0000000180016250 f   Tanques_quick_start_sfun_registry.obj
- 0001:000168f0       _ssFatalError              00000001800178f0 f   Tanques_quick_start_sfun_registry.obj
- 0001:000199a0       ProcessMexSfunctionCmdLineCall 000000018001a9a0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019b00       sf_debug_api_wrapper       000000018001ab00 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019b50       mdlStart                   000000018001ab50 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019b80       mdl_start_processing       000000018001ab80 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019c10       mdlTerminate               000000018001ac10 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019c40       mdl_terminate_processing   000000018001ac40 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019cc0       mdlInitializeSampleTimes   000000018001acc0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019cf0       mdlZeroCrossings           000000018001acf0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019d20       mdl_zeroCrossings_processing 000000018001ad20 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019d60       mdlDerivatives             000000018001ad60 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019d90       mdl_derivatives_processing 000000018001ad90 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019de0       mdlInitializeConditions    000000018001ade0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019e10       mdl_initialize_conditions_processing 000000018001ae10 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019e60       mdlEnable                  000000018001ae60 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019e90       mdl_enable_processing      000000018001ae90 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019ed0       mdlDisable                 000000018001aed0 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019f00       mdl_disable_processing     000000018001af00 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019f40       mdlOutputs                 000000018001af40 f   Tanques_quick_start_sfun_registry.obj
- 0001:00019f70       mdl_outputs_processing     000000018001af70 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001a050       mdl_outputs_continuous_legacy 000000018001b050 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001a140       mdlGetTimeOfNextVarHit     000000018001b140 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001a190       _ProcessMexSfunctionCmdLineCall 000000018001b190 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001a8e0       mdlSetWorkWidths           000000018001b8e0 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001a910       mdlProcessParameters       000000018001b910 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001a940       mdlInitializeSizes         000000018001b940 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001a970       mdlExtModeExec             000000018001b970 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001a9a0       mdl_ext_mode_exec_processing 000000018001b9a0 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001a9e0       mdlRTW                     000000018001b9e0 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001aa20       _CreateSimStruct           000000018001ba20 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001abb0       _RegNumInputPortsCB        000000018001bbb0 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001ac30       _RegNumOutputPortsCB       000000018001bc30 f   Tanques_quick_start_sfun_registry.obj
- 0001:0001b188       pre_c_init                 000000018001c188 f   MSVCRT:crtdll.obj
- 0001:0001b444       __DllMainCRTStartup        000000018001c444 f   MSVCRT:crtdll.obj
- 0001:0001bab0       __DllMainCRTStartup$filt$0 000000018001cab0 f   MSVCRT:crtdll.obj
- 0001:0001bae0       __DllMainCRTStartup$fin$1  000000018001cae0 f   MSVCRT:crtdll.obj
- 0001:0001bafa       _onexit$fin$0              000000018001cafa f   MSVCRT:atonexit.obj
- 0001:0001bb20       _IsNonwritableInCurrentImage$filt$0 000000018001cb20 f   MSVCRT:pesect.obj
+ 0001:00001ed0       get_sim_state_c1_Tanques_quick_start 0000000180002ed0 f   c1_Tanques_quick_start.obj
+ 0001:00002080       sf_get_sim_state_info_c1_Tanques_quick_start 0000000180003080 f   c1_Tanques_quick_start.obj
+ 0001:00002250       set_sim_state_c1_Tanques_quick_start 0000000180003250 f   c1_Tanques_quick_start.obj
+ 0001:00002330       c1_update_debugger_state_c1_Tanques_quick_start 0000000180003330 f   c1_Tanques_quick_start.obj
+ 0001:00002340       c1_emlrt_marshallIn        0000000180003340 f   c1_Tanques_quick_start.obj
+ 0001:000023b0       c1_b_emlrt_marshallIn      00000001800033b0 f   c1_Tanques_quick_start.obj
+ 0001:00002440       c1_d_emlrt_marshallIn      0000000180003440 f   c1_Tanques_quick_start.obj
+ 0001:000024a0       c1_e_emlrt_marshallIn      00000001800034a0 f   c1_Tanques_quick_start.obj
+ 0001:000025a0       mdlProcessParameters_c1_Tanques_quick_start 00000001800035a0 f   c1_Tanques_quick_start.obj
+ 0001:00002680       initialize_params_c1_Tanques_quick_start 0000000180003680 f   c1_Tanques_quick_start.obj
+ 0001:00002690       mdlSetWorkWidths_c1_Tanques_quick_start 0000000180003690 f   c1_Tanques_quick_start.obj
+ 0001:00002bc0       sf_get_instance_specialization 0000000180003bc0 f   c1_Tanques_quick_start.obj
+ 0001:00002bd0       mdlStart_c1_Tanques_quick_start 0000000180003bd0 f   c1_Tanques_quick_start.obj
+ 0001:00002e00       init_dsm_address_info      0000000180003e00 f   c1_Tanques_quick_start.obj
+ 0001:00002e10       chart_debug_initialization 0000000180003e10 f   c1_Tanques_quick_start.obj
+ 0001:00003fc0       init_script_number_translation 0000000180004fc0 f   c1_Tanques_quick_start.obj
+ 0001:00003fe0       c1_sf_marshallOut          0000000180004fe0 f   c1_Tanques_quick_start.obj
+ 0001:00004090       c1_sf_marshallIn           0000000180005090 f   c1_Tanques_quick_start.obj
+ 0001:00004130       sf_opaque_initialize_c1_Tanques_quick_start 0000000180005130 f   c1_Tanques_quick_start.obj
+ 0001:00004170       initialize_c1_Tanques_quick_start 0000000180005170 f   c1_Tanques_quick_start.obj
+ 0001:000041c0       sf_opaque_enable_c1_Tanques_quick_start 00000001800051c0 f   c1_Tanques_quick_start.obj
+ 0001:000041e0       enable_c1_Tanques_quick_start 00000001800051e0 f   c1_Tanques_quick_start.obj
+ 0001:00004210       sf_opaque_disable_c1_Tanques_quick_start 0000000180005210 f   c1_Tanques_quick_start.obj
+ 0001:00004230       disable_c1_Tanques_quick_start 0000000180005230 f   c1_Tanques_quick_start.obj
+ 0001:00004260       sf_opaque_gateway_c1_Tanques_quick_start 0000000180005260 f   c1_Tanques_quick_start.obj
+ 0001:00004280       sf_gateway_c1_Tanques_quick_start 0000000180005280 f   c1_Tanques_quick_start.obj
+ 0001:00006900       sf_opaque_get_sim_state_c1_Tanques_quick_start 0000000180007900 f   c1_Tanques_quick_start.obj
+ 0001:00006920       sf_opaque_set_sim_state_c1_Tanques_quick_start 0000000180007920 f   c1_Tanques_quick_start.obj
+ 0001:00006950       sf_opaque_terminate_c1_Tanques_quick_start 0000000180007950 f   c1_Tanques_quick_start.obj
+ 0001:000069f0       finalize_c1_Tanques_quick_start 00000001800079f0 f   c1_Tanques_quick_start.obj
+ 0001:00006a00       sf_opaque_init_subchart_simstructs 0000000180007a00 f   c1_Tanques_quick_start.obj
+ 0001:00006a20       initSimStructsc1_Tanques_quick_start 0000000180007a20 f   c1_Tanques_quick_start.obj
+ 0001:00006a30       mdlRTW_c1_Tanques_quick_start 0000000180007a30 f   c1_Tanques_quick_start.obj
+ 0001:00006ae0       c2_info_helper             0000000180007ae0 f   c2_Tanques_quick_start.obj
+ 0001:0000aa30       c2_emlrt_marshallOut       000000018000ba30 f   c2_Tanques_quick_start.obj
+ 0001:0000aac0       c2_b_emlrt_marshallOut     000000018000bac0 f   c2_Tanques_quick_start.obj
+ 0001:0000b790       get_sim_state_c2_Tanques_quick_start 000000018000c790 f   c2_Tanques_quick_start.obj
+ 0001:0000bde0       sf_get_sim_state_info_c2_Tanques_quick_start 000000018000cde0 f   c2_Tanques_quick_start.obj
+ 0001:0000bfb0       set_sim_state_c2_Tanques_quick_start 000000018000cfb0 f   c2_Tanques_quick_start.obj
+ 0001:0000c240       c2_update_debugger_state_c2_Tanques_quick_start 000000018000d240 f   c2_Tanques_quick_start.obj
+ 0001:0000c250       c2_emlrt_marshallIn        000000018000d250 f   c2_Tanques_quick_start.obj
+ 0001:0000c2c0       c2_b_emlrt_marshallIn      000000018000d2c0 f   c2_Tanques_quick_start.obj
+ 0001:0000c350       c2_e_emlrt_marshallIn      000000018000d350 f   c2_Tanques_quick_start.obj
+ 0001:0000c3b0       c2_f_emlrt_marshallIn      000000018000d3b0 f   c2_Tanques_quick_start.obj
+ 0001:0000c460       c2_g_emlrt_marshallIn      000000018000d460 f   c2_Tanques_quick_start.obj
+ 0001:0000c4c0       c2_h_emlrt_marshallIn      000000018000d4c0 f   c2_Tanques_quick_start.obj
+ 0001:0000c570       c2_i_emlrt_marshallIn      000000018000d570 f   c2_Tanques_quick_start.obj
+ 0001:0000c5e0       c2_j_emlrt_marshallIn      000000018000d5e0 f   c2_Tanques_quick_start.obj
+ 0001:0000c710       c2_k_emlrt_marshallIn      000000018000d710 f   c2_Tanques_quick_start.obj
+ 0001:0000c780       c2_l_emlrt_marshallIn      000000018000d780 f   c2_Tanques_quick_start.obj
+ 0001:0000c870       c2_m_emlrt_marshallIn      000000018000d870 f   c2_Tanques_quick_start.obj
+ 0001:0000c8d0       c2_n_emlrt_marshallIn      000000018000d8d0 f   c2_Tanques_quick_start.obj
+ 0001:0000c9d0       mdlProcessParameters_c2_Tanques_quick_start 000000018000d9d0 f   c2_Tanques_quick_start.obj
+ 0001:0000cab0       initialize_params_c2_Tanques_quick_start 000000018000dab0 f   c2_Tanques_quick_start.obj
+ 0001:0000cac0       mdlSetWorkWidths_c2_Tanques_quick_start 000000018000dac0 f   c2_Tanques_quick_start.obj
+ 0001:0000d080       sf_get_instance_specialization 000000018000e080 f   c2_Tanques_quick_start.obj
+ 0001:0000d090       mdlStart_c2_Tanques_quick_start 000000018000e090 f   c2_Tanques_quick_start.obj
+ 0001:0000d2c0       init_dsm_address_info      000000018000e2c0 f   c2_Tanques_quick_start.obj
+ 0001:0000d4d0       chart_debug_initialization 000000018000e4d0 f   c2_Tanques_quick_start.obj
+ 0001:0000e9a0       init_script_number_translation 000000018000f9a0 f   c2_Tanques_quick_start.obj
+ 0001:0000e9f0       c2_sf_marshallOut          000000018000f9f0 f   c2_Tanques_quick_start.obj
+ 0001:0000eaa0       c2_sf_marshallIn           000000018000faa0 f   c2_Tanques_quick_start.obj
+ 0001:0000eb40       c2_b_sf_marshallOut        000000018000fb40 f   c2_Tanques_quick_start.obj
+ 0001:0000ebf0       c2_c_sf_marshallIn         000000018000fbf0 f   c2_Tanques_quick_start.obj
+ 0001:0000ec90       c2_d_emlrt_marshallIn      000000018000fc90 f   c2_Tanques_quick_start.obj
+ 0001:0000ed20       sf_opaque_initialize_c2_Tanques_quick_start 000000018000fd20 f   c2_Tanques_quick_start.obj
+ 0001:0000ed60       initialize_c2_Tanques_quick_start 000000018000fd60 f   c2_Tanques_quick_start.obj
+ 0001:0000ede0       sf_opaque_enable_c2_Tanques_quick_start 000000018000fde0 f   c2_Tanques_quick_start.obj
+ 0001:0000ee00       enable_c2_Tanques_quick_start 000000018000fe00 f   c2_Tanques_quick_start.obj
+ 0001:0000ee30       sf_opaque_disable_c2_Tanques_quick_start 000000018000fe30 f   c2_Tanques_quick_start.obj
+ 0001:0000ee50       disable_c2_Tanques_quick_start 000000018000fe50 f   c2_Tanques_quick_start.obj
+ 0001:0000ee80       sf_opaque_gateway_c2_Tanques_quick_start 000000018000fe80 f   c2_Tanques_quick_start.obj
+ 0001:0000eea0       sf_gateway_c2_Tanques_quick_start 000000018000fea0 f   c2_Tanques_quick_start.obj
+ 0001:000105d0       c2_rand                    00000001800115d0 f   c2_Tanques_quick_start.obj
+ 0001:000105f0       c2_eml_rand                00000001800115f0 f   c2_Tanques_quick_start.obj
+ 0001:00010a30       c2_eml_rand_mt19937ar      0000000180011a30 f   c2_Tanques_quick_start.obj
+ 0001:00010aa0       c2_b_twister_state_vector  0000000180011aa0 f   c2_Tanques_quick_start.obj
+ 0001:00010cf0       c2_c_eml_rand_mt19937ar    0000000180011cf0 f   c2_Tanques_quick_start.obj
+ 0001:00011b30       c2_eml_error               0000000180012b30 f   c2_Tanques_quick_start.obj
+ 0001:00011c80       c2_get_currAmp             0000000180012c80 f   c2_Tanques_quick_start.obj
+ 0001:00011d30       c2_set_currAmp             0000000180012d30 f   c2_Tanques_quick_start.obj
+ 0001:00011df0       c2_get_currPeriod          0000000180012df0 f   c2_Tanques_quick_start.obj
+ 0001:00011ea0       c2_set_currPeriod          0000000180012ea0 f   c2_Tanques_quick_start.obj
+ 0001:00011f60       c2_get_prevTime            0000000180012f60 f   c2_Tanques_quick_start.obj
+ 0001:00012010       c2_set_prevTime            0000000180013010 f   c2_Tanques_quick_start.obj
+ 0001:000120d0       sf_opaque_get_sim_state_c2_Tanques_quick_start 00000001800130d0 f   c2_Tanques_quick_start.obj
+ 0001:000120f0       sf_opaque_set_sim_state_c2_Tanques_quick_start 00000001800130f0 f   c2_Tanques_quick_start.obj
+ 0001:00012120       sf_opaque_terminate_c2_Tanques_quick_start 0000000180013120 f   c2_Tanques_quick_start.obj
+ 0001:000121c0       finalize_c2_Tanques_quick_start 00000001800131c0 f   c2_Tanques_quick_start.obj
+ 0001:000121d0       sf_opaque_init_subchart_simstructs 00000001800131d0 f   c2_Tanques_quick_start.obj
+ 0001:000121f0       initSimStructsc2_Tanques_quick_start 00000001800131f0 f   c2_Tanques_quick_start.obj
+ 0001:00012200       mdlRTW_c2_Tanques_quick_start 0000000180013200 f   c2_Tanques_quick_start.obj
+ 0001:00012a10       get_sim_state_c3_Tanques_quick_start 0000000180013a10 f   c3_Tanques_quick_start.obj
+ 0001:00012bb0       sf_get_sim_state_info_c3_Tanques_quick_start 0000000180013bb0 f   c3_Tanques_quick_start.obj
+ 0001:00012d80       set_sim_state_c3_Tanques_quick_start 0000000180013d80 f   c3_Tanques_quick_start.obj
+ 0001:00012e60       c3_update_debugger_state_c3_Tanques_quick_start 0000000180013e60 f   c3_Tanques_quick_start.obj
+ 0001:00012e70       c3_emlrt_marshallIn        0000000180013e70 f   c3_Tanques_quick_start.obj
+ 0001:00012ee0       c3_b_emlrt_marshallIn      0000000180013ee0 f   c3_Tanques_quick_start.obj
+ 0001:00012f70       c3_d_emlrt_marshallIn      0000000180013f70 f   c3_Tanques_quick_start.obj
+ 0001:00012fd0       c3_e_emlrt_marshallIn      0000000180013fd0 f   c3_Tanques_quick_start.obj
+ 0001:000130d0       mdlProcessParameters_c3_Tanques_quick_start 00000001800140d0 f   c3_Tanques_quick_start.obj
+ 0001:000131b0       initialize_params_c3_Tanques_quick_start 00000001800141b0 f   c3_Tanques_quick_start.obj
+ 0001:000131c0       mdlSetWorkWidths_c3_Tanques_quick_start 00000001800141c0 f   c3_Tanques_quick_start.obj
+ 0001:000136c0       sf_get_instance_specialization 00000001800146c0 f   c3_Tanques_quick_start.obj
+ 0001:000136d0       mdlStart_c3_Tanques_quick_start 00000001800146d0 f   c3_Tanques_quick_start.obj
+ 0001:00013900       init_dsm_address_info      0000000180014900 f   c3_Tanques_quick_start.obj
+ 0001:00013910       chart_debug_initialization 0000000180014910 f   c3_Tanques_quick_start.obj
+ 0001:00014280       init_script_number_translation 0000000180015280 f   c3_Tanques_quick_start.obj
+ 0001:000142a0       c3_sf_marshallOut          00000001800152a0 f   c3_Tanques_quick_start.obj
+ 0001:00014350       c3_sf_marshallIn           0000000180015350 f   c3_Tanques_quick_start.obj
+ 0001:000143f0       sf_opaque_initialize_c3_Tanques_quick_start 00000001800153f0 f   c3_Tanques_quick_start.obj
+ 0001:00014430       initialize_c3_Tanques_quick_start 0000000180015430 f   c3_Tanques_quick_start.obj
+ 0001:00014480       sf_opaque_enable_c3_Tanques_quick_start 0000000180015480 f   c3_Tanques_quick_start.obj
+ 0001:000144a0       enable_c3_Tanques_quick_start 00000001800154a0 f   c3_Tanques_quick_start.obj
+ 0001:000144d0       sf_opaque_disable_c3_Tanques_quick_start 00000001800154d0 f   c3_Tanques_quick_start.obj
+ 0001:000144f0       disable_c3_Tanques_quick_start 00000001800154f0 f   c3_Tanques_quick_start.obj
+ 0001:00014520       sf_opaque_gateway_c3_Tanques_quick_start 0000000180015520 f   c3_Tanques_quick_start.obj
+ 0001:00014540       sf_gateway_c3_Tanques_quick_start 0000000180015540 f   c3_Tanques_quick_start.obj
+ 0001:00014ea0       sf_opaque_get_sim_state_c3_Tanques_quick_start 0000000180015ea0 f   c3_Tanques_quick_start.obj
+ 0001:00014ec0       sf_opaque_set_sim_state_c3_Tanques_quick_start 0000000180015ec0 f   c3_Tanques_quick_start.obj
+ 0001:00014ef0       sf_opaque_terminate_c3_Tanques_quick_start 0000000180015ef0 f   c3_Tanques_quick_start.obj
+ 0001:00014f90       finalize_c3_Tanques_quick_start 0000000180015f90 f   c3_Tanques_quick_start.obj
+ 0001:00014fa0       sf_opaque_init_subchart_simstructs 0000000180015fa0 f   c3_Tanques_quick_start.obj
+ 0001:00014fc0       initSimStructsc3_Tanques_quick_start 0000000180015fc0 f   c3_Tanques_quick_start.obj
+ 0001:00014fd0       mdlRTW_c3_Tanques_quick_start 0000000180015fd0 f   c3_Tanques_quick_start.obj
+ 0001:00015080       c4_info_helper             0000000180016080 f   c4_Tanques_quick_start.obj
+ 0001:00015750       c4_emlrt_marshallOut       0000000180016750 f   c4_Tanques_quick_start.obj
+ 0001:000157e0       c4_b_emlrt_marshallOut     00000001800167e0 f   c4_Tanques_quick_start.obj
+ 0001:00015fa0       get_sim_state_c4_Tanques_quick_start 0000000180016fa0 f   c4_Tanques_quick_start.obj
+ 0001:00016180       sf_get_sim_state_info_c4_Tanques_quick_start 0000000180017180 f   c4_Tanques_quick_start.obj
+ 0001:00016350       set_sim_state_c4_Tanques_quick_start 0000000180017350 f   c4_Tanques_quick_start.obj
+ 0001:00016460       c4_update_debugger_state_c4_Tanques_quick_start 0000000180017460 f   c4_Tanques_quick_start.obj
+ 0001:00016470       c4_emlrt_marshallIn        0000000180017470 f   c4_Tanques_quick_start.obj
+ 0001:000164e0       c4_b_emlrt_marshallIn      00000001800174e0 f   c4_Tanques_quick_start.obj
+ 0001:000165b0       c4_e_emlrt_marshallIn      00000001800175b0 f   c4_Tanques_quick_start.obj
+ 0001:00016610       c4_f_emlrt_marshallIn      0000000180017610 f   c4_Tanques_quick_start.obj
+ 0001:00016710       mdlProcessParameters_c4_Tanques_quick_start 0000000180017710 f   c4_Tanques_quick_start.obj
+ 0001:000167f0       initialize_params_c4_Tanques_quick_start 00000001800177f0 f   c4_Tanques_quick_start.obj
+ 0001:00016800       mdlSetWorkWidths_c4_Tanques_quick_start 0000000180017800 f   c4_Tanques_quick_start.obj
+ 0001:00016d00       sf_get_instance_specialization 0000000180017d00 f   c4_Tanques_quick_start.obj
+ 0001:00016d10       mdlStart_c4_Tanques_quick_start 0000000180017d10 f   c4_Tanques_quick_start.obj
+ 0001:00016f40       init_dsm_address_info      0000000180017f40 f   c4_Tanques_quick_start.obj
+ 0001:00016f50       chart_debug_initialization 0000000180017f50 f   c4_Tanques_quick_start.obj
+ 0001:00017900       init_script_number_translation 0000000180018900 f   c4_Tanques_quick_start.obj
+ 0001:00017950       c4_sf_marshallOut          0000000180018950 f   c4_Tanques_quick_start.obj
+ 0001:00017a80       c4_sf_marshallIn           0000000180018a80 f   c4_Tanques_quick_start.obj
+ 0001:00017b50       c4_b_sf_marshallOut        0000000180018b50 f   c4_Tanques_quick_start.obj
+ 0001:00017c00       c4_c_sf_marshallOut        0000000180018c00 f   c4_Tanques_quick_start.obj
+ 0001:00017d40       sf_opaque_initialize_c4_Tanques_quick_start 0000000180018d40 f   c4_Tanques_quick_start.obj
+ 0001:00017d80       initialize_c4_Tanques_quick_start 0000000180018d80 f   c4_Tanques_quick_start.obj
+ 0001:00017dd0       sf_opaque_enable_c4_Tanques_quick_start 0000000180018dd0 f   c4_Tanques_quick_start.obj
+ 0001:00017df0       enable_c4_Tanques_quick_start 0000000180018df0 f   c4_Tanques_quick_start.obj
+ 0001:00017e20       sf_opaque_disable_c4_Tanques_quick_start 0000000180018e20 f   c4_Tanques_quick_start.obj
+ 0001:00017e40       disable_c4_Tanques_quick_start 0000000180018e40 f   c4_Tanques_quick_start.obj
+ 0001:00017e70       sf_opaque_gateway_c4_Tanques_quick_start 0000000180018e70 f   c4_Tanques_quick_start.obj
+ 0001:00017e90       sf_gateway_c4_Tanques_quick_start 0000000180018e90 f   c4_Tanques_quick_start.obj
+ 0001:000188e0       c4_b_sf_marshallIn         00000001800198e0 f   c4_Tanques_quick_start.obj
+ 0001:00018980       c4_c_emlrt_marshallIn      0000000180019980 f   c4_Tanques_quick_start.obj
+ 0001:00018a10       sf_opaque_get_sim_state_c4_Tanques_quick_start 0000000180019a10 f   c4_Tanques_quick_start.obj
+ 0001:00018a30       sf_opaque_set_sim_state_c4_Tanques_quick_start 0000000180019a30 f   c4_Tanques_quick_start.obj
+ 0001:00018a60       sf_opaque_terminate_c4_Tanques_quick_start 0000000180019a60 f   c4_Tanques_quick_start.obj
+ 0001:00018b00       finalize_c4_Tanques_quick_start 0000000180019b00 f   c4_Tanques_quick_start.obj
+ 0001:00018b10       sf_opaque_init_subchart_simstructs 0000000180019b10 f   c4_Tanques_quick_start.obj
+ 0001:00018b30       initSimStructsc4_Tanques_quick_start 0000000180019b30 f   c4_Tanques_quick_start.obj
+ 0001:00018b40       mdlRTW_c4_Tanques_quick_start 0000000180019b40 f   c4_Tanques_quick_start.obj
+ 0001:00018bf0       c5_info_helper             0000000180019bf0 f   c5_Tanques_quick_start.obj
+ 0001:0001c3f0       c5_emlrt_marshallOut       000000018001d3f0 f   c5_Tanques_quick_start.obj
+ 0001:0001c480       c5_b_emlrt_marshallOut     000000018001d480 f   c5_Tanques_quick_start.obj
+ 0001:0001cc40       get_sim_state_c5_Tanques_quick_start 000000018001dc40 f   c5_Tanques_quick_start.obj
+ 0001:0001cdf0       sf_get_sim_state_info_c5_Tanques_quick_start 000000018001ddf0 f   c5_Tanques_quick_start.obj
+ 0001:0001cfc0       set_sim_state_c5_Tanques_quick_start 000000018001dfc0 f   c5_Tanques_quick_start.obj
+ 0001:0001d0a0       c5_update_debugger_state_c5_Tanques_quick_start 000000018001e0a0 f   c5_Tanques_quick_start.obj
+ 0001:0001d0b0       c5_emlrt_marshallIn        000000018001e0b0 f   c5_Tanques_quick_start.obj
+ 0001:0001d120       c5_b_emlrt_marshallIn      000000018001e120 f   c5_Tanques_quick_start.obj
+ 0001:0001d1b0       c5_f_emlrt_marshallIn      000000018001e1b0 f   c5_Tanques_quick_start.obj
+ 0001:0001d210       c5_g_emlrt_marshallIn      000000018001e210 f   c5_Tanques_quick_start.obj
+ 0001:0001d310       mdlProcessParameters_c5_Tanques_quick_start 000000018001e310 f   c5_Tanques_quick_start.obj
+ 0001:0001d3f0       initialize_params_c5_Tanques_quick_start 000000018001e3f0 f   c5_Tanques_quick_start.obj
+ 0001:0001d400       mdlSetWorkWidths_c5_Tanques_quick_start 000000018001e400 f   c5_Tanques_quick_start.obj
+ 0001:0001d900       sf_get_instance_specialization 000000018001e900 f   c5_Tanques_quick_start.obj
+ 0001:0001d910       mdlStart_c5_Tanques_quick_start 000000018001e910 f   c5_Tanques_quick_start.obj
+ 0001:0001db40       init_dsm_address_info      000000018001eb40 f   c5_Tanques_quick_start.obj
+ 0001:0001db50       chart_debug_initialization 000000018001eb50 f   c5_Tanques_quick_start.obj
+ 0001:0001e500       init_script_number_translation 000000018001f500 f   c5_Tanques_quick_start.obj
+ 0001:0001e550       c5_sf_marshallOut          000000018001f550 f   c5_Tanques_quick_start.obj
+ 0001:0001e600       c5_sf_marshallIn           000000018001f600 f   c5_Tanques_quick_start.obj
+ 0001:0001e6a0       c5_b_sf_marshallOut        000000018001f6a0 f   c5_Tanques_quick_start.obj
+ 0001:0001e7c0       c5_c_sf_marshallOut        000000018001f7c0 f   c5_Tanques_quick_start.obj
+ 0001:0001e8f0       sf_opaque_initialize_c5_Tanques_quick_start 000000018001f8f0 f   c5_Tanques_quick_start.obj
+ 0001:0001e930       initialize_c5_Tanques_quick_start 000000018001f930 f   c5_Tanques_quick_start.obj
+ 0001:0001e980       sf_opaque_enable_c5_Tanques_quick_start 000000018001f980 f   c5_Tanques_quick_start.obj
+ 0001:0001e9a0       enable_c5_Tanques_quick_start 000000018001f9a0 f   c5_Tanques_quick_start.obj
+ 0001:0001e9d0       sf_opaque_disable_c5_Tanques_quick_start 000000018001f9d0 f   c5_Tanques_quick_start.obj
+ 0001:0001e9f0       disable_c5_Tanques_quick_start 000000018001f9f0 f   c5_Tanques_quick_start.obj
+ 0001:0001ea20       sf_opaque_gateway_c5_Tanques_quick_start 000000018001fa20 f   c5_Tanques_quick_start.obj
+ 0001:0001ea40       sf_gateway_c5_Tanques_quick_start 000000018001fa40 f   c5_Tanques_quick_start.obj
+ 0001:0001f570       c5_b_sf_marshallIn         0000000180020570 f   c5_Tanques_quick_start.obj
+ 0001:0001f640       c5_c_emlrt_marshallIn      0000000180020640 f   c5_Tanques_quick_start.obj
+ 0001:0001f710       c5_c_sf_marshallIn         0000000180020710 f   c5_Tanques_quick_start.obj
+ 0001:0001f7e0       c5_d_emlrt_marshallIn      00000001800207e0 f   c5_Tanques_quick_start.obj
+ 0001:0001f8c0       c5_scalarEg                00000001800208c0 f   c5_Tanques_quick_start.obj
+ 0001:0001f8d0       c5_eml_xdotu               00000001800208d0 f   c5_Tanques_quick_start.obj
+ 0001:0001fae0       sf_opaque_get_sim_state_c5_Tanques_quick_start 0000000180020ae0 f   c5_Tanques_quick_start.obj
+ 0001:0001fb00       sf_opaque_set_sim_state_c5_Tanques_quick_start 0000000180020b00 f   c5_Tanques_quick_start.obj
+ 0001:0001fb30       sf_opaque_terminate_c5_Tanques_quick_start 0000000180020b30 f   c5_Tanques_quick_start.obj
+ 0001:0001fbd0       finalize_c5_Tanques_quick_start 0000000180020bd0 f   c5_Tanques_quick_start.obj
+ 0001:0001fbe0       sf_opaque_init_subchart_simstructs 0000000180020be0 f   c5_Tanques_quick_start.obj
+ 0001:0001fc00       initSimStructsc5_Tanques_quick_start 0000000180020c00 f   c5_Tanques_quick_start.obj
+ 0001:0001fc10       mdlRTW_c5_Tanques_quick_start 0000000180020c10 f   c5_Tanques_quick_start.obj
+ 0001:0001fcc0       c6_info_helper             0000000180020cc0 f   c6_Tanques_quick_start.obj
+ 0001:00020390       c6_emlrt_marshallOut       0000000180021390 f   c6_Tanques_quick_start.obj
+ 0001:00020420       c6_b_emlrt_marshallOut     0000000180021420 f   c6_Tanques_quick_start.obj
+ 0001:00020be0       get_sim_state_c6_Tanques_quick_start 0000000180021be0 f   c6_Tanques_quick_start.obj
+ 0001:00020db0       sf_get_sim_state_info_c6_Tanques_quick_start 0000000180021db0 f   c6_Tanques_quick_start.obj
+ 0001:00020f80       set_sim_state_c6_Tanques_quick_start 0000000180021f80 f   c6_Tanques_quick_start.obj
+ 0001:00021090       c6_update_debugger_state_c6_Tanques_quick_start 0000000180022090 f   c6_Tanques_quick_start.obj
+ 0001:000210a0       c6_emlrt_marshallIn        00000001800220a0 f   c6_Tanques_quick_start.obj
+ 0001:00021110       c6_b_emlrt_marshallIn      0000000180022110 f   c6_Tanques_quick_start.obj
+ 0001:000211e0       c6_e_emlrt_marshallIn      00000001800221e0 f   c6_Tanques_quick_start.obj
+ 0001:00021240       c6_f_emlrt_marshallIn      0000000180022240 f   c6_Tanques_quick_start.obj
+ 0001:00021340       mdlProcessParameters_c6_Tanques_quick_start 0000000180022340 f   c6_Tanques_quick_start.obj
+ 0001:00021420       initialize_params_c6_Tanques_quick_start 0000000180022420 f   c6_Tanques_quick_start.obj
+ 0001:00021430       mdlSetWorkWidths_c6_Tanques_quick_start 0000000180022430 f   c6_Tanques_quick_start.obj
+ 0001:00021930       sf_get_instance_specialization 0000000180022930 f   c6_Tanques_quick_start.obj
+ 0001:00021940       mdlStart_c6_Tanques_quick_start 0000000180022940 f   c6_Tanques_quick_start.obj
+ 0001:00021b70       init_dsm_address_info      0000000180022b70 f   c6_Tanques_quick_start.obj
+ 0001:00021b80       chart_debug_initialization 0000000180022b80 f   c6_Tanques_quick_start.obj
+ 0001:00022530       init_script_number_translation 0000000180023530 f   c6_Tanques_quick_start.obj
+ 0001:00022580       c6_sf_marshallOut          0000000180023580 f   c6_Tanques_quick_start.obj
+ 0001:000226a0       c6_sf_marshallIn           00000001800236a0 f   c6_Tanques_quick_start.obj
+ 0001:00022770       c6_b_sf_marshallOut        0000000180023770 f   c6_Tanques_quick_start.obj
+ 0001:000228a0       c6_c_sf_marshallOut        00000001800238a0 f   c6_Tanques_quick_start.obj
+ 0001:00022950       sf_opaque_initialize_c6_Tanques_quick_start 0000000180023950 f   c6_Tanques_quick_start.obj
+ 0001:00022990       initialize_c6_Tanques_quick_start 0000000180023990 f   c6_Tanques_quick_start.obj
+ 0001:000229e0       sf_opaque_enable_c6_Tanques_quick_start 00000001800239e0 f   c6_Tanques_quick_start.obj
+ 0001:00022a00       enable_c6_Tanques_quick_start 0000000180023a00 f   c6_Tanques_quick_start.obj
+ 0001:00022a30       sf_opaque_disable_c6_Tanques_quick_start 0000000180023a30 f   c6_Tanques_quick_start.obj
+ 0001:00022a50       disable_c6_Tanques_quick_start 0000000180023a50 f   c6_Tanques_quick_start.obj
+ 0001:00022a80       sf_opaque_gateway_c6_Tanques_quick_start 0000000180023a80 f   c6_Tanques_quick_start.obj
+ 0001:00022aa0       sf_gateway_c6_Tanques_quick_start 0000000180023aa0 f   c6_Tanques_quick_start.obj
+ 0001:00023500       c6_b_sf_marshallIn         0000000180024500 f   c6_Tanques_quick_start.obj
+ 0001:000235a0       c6_c_emlrt_marshallIn      00000001800245a0 f   c6_Tanques_quick_start.obj
+ 0001:00023630       sf_opaque_get_sim_state_c6_Tanques_quick_start 0000000180024630 f   c6_Tanques_quick_start.obj
+ 0001:00023650       sf_opaque_set_sim_state_c6_Tanques_quick_start 0000000180024650 f   c6_Tanques_quick_start.obj
+ 0001:00023680       sf_opaque_terminate_c6_Tanques_quick_start 0000000180024680 f   c6_Tanques_quick_start.obj
+ 0001:00023720       finalize_c6_Tanques_quick_start 0000000180024720 f   c6_Tanques_quick_start.obj
+ 0001:00023730       sf_opaque_init_subchart_simstructs 0000000180024730 f   c6_Tanques_quick_start.obj
+ 0001:00023750       initSimStructsc6_Tanques_quick_start 0000000180024750 f   c6_Tanques_quick_start.obj
+ 0001:00023760       mdlRTW_c6_Tanques_quick_start 0000000180024760 f   c6_Tanques_quick_start.obj
+ 0001:00023810       c7_info_helper             0000000180024810 f   c7_Tanques_quick_start.obj
+ 0001:00025a00       c7_emlrt_marshallOut       0000000180026a00 f   c7_Tanques_quick_start.obj
+ 0001:00025a90       c7_b_emlrt_marshallOut     0000000180026a90 f   c7_Tanques_quick_start.obj
+ 0001:00026250       get_sim_state_c7_Tanques_quick_start 0000000180027250 f   c7_Tanques_quick_start.obj
+ 0001:00026420       sf_get_sim_state_info_c7_Tanques_quick_start 0000000180027420 f   c7_Tanques_quick_start.obj
+ 0001:000265f0       set_sim_state_c7_Tanques_quick_start 00000001800275f0 f   c7_Tanques_quick_start.obj
+ 0001:00026700       c7_update_debugger_state_c7_Tanques_quick_start 0000000180027700 f   c7_Tanques_quick_start.obj
+ 0001:00026710       c7_emlrt_marshallIn        0000000180027710 f   c7_Tanques_quick_start.obj
+ 0001:00026780       c7_b_emlrt_marshallIn      0000000180027780 f   c7_Tanques_quick_start.obj
+ 0001:00026850       c7_f_emlrt_marshallIn      0000000180027850 f   c7_Tanques_quick_start.obj
+ 0001:000268b0       c7_g_emlrt_marshallIn      00000001800278b0 f   c7_Tanques_quick_start.obj
+ 0001:000269b0       mdlProcessParameters_c7_Tanques_quick_start 00000001800279b0 f   c7_Tanques_quick_start.obj
+ 0001:00026a90       initialize_params_c7_Tanques_quick_start 0000000180027a90 f   c7_Tanques_quick_start.obj
+ 0001:00026aa0       mdlSetWorkWidths_c7_Tanques_quick_start 0000000180027aa0 f   c7_Tanques_quick_start.obj
+ 0001:00026fa0       sf_get_instance_specialization 0000000180027fa0 f   c7_Tanques_quick_start.obj
+ 0001:00026fb0       mdlStart_c7_Tanques_quick_start 0000000180027fb0 f   c7_Tanques_quick_start.obj
+ 0001:000271e0       init_dsm_address_info      00000001800281e0 f   c7_Tanques_quick_start.obj
+ 0001:000271f0       chart_debug_initialization 00000001800281f0 f   c7_Tanques_quick_start.obj
+ 0001:00027bb0       init_script_number_translation 0000000180028bb0 f   c7_Tanques_quick_start.obj
+ 0001:00027c00       c7_sf_marshallOut          0000000180028c00 f   c7_Tanques_quick_start.obj
+ 0001:00027d20       c7_sf_marshallIn           0000000180028d20 f   c7_Tanques_quick_start.obj
+ 0001:00027df0       c7_b_sf_marshallOut        0000000180028df0 f   c7_Tanques_quick_start.obj
+ 0001:00028030       sf_opaque_initialize_c7_Tanques_quick_start 0000000180029030 f   c7_Tanques_quick_start.obj
+ 0001:00028070       initialize_c7_Tanques_quick_start 0000000180029070 f   c7_Tanques_quick_start.obj
+ 0001:000280c0       sf_opaque_enable_c7_Tanques_quick_start 00000001800290c0 f   c7_Tanques_quick_start.obj
+ 0001:000280e0       enable_c7_Tanques_quick_start 00000001800290e0 f   c7_Tanques_quick_start.obj
+ 0001:00028110       sf_opaque_disable_c7_Tanques_quick_start 0000000180029110 f   c7_Tanques_quick_start.obj
+ 0001:00028130       disable_c7_Tanques_quick_start 0000000180029130 f   c7_Tanques_quick_start.obj
+ 0001:00028160       sf_opaque_gateway_c7_Tanques_quick_start 0000000180029160 f   c7_Tanques_quick_start.obj
+ 0001:00028180       sf_gateway_c7_Tanques_quick_start 0000000180029180 f   c7_Tanques_quick_start.obj
+ 0001:00028e30       c7_c_sf_marshallOut        0000000180029e30 f   c7_Tanques_quick_start.obj
+ 0001:00028ee0       c7_b_sf_marshallIn         0000000180029ee0 f   c7_Tanques_quick_start.obj
+ 0001:00028f80       c7_c_emlrt_marshallIn      0000000180029f80 f   c7_Tanques_quick_start.obj
+ 0001:00029010       c7_c_sf_marshallIn         000000018002a010 f   c7_Tanques_quick_start.obj
+ 0001:00029150       c7_d_emlrt_marshallIn      000000018002a150 f   c7_Tanques_quick_start.obj
+ 0001:00029260       c7_eml_scalar_eg           000000018002a260 f   c7_Tanques_quick_start.obj
+ 0001:00029270       c7_b_eml_xgemm             000000018002a270 f   c7_Tanques_quick_start.obj
+ 0001:00029350       sf_opaque_get_sim_state_c7_Tanques_quick_start 000000018002a350 f   c7_Tanques_quick_start.obj
+ 0001:00029370       sf_opaque_set_sim_state_c7_Tanques_quick_start 000000018002a370 f   c7_Tanques_quick_start.obj
+ 0001:000293a0       sf_opaque_terminate_c7_Tanques_quick_start 000000018002a3a0 f   c7_Tanques_quick_start.obj
+ 0001:00029440       finalize_c7_Tanques_quick_start 000000018002a440 f   c7_Tanques_quick_start.obj
+ 0001:00029450       sf_opaque_init_subchart_simstructs 000000018002a450 f   c7_Tanques_quick_start.obj
+ 0001:00029470       initSimStructsc7_Tanques_quick_start 000000018002a470 f   c7_Tanques_quick_start.obj
+ 0001:00029480       mdlRTW_c7_Tanques_quick_start 000000018002a480 f   c7_Tanques_quick_start.obj
+ 0001:00029530       c8_info_helper             000000018002a530 f   c8_Tanques_quick_start.obj
+ 0001:0002cd30       c8_emlrt_marshallOut       000000018002dd30 f   c8_Tanques_quick_start.obj
+ 0001:0002cdc0       c8_b_emlrt_marshallOut     000000018002ddc0 f   c8_Tanques_quick_start.obj
+ 0001:0002d580       get_sim_state_c8_Tanques_quick_start 000000018002e580 f   c8_Tanques_quick_start.obj
+ 0001:0002d720       sf_get_sim_state_info_c8_Tanques_quick_start 000000018002e720 f   c8_Tanques_quick_start.obj
+ 0001:0002d8f0       set_sim_state_c8_Tanques_quick_start 000000018002e8f0 f   c8_Tanques_quick_start.obj
+ 0001:0002d9d0       c8_update_debugger_state_c8_Tanques_quick_start 000000018002e9d0 f   c8_Tanques_quick_start.obj
+ 0001:0002d9e0       c8_emlrt_marshallIn        000000018002e9e0 f   c8_Tanques_quick_start.obj
+ 0001:0002da50       c8_b_emlrt_marshallIn      000000018002ea50 f   c8_Tanques_quick_start.obj
+ 0001:0002dae0       c8_f_emlrt_marshallIn      000000018002eae0 f   c8_Tanques_quick_start.obj
+ 0001:0002db40       c8_g_emlrt_marshallIn      000000018002eb40 f   c8_Tanques_quick_start.obj
+ 0001:0002dc40       mdlProcessParameters_c8_Tanques_quick_start 000000018002ec40 f   c8_Tanques_quick_start.obj
+ 0001:0002dd20       initialize_params_c8_Tanques_quick_start 000000018002ed20 f   c8_Tanques_quick_start.obj
+ 0001:0002dd30       mdlSetWorkWidths_c8_Tanques_quick_start 000000018002ed30 f   c8_Tanques_quick_start.obj
+ 0001:0002e230       sf_get_instance_specialization 000000018002f230 f   c8_Tanques_quick_start.obj
+ 0001:0002e240       mdlStart_c8_Tanques_quick_start 000000018002f240 f   c8_Tanques_quick_start.obj
+ 0001:0002e470       init_dsm_address_info      000000018002f470 f   c8_Tanques_quick_start.obj
+ 0001:0002e480       chart_debug_initialization 000000018002f480 f   c8_Tanques_quick_start.obj
+ 0001:0002ee30       init_script_number_translation 000000018002fe30 f   c8_Tanques_quick_start.obj
+ 0001:0002ee80       c8_sf_marshallOut          000000018002fe80 f   c8_Tanques_quick_start.obj
+ 0001:0002ef30       c8_sf_marshallIn           000000018002ff30 f   c8_Tanques_quick_start.obj
+ 0001:0002efd0       c8_b_sf_marshallOut        000000018002ffd0 f   c8_Tanques_quick_start.obj
+ 0001:0002f0f0       c8_c_sf_marshallOut        00000001800300f0 f   c8_Tanques_quick_start.obj
+ 0001:0002f240       sf_opaque_initialize_c8_Tanques_quick_start 0000000180030240 f   c8_Tanques_quick_start.obj
+ 0001:0002f280       initialize_c8_Tanques_quick_start 0000000180030280 f   c8_Tanques_quick_start.obj
+ 0001:0002f2d0       sf_opaque_enable_c8_Tanques_quick_start 00000001800302d0 f   c8_Tanques_quick_start.obj
+ 0001:0002f2f0       enable_c8_Tanques_quick_start 00000001800302f0 f   c8_Tanques_quick_start.obj
+ 0001:0002f320       sf_opaque_disable_c8_Tanques_quick_start 0000000180030320 f   c8_Tanques_quick_start.obj
+ 0001:0002f340       disable_c8_Tanques_quick_start 0000000180030340 f   c8_Tanques_quick_start.obj
+ 0001:0002f370       sf_opaque_gateway_c8_Tanques_quick_start 0000000180030370 f   c8_Tanques_quick_start.obj
+ 0001:0002f390       sf_gateway_c8_Tanques_quick_start 0000000180030390 f   c8_Tanques_quick_start.obj
+ 0001:0002fec0       c8_b_sf_marshallIn         0000000180030ec0 f   c8_Tanques_quick_start.obj
+ 0001:0002ff90       c8_c_emlrt_marshallIn      0000000180030f90 f   c8_Tanques_quick_start.obj
+ 0001:00030060       c8_c_sf_marshallIn         0000000180031060 f   c8_Tanques_quick_start.obj
+ 0001:00030130       c8_d_emlrt_marshallIn      0000000180031130 f   c8_Tanques_quick_start.obj
+ 0001:00030210       c8_scalarEg                0000000180031210 f   c8_Tanques_quick_start.obj
+ 0001:00030220       c8_eml_xdotu               0000000180031220 f   c8_Tanques_quick_start.obj
+ 0001:00030430       sf_opaque_get_sim_state_c8_Tanques_quick_start 0000000180031430 f   c8_Tanques_quick_start.obj
+ 0001:00030450       sf_opaque_set_sim_state_c8_Tanques_quick_start 0000000180031450 f   c8_Tanques_quick_start.obj
+ 0001:00030480       sf_opaque_terminate_c8_Tanques_quick_start 0000000180031480 f   c8_Tanques_quick_start.obj
+ 0001:00030520       finalize_c8_Tanques_quick_start 0000000180031520 f   c8_Tanques_quick_start.obj
+ 0001:00030530       sf_opaque_init_subchart_simstructs 0000000180031530 f   c8_Tanques_quick_start.obj
+ 0001:00030550       initSimStructsc8_Tanques_quick_start 0000000180031550 f   c8_Tanques_quick_start.obj
+ 0001:00030560       mdlRTW_c8_Tanques_quick_start 0000000180031560 f   c8_Tanques_quick_start.obj
+ 0001:00030610       c9_info_helper             0000000180031610 f   c9_Tanques_quick_start.obj
+ 0001:00030870       c9_emlrt_marshallOut       0000000180031870 f   c9_Tanques_quick_start.obj
+ 0001:00030900       c9_b_emlrt_marshallOut     0000000180031900 f   c9_Tanques_quick_start.obj
+ 0001:000310c0       get_sim_state_c9_Tanques_quick_start 00000001800320c0 f   c9_Tanques_quick_start.obj
+ 0001:00031270       sf_get_sim_state_info_c9_Tanques_quick_start 0000000180032270 f   c9_Tanques_quick_start.obj
+ 0001:00031440       set_sim_state_c9_Tanques_quick_start 0000000180032440 f   c9_Tanques_quick_start.obj
+ 0001:00031520       c9_update_debugger_state_c9_Tanques_quick_start 0000000180032520 f   c9_Tanques_quick_start.obj
+ 0001:00031530       c9_emlrt_marshallIn        0000000180032530 f   c9_Tanques_quick_start.obj
+ 0001:000315a0       c9_b_emlrt_marshallIn      00000001800325a0 f   c9_Tanques_quick_start.obj
+ 0001:00031630       c9_d_emlrt_marshallIn      0000000180032630 f   c9_Tanques_quick_start.obj
+ 0001:00031690       c9_e_emlrt_marshallIn      0000000180032690 f   c9_Tanques_quick_start.obj
+ 0001:00031790       mdlProcessParameters_c9_Tanques_quick_start 0000000180032790 f   c9_Tanques_quick_start.obj
+ 0001:00031870       initialize_params_c9_Tanques_quick_start 0000000180032870 f   c9_Tanques_quick_start.obj
+ 0001:00031880       mdlSetWorkWidths_c9_Tanques_quick_start 0000000180032880 f   c9_Tanques_quick_start.obj
+ 0001:00031d80       sf_get_instance_specialization 0000000180032d80 f   c9_Tanques_quick_start.obj
+ 0001:00031d90       mdlStart_c9_Tanques_quick_start 0000000180032d90 f   c9_Tanques_quick_start.obj
+ 0001:00031fc0       init_dsm_address_info      0000000180032fc0 f   c9_Tanques_quick_start.obj
+ 0001:00031fd0       chart_debug_initialization 0000000180032fd0 f   c9_Tanques_quick_start.obj
+ 0001:00032950       init_script_number_translation 0000000180033950 f   c9_Tanques_quick_start.obj
+ 0001:000329a0       c9_sf_marshallOut          00000001800339a0 f   c9_Tanques_quick_start.obj
+ 0001:00032a50       c9_sf_marshallIn           0000000180033a50 f   c9_Tanques_quick_start.obj
+ 0001:00032af0       sf_opaque_initialize_c9_Tanques_quick_start 0000000180033af0 f   c9_Tanques_quick_start.obj
+ 0001:00032b30       initialize_c9_Tanques_quick_start 0000000180033b30 f   c9_Tanques_quick_start.obj
+ 0001:00032b80       sf_opaque_enable_c9_Tanques_quick_start 0000000180033b80 f   c9_Tanques_quick_start.obj
+ 0001:00032ba0       enable_c9_Tanques_quick_start 0000000180033ba0 f   c9_Tanques_quick_start.obj
+ 0001:00032bd0       sf_opaque_disable_c9_Tanques_quick_start 0000000180033bd0 f   c9_Tanques_quick_start.obj
+ 0001:00032bf0       disable_c9_Tanques_quick_start 0000000180033bf0 f   c9_Tanques_quick_start.obj
+ 0001:00032c20       sf_opaque_gateway_c9_Tanques_quick_start 0000000180033c20 f   c9_Tanques_quick_start.obj
+ 0001:00032c40       sf_gateway_c9_Tanques_quick_start 0000000180033c40 f   c9_Tanques_quick_start.obj
+ 0001:00033510       sf_opaque_get_sim_state_c9_Tanques_quick_start 0000000180034510 f   c9_Tanques_quick_start.obj
+ 0001:00033530       sf_opaque_set_sim_state_c9_Tanques_quick_start 0000000180034530 f   c9_Tanques_quick_start.obj
+ 0001:00033560       sf_opaque_terminate_c9_Tanques_quick_start 0000000180034560 f   c9_Tanques_quick_start.obj
+ 0001:00033600       finalize_c9_Tanques_quick_start 0000000180034600 f   c9_Tanques_quick_start.obj
+ 0001:00033610       sf_opaque_init_subchart_simstructs 0000000180034610 f   c9_Tanques_quick_start.obj
+ 0001:00033630       initSimStructsc9_Tanques_quick_start 0000000180034630 f   c9_Tanques_quick_start.obj
+ 0001:00033640       mdlRTW_c9_Tanques_quick_start 0000000180034640 f   c9_Tanques_quick_start.obj
+ 0001:00034000       getChartInfoFromSimStruct  0000000180035000 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000356a0       _ssFatalError              00000001800366a0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038750       ProcessMexSfunctionCmdLineCall 0000000180039750 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000388b0       sf_debug_api_wrapper       00000001800398b0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038900       mdlStart                   0000000180039900 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038930       mdl_start_processing       0000000180039930 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000389c0       mdlTerminate               00000001800399c0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000389f0       mdl_terminate_processing   00000001800399f0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038a70       mdlInitializeSampleTimes   0000000180039a70 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038aa0       mdlZeroCrossings           0000000180039aa0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038ad0       mdl_zeroCrossings_processing 0000000180039ad0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038b10       mdlDerivatives             0000000180039b10 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038b40       mdl_derivatives_processing 0000000180039b40 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038b90       mdlInitializeConditions    0000000180039b90 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038bc0       mdl_initialize_conditions_processing 0000000180039bc0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038c10       mdlEnable                  0000000180039c10 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038c40       mdl_enable_processing      0000000180039c40 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038c80       mdlDisable                 0000000180039c80 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038cb0       mdl_disable_processing     0000000180039cb0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038cf0       mdlOutputs                 0000000180039cf0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038d20       mdl_outputs_processing     0000000180039d20 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038e00       mdl_outputs_continuous_legacy 0000000180039e00 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038ef0       mdlGetTimeOfNextVarHit     0000000180039ef0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00038f40       _ProcessMexSfunctionCmdLineCall 0000000180039f40 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00039690       mdlSetWorkWidths           000000018003a690 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000396c0       mdlProcessParameters       000000018003a6c0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000396f0       mdlInitializeSizes         000000018003a6f0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00039720       mdlExtModeExec             000000018003a720 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00039750       mdl_ext_mode_exec_processing 000000018003a750 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00039790       mdlRTW                     000000018003a790 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000397d0       _CreateSimStruct           000000018003a7d0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00039960       _RegNumInputPortsCB        000000018003a960 f   Tanques_quick_start_sfun_registry.obj
+ 0001:000399e0       _RegNumOutputPortsCB       000000018003a9e0 f   Tanques_quick_start_sfun_registry.obj
+ 0001:00039f38       pre_c_init                 000000018003af38 f   MSVCRT:crtdll.obj
+ 0001:0003a1f4       __DllMainCRTStartup        000000018003b1f4 f   MSVCRT:crtdll.obj
+ 0001:0003a860       __DllMainCRTStartup$filt$0 000000018003b860 f   MSVCRT:crtdll.obj
+ 0001:0003a890       __DllMainCRTStartup$fin$1  000000018003b890 f   MSVCRT:crtdll.obj
+ 0001:0003a8aa       _onexit$fin$0              000000018003b8aa f   MSVCRT:atonexit.obj
+ 0001:0003a8d0       _IsNonwritableInCurrentImage$filt$0 000000018003b8d0 f   MSVCRT:pesect.obj

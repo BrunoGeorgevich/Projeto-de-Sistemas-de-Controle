@@ -7,7 +7,7 @@ CPU = AMD64
 
 MACHINE     = Tanques_quick_start
 TARGET      = sfun
-CHART_SRCS   = c1_Tanques_quick_start.c c2_Tanques_quick_start.c c3_Tanques_quick_start.c
+CHART_SRCS   = c1_Tanques_quick_start.c c2_Tanques_quick_start.c c3_Tanques_quick_start.c c4_Tanques_quick_start.c c5_Tanques_quick_start.c c6_Tanques_quick_start.c c7_Tanques_quick_start.c c8_Tanques_quick_start.c c9_Tanques_quick_start.c
 MACHINE_SRC  = Tanques_quick_start_sfun.c
 MACHINE_REG = Tanques_quick_start_sfun_registry.c
 MAKEFILE    = Tanques_quick_start_sfun.mak

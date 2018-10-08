@@ -18,8 +18,11 @@
 
 /* Variable Definitions */
 static real_T _sfTime_;
-static const char * c6_debug_family_names[6] = { "nargin", "nargout", "ki",
-  "error", "y", "display" };
+static const char * c6_debug_family_names[5] = { "nargin", "nargout", "scalar",
+  "matrix", "y" };
+
+static const char * c6_b_debug_family_names[5] = { "nargin", "nargout", "scalar",
+  "matrix", "product" };
 
 /* Function Declarations */
 static void initialize_c6_Tanques_quick_start
@@ -45,41 +48,36 @@ static void initSimStructsc6_Tanques_quick_start
 static void init_script_number_translation(uint32_T c6_machineNumber, uint32_T
   c6_chartNumber, uint32_T c6_instanceNumber);
 static const mxArray *c6_sf_marshallOut(void *chartInstanceVoid, void *c6_inData);
-static real_T c6_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, const mxArray *c6_display, const char_T *c6_identifier);
-static real_T c6_b_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, const mxArray *c6_u, const emlrtMsgIdentifier *c6_parentId);
+static void c6_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+  *chartInstance, const mxArray *c6_y, const char_T *c6_identifier, real_T
+  c6_b_y[2]);
+static void c6_b_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+  *chartInstance, const mxArray *c6_u, const emlrtMsgIdentifier *c6_parentId,
+  real_T c6_y[2]);
 static void c6_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c6_mxArrayInData, const char_T *c6_varName, void *c6_outData);
 static const mxArray *c6_b_sf_marshallOut(void *chartInstanceVoid, void
   *c6_inData);
-static int32_T c6_c_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+static const mxArray *c6_c_sf_marshallOut(void *chartInstanceVoid, void
+  *c6_inData);
+static real_T c6_c_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   *chartInstance, const mxArray *c6_u, const emlrtMsgIdentifier *c6_parentId);
 static void c6_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c6_mxArrayInData, const char_T *c6_varName, void *c6_outData);
-static uint8_T c6_d_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+static void c6_info_helper(const mxArray **c6_info);
+static const mxArray *c6_emlrt_marshallOut(const char * c6_u);
+static const mxArray *c6_b_emlrt_marshallOut(const uint32_T c6_u);
+static const mxArray *c6_d_sf_marshallOut(void *chartInstanceVoid, void
+  *c6_inData);
+static int32_T c6_d_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+  *chartInstance, const mxArray *c6_u, const emlrtMsgIdentifier *c6_parentId);
+static void c6_c_sf_marshallIn(void *chartInstanceVoid, const mxArray
+  *c6_mxArrayInData, const char_T *c6_varName, void *c6_outData);
+static uint8_T c6_e_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   *chartInstance, const mxArray *c6_b_is_active_c6_Tanques_quick_start, const
   char_T *c6_identifier);
-static uint8_T c6_e_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+static uint8_T c6_f_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   *chartInstance, const mxArray *c6_u, const emlrtMsgIdentifier *c6_parentId);
-static real_T c6_get_integral(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b);
-static void c6_set_integral(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b, real_T c6_c);
-static real_T *c6_access_integral(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b);
-static real_T c6_get_pidPreviousTime(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b);
-static void c6_set_pidPreviousTime(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b, real_T c6_c);
-static real_T *c6_access_pidPreviousTime(SFc6_Tanques_quick_startInstanceStruct *
-  chartInstance, uint32_T c6_b);
-static real_T c6_get_previousError(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b);
-static void c6_set_previousError(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b, real_T c6_c);
-static real_T *c6_access_previousError(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b);
 static void init_dsm_address_info(SFc6_Tanques_quick_startInstanceStruct
   *chartInstance);
 
@@ -121,38 +119,30 @@ static const mxArray *get_sim_state_c6_Tanques_quick_start
 {
   const mxArray *c6_st;
   const mxArray *c6_y = NULL;
-  real_T c6_hoistedGlobal;
-  real_T c6_u;
+  int32_T c6_i0;
+  real_T c6_u[2];
   const mxArray *c6_b_y = NULL;
-  real_T c6_b_hoistedGlobal;
-  real_T c6_b_u;
+  uint8_T c6_hoistedGlobal;
+  uint8_T c6_b_u;
   const mxArray *c6_c_y = NULL;
-  uint8_T c6_c_hoistedGlobal;
-  uint8_T c6_c_u;
-  const mxArray *c6_d_y = NULL;
-  real_T *c6_display;
-  real_T *c6_e_y;
-  c6_display = (real_T *)ssGetOutputPortSignal(chartInstance->S, 2);
-  c6_e_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
+  real_T (*c6_d_y)[2];
+  c6_d_y = (real_T (*)[2])ssGetOutputPortSignal(chartInstance->S, 1);
   c6_st = NULL;
   c6_st = NULL;
   c6_y = NULL;
-  sf_mex_assign(&c6_y, sf_mex_createcellmatrix(3, 1), false);
-  c6_hoistedGlobal = *c6_display;
-  c6_u = c6_hoistedGlobal;
+  sf_mex_assign(&c6_y, sf_mex_createcellmatrix(2, 1), false);
+  for (c6_i0 = 0; c6_i0 < 2; c6_i0++) {
+    c6_u[c6_i0] = (*c6_d_y)[c6_i0];
+  }
+
   c6_b_y = NULL;
-  sf_mex_assign(&c6_b_y, sf_mex_create("y", &c6_u, 0, 0U, 0U, 0U, 0), false);
+  sf_mex_assign(&c6_b_y, sf_mex_create("y", c6_u, 0, 0U, 1U, 0U, 1, 2), false);
   sf_mex_setcell(c6_y, 0, c6_b_y);
-  c6_b_hoistedGlobal = *c6_e_y;
-  c6_b_u = c6_b_hoistedGlobal;
+  c6_hoistedGlobal = chartInstance->c6_is_active_c6_Tanques_quick_start;
+  c6_b_u = c6_hoistedGlobal;
   c6_c_y = NULL;
-  sf_mex_assign(&c6_c_y, sf_mex_create("y", &c6_b_u, 0, 0U, 0U, 0U, 0), false);
+  sf_mex_assign(&c6_c_y, sf_mex_create("y", &c6_b_u, 3, 0U, 0U, 0U, 0), false);
   sf_mex_setcell(c6_y, 1, c6_c_y);
-  c6_c_hoistedGlobal = chartInstance->c6_is_active_c6_Tanques_quick_start;
-  c6_c_u = c6_c_hoistedGlobal;
-  c6_d_y = NULL;
-  sf_mex_assign(&c6_d_y, sf_mex_create("y", &c6_c_u, 3, 0U, 0U, 0U, 0), false);
-  sf_mex_setcell(c6_y, 2, c6_d_y);
   sf_mex_assign(&c6_st, c6_y, false);
   return c6_st;
 }
@@ -161,18 +151,20 @@ static void set_sim_state_c6_Tanques_quick_start
   (SFc6_Tanques_quick_startInstanceStruct *chartInstance, const mxArray *c6_st)
 {
   const mxArray *c6_u;
-  real_T *c6_display;
-  real_T *c6_y;
-  c6_display = (real_T *)ssGetOutputPortSignal(chartInstance->S, 2);
-  c6_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
+  real_T c6_dv0[2];
+  int32_T c6_i1;
+  real_T (*c6_y)[2];
+  c6_y = (real_T (*)[2])ssGetOutputPortSignal(chartInstance->S, 1);
   chartInstance->c6_doneDoubleBufferReInit = true;
   c6_u = sf_mex_dup(c6_st);
-  *c6_display = c6_emlrt_marshallIn(chartInstance, sf_mex_dup(sf_mex_getcell
-    (c6_u, 0)), "display");
-  *c6_y = c6_emlrt_marshallIn(chartInstance, sf_mex_dup(sf_mex_getcell(c6_u, 1)),
-    "y");
-  chartInstance->c6_is_active_c6_Tanques_quick_start = c6_d_emlrt_marshallIn
-    (chartInstance, sf_mex_dup(sf_mex_getcell(c6_u, 2)),
+  c6_emlrt_marshallIn(chartInstance, sf_mex_dup(sf_mex_getcell(c6_u, 0)), "y",
+                      c6_dv0);
+  for (c6_i1 = 0; c6_i1 < 2; c6_i1++) {
+    (*c6_y)[c6_i1] = c6_dv0[c6_i1];
+  }
+
+  chartInstance->c6_is_active_c6_Tanques_quick_start = c6_e_emlrt_marshallIn
+    (chartInstance, sf_mex_dup(sf_mex_getcell(c6_u, 1)),
      "is_active_c6_Tanques_quick_start");
   sf_mex_destroy(&c6_u);
   c6_update_debugger_state_c6_Tanques_quick_start(chartInstance);
@@ -189,65 +181,102 @@ static void sf_gateway_c6_Tanques_quick_start
   (SFc6_Tanques_quick_startInstanceStruct *chartInstance)
 {
   real_T c6_hoistedGlobal;
-  real_T c6_b_hoistedGlobal;
-  real_T c6_ki;
-  real_T c6_error;
-  uint32_T c6_debug_family_var_map[6];
+  real_T c6_scalar;
+  int32_T c6_i2;
+  real_T c6_matrix[2];
+  uint32_T c6_debug_family_var_map[5];
   real_T c6_nargin = 2.0;
-  real_T c6_nargout = 2.0;
-  real_T c6_y;
-  real_T c6_display;
-  real_T *c6_b_ki;
-  real_T *c6_b_error;
-  real_T *c6_b_y;
-  real_T *c6_b_display;
-  c6_b_display = (real_T *)ssGetOutputPortSignal(chartInstance->S, 2);
-  c6_b_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
-  c6_b_error = (real_T *)ssGetInputPortSignal(chartInstance->S, 1);
-  c6_b_ki = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
+  real_T c6_nargout = 1.0;
+  real_T c6_y[2];
+  real_T c6_b_scalar;
+  int32_T c6_i3;
+  real_T c6_b_matrix[2];
+  real_T c6_b_nargin = 2.0;
+  real_T c6_b_nargout = 1.0;
+  real_T c6_a;
+  int32_T c6_i4;
+  real_T c6_b[2];
+  int32_T c6_i5;
+  int32_T c6_i6;
+  int32_T c6_i7;
+  int32_T c6_i8;
+  real_T *c6_c_scalar;
+  real_T (*c6_b_y)[2];
+  real_T (*c6_c_matrix)[2];
+  c6_c_matrix = (real_T (*)[2])ssGetInputPortSignal(chartInstance->S, 1);
+  c6_b_y = (real_T (*)[2])ssGetOutputPortSignal(chartInstance->S, 1);
+  c6_c_scalar = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
   _SFD_SYMBOL_SCOPE_PUSH(0U, 0U);
   _sfTime_ = sf_get_time(chartInstance->S);
   _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 5U, chartInstance->c6_sfEvent);
-  _SFD_DATA_RANGE_CHECK(*c6_b_ki, 0U);
-  _SFD_DATA_RANGE_CHECK(*c6_b_error, 1U);
+  _SFD_DATA_RANGE_CHECK(*c6_c_scalar, 0U);
   chartInstance->c6_sfEvent = CALL_EVENT;
   _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 5U, chartInstance->c6_sfEvent);
-  c6_hoistedGlobal = *c6_b_ki;
-  c6_b_hoistedGlobal = *c6_b_error;
-  c6_ki = c6_hoistedGlobal;
-  c6_error = c6_b_hoistedGlobal;
-  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 6U, 6U, c6_debug_family_names,
+  c6_hoistedGlobal = *c6_c_scalar;
+  c6_scalar = c6_hoistedGlobal;
+  for (c6_i2 = 0; c6_i2 < 2; c6_i2++) {
+    c6_matrix[c6_i2] = (*c6_c_matrix)[c6_i2];
+  }
+
+  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 5U, 5U, c6_debug_family_names,
     c6_debug_family_var_map);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c6_nargin, 0U, c6_sf_marshallOut,
-    c6_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c6_nargout, 1U, c6_sf_marshallOut,
-    c6_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML(&c6_ki, 2U, c6_sf_marshallOut);
-  _SFD_SYMBOL_SCOPE_ADD_EML(&c6_error, 3U, c6_sf_marshallOut);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c6_y, 4U, c6_sf_marshallOut,
-    c6_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c6_display, 5U, c6_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c6_nargin, 0U, c6_c_sf_marshallOut,
+    c6_b_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c6_nargout, 1U, c6_c_sf_marshallOut,
+    c6_b_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML(&c6_scalar, 2U, c6_c_sf_marshallOut);
+  _SFD_SYMBOL_SCOPE_ADD_EML(c6_matrix, 3U, c6_b_sf_marshallOut);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c6_y, 4U, c6_sf_marshallOut,
     c6_sf_marshallIn);
   CV_EML_FCN(0, 0);
   _SFD_EML_CALL(0U, chartInstance->c6_sfEvent, 2);
-  _SFD_EML_CALL(0U, chartInstance->c6_sfEvent, 3);
-  c6_set_integral(chartInstance, 0, c6_get_integral(chartInstance, 0) + c6_ki *
-                  c6_error * 0.1);
-  ssUpdateDataStoreLog(chartInstance->S, 0);
-  _SFD_EML_CALL(0U, chartInstance->c6_sfEvent, 4);
-  c6_y = c6_get_integral(chartInstance, 0);
-  _SFD_EML_CALL(0U, chartInstance->c6_sfEvent, 5);
-  c6_display = c6_get_integral(chartInstance, 0);
-  _SFD_EML_CALL(0U, chartInstance->c6_sfEvent, -5);
+  c6_b_scalar = c6_scalar;
+  for (c6_i3 = 0; c6_i3 < 2; c6_i3++) {
+    c6_b_matrix[c6_i3] = c6_matrix[c6_i3];
+  }
+
+  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 5U, 5U, c6_b_debug_family_names,
+    c6_debug_family_var_map);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c6_b_nargin, 0U, c6_c_sf_marshallOut,
+    c6_b_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c6_b_nargout, 1U, c6_c_sf_marshallOut,
+    c6_b_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c6_b_scalar, 2U, c6_c_sf_marshallOut,
+    c6_b_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c6_b_matrix, 3U, c6_sf_marshallOut,
+    c6_sf_marshallIn);
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c6_y, 4U, c6_sf_marshallOut,
+    c6_sf_marshallIn);
+  CV_SCRIPT_FCN(0, 0);
+  _SFD_SCRIPT_CALL(0U, chartInstance->c6_sfEvent, 2);
+  c6_a = c6_b_scalar;
+  for (c6_i4 = 0; c6_i4 < 2; c6_i4++) {
+    c6_b[c6_i4] = c6_b_matrix[c6_i4];
+  }
+
+  for (c6_i5 = 0; c6_i5 < 2; c6_i5++) {
+    c6_y[c6_i5] = c6_a * c6_b[c6_i5];
+  }
+
+  _SFD_SCRIPT_CALL(0U, chartInstance->c6_sfEvent, -2);
   _SFD_SYMBOL_SCOPE_POP();
-  *c6_b_y = c6_y;
-  *c6_b_display = c6_display;
+  _SFD_EML_CALL(0U, chartInstance->c6_sfEvent, -2);
+  _SFD_SYMBOL_SCOPE_POP();
+  for (c6_i6 = 0; c6_i6 < 2; c6_i6++) {
+    (*c6_b_y)[c6_i6] = c6_y[c6_i6];
+  }
+
   _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 5U, chartInstance->c6_sfEvent);
   _SFD_SYMBOL_SCOPE_POP();
   _SFD_CHECK_FOR_STATE_INCONSISTENCY(_Tanques_quick_startMachineNumber_,
     chartInstance->chartNumber, chartInstance->instanceNumber);
-  _SFD_DATA_RANGE_CHECK(*c6_b_y, 2U);
-  _SFD_DATA_RANGE_CHECK(*c6_b_display, 6U);
+  for (c6_i7 = 0; c6_i7 < 2; c6_i7++) {
+    _SFD_DATA_RANGE_CHECK((*c6_b_y)[c6_i7], 1U);
+  }
+
+  for (c6_i8 = 0; c6_i8 < 2; c6_i8++) {
+    _SFD_DATA_RANGE_CHECK((*c6_c_matrix)[c6_i8], 2U);
+  }
 }
 
 static void initSimStructsc6_Tanques_quick_start
@@ -260,11 +289,113 @@ static void init_script_number_translation(uint32_T c6_machineNumber, uint32_T
   c6_chartNumber, uint32_T c6_instanceNumber)
 {
   (void)c6_machineNumber;
-  (void)c6_chartNumber;
-  (void)c6_instanceNumber;
+  _SFD_SCRIPT_TRANSLATION(c6_chartNumber, c6_instanceNumber, 0U,
+    sf_debug_get_script_id(
+    "C:\\Users\\Aluno IC\\Documents\\MATLAB\\Projeto001\\scalar_x_matrix.m"));
 }
 
 static const mxArray *c6_sf_marshallOut(void *chartInstanceVoid, void *c6_inData)
+{
+  const mxArray *c6_mxArrayOutData = NULL;
+  int32_T c6_i9;
+  real_T c6_b_inData[2];
+  int32_T c6_i10;
+  real_T c6_u[2];
+  const mxArray *c6_y = NULL;
+  SFc6_Tanques_quick_startInstanceStruct *chartInstance;
+  chartInstance = (SFc6_Tanques_quick_startInstanceStruct *)chartInstanceVoid;
+  c6_mxArrayOutData = NULL;
+  for (c6_i9 = 0; c6_i9 < 2; c6_i9++) {
+    c6_b_inData[c6_i9] = (*(real_T (*)[2])c6_inData)[c6_i9];
+  }
+
+  for (c6_i10 = 0; c6_i10 < 2; c6_i10++) {
+    c6_u[c6_i10] = c6_b_inData[c6_i10];
+  }
+
+  c6_y = NULL;
+  sf_mex_assign(&c6_y, sf_mex_create("y", c6_u, 0, 0U, 1U, 0U, 1, 2), false);
+  sf_mex_assign(&c6_mxArrayOutData, c6_y, false);
+  return c6_mxArrayOutData;
+}
+
+static void c6_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+  *chartInstance, const mxArray *c6_y, const char_T *c6_identifier, real_T
+  c6_b_y[2])
+{
+  emlrtMsgIdentifier c6_thisId;
+  c6_thisId.fIdentifier = c6_identifier;
+  c6_thisId.fParent = NULL;
+  c6_b_emlrt_marshallIn(chartInstance, sf_mex_dup(c6_y), &c6_thisId, c6_b_y);
+  sf_mex_destroy(&c6_y);
+}
+
+static void c6_b_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+  *chartInstance, const mxArray *c6_u, const emlrtMsgIdentifier *c6_parentId,
+  real_T c6_y[2])
+{
+  real_T c6_dv1[2];
+  int32_T c6_i11;
+  (void)chartInstance;
+  sf_mex_import(c6_parentId, sf_mex_dup(c6_u), c6_dv1, 1, 0, 0U, 1, 0U, 1, 2);
+  for (c6_i11 = 0; c6_i11 < 2; c6_i11++) {
+    c6_y[c6_i11] = c6_dv1[c6_i11];
+  }
+
+  sf_mex_destroy(&c6_u);
+}
+
+static void c6_sf_marshallIn(void *chartInstanceVoid, const mxArray
+  *c6_mxArrayInData, const char_T *c6_varName, void *c6_outData)
+{
+  const mxArray *c6_y;
+  const char_T *c6_identifier;
+  emlrtMsgIdentifier c6_thisId;
+  real_T c6_b_y[2];
+  int32_T c6_i12;
+  SFc6_Tanques_quick_startInstanceStruct *chartInstance;
+  chartInstance = (SFc6_Tanques_quick_startInstanceStruct *)chartInstanceVoid;
+  c6_y = sf_mex_dup(c6_mxArrayInData);
+  c6_identifier = c6_varName;
+  c6_thisId.fIdentifier = c6_identifier;
+  c6_thisId.fParent = NULL;
+  c6_b_emlrt_marshallIn(chartInstance, sf_mex_dup(c6_y), &c6_thisId, c6_b_y);
+  sf_mex_destroy(&c6_y);
+  for (c6_i12 = 0; c6_i12 < 2; c6_i12++) {
+    (*(real_T (*)[2])c6_outData)[c6_i12] = c6_b_y[c6_i12];
+  }
+
+  sf_mex_destroy(&c6_mxArrayInData);
+}
+
+static const mxArray *c6_b_sf_marshallOut(void *chartInstanceVoid, void
+  *c6_inData)
+{
+  const mxArray *c6_mxArrayOutData = NULL;
+  int32_T c6_i13;
+  real_T c6_b_inData[2];
+  int32_T c6_i14;
+  real_T c6_u[2];
+  const mxArray *c6_y = NULL;
+  SFc6_Tanques_quick_startInstanceStruct *chartInstance;
+  chartInstance = (SFc6_Tanques_quick_startInstanceStruct *)chartInstanceVoid;
+  c6_mxArrayOutData = NULL;
+  for (c6_i13 = 0; c6_i13 < 2; c6_i13++) {
+    c6_b_inData[c6_i13] = (*(real_T (*)[2])c6_inData)[c6_i13];
+  }
+
+  for (c6_i14 = 0; c6_i14 < 2; c6_i14++) {
+    c6_u[c6_i14] = c6_b_inData[c6_i14];
+  }
+
+  c6_y = NULL;
+  sf_mex_assign(&c6_y, sf_mex_create("y", c6_u, 0, 0U, 1U, 0U, 2, 2, 1), false);
+  sf_mex_assign(&c6_mxArrayOutData, c6_y, false);
+  return c6_mxArrayOutData;
+}
+
+static const mxArray *c6_c_sf_marshallOut(void *chartInstanceVoid, void
+  *c6_inData)
 {
   const mxArray *c6_mxArrayOutData = NULL;
   real_T c6_u;
@@ -279,19 +410,7 @@ static const mxArray *c6_sf_marshallOut(void *chartInstanceVoid, void *c6_inData
   return c6_mxArrayOutData;
 }
 
-static real_T c6_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, const mxArray *c6_display, const char_T *c6_identifier)
-{
-  real_T c6_y;
-  emlrtMsgIdentifier c6_thisId;
-  c6_thisId.fIdentifier = c6_identifier;
-  c6_thisId.fParent = NULL;
-  c6_y = c6_b_emlrt_marshallIn(chartInstance, sf_mex_dup(c6_display), &c6_thisId);
-  sf_mex_destroy(&c6_display);
-  return c6_y;
-}
-
-static real_T c6_b_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+static real_T c6_c_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   *chartInstance, const mxArray *c6_u, const emlrtMsgIdentifier *c6_parentId)
 {
   real_T c6_y;
@@ -303,21 +422,21 @@ static real_T c6_b_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   return c6_y;
 }
 
-static void c6_sf_marshallIn(void *chartInstanceVoid, const mxArray
+static void c6_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c6_mxArrayInData, const char_T *c6_varName, void *c6_outData)
 {
-  const mxArray *c6_display;
+  const mxArray *c6_nargout;
   const char_T *c6_identifier;
   emlrtMsgIdentifier c6_thisId;
   real_T c6_y;
   SFc6_Tanques_quick_startInstanceStruct *chartInstance;
   chartInstance = (SFc6_Tanques_quick_startInstanceStruct *)chartInstanceVoid;
-  c6_display = sf_mex_dup(c6_mxArrayInData);
+  c6_nargout = sf_mex_dup(c6_mxArrayInData);
   c6_identifier = c6_varName;
   c6_thisId.fIdentifier = c6_identifier;
   c6_thisId.fParent = NULL;
-  c6_y = c6_b_emlrt_marshallIn(chartInstance, sf_mex_dup(c6_display), &c6_thisId);
-  sf_mex_destroy(&c6_display);
+  c6_y = c6_c_emlrt_marshallIn(chartInstance, sf_mex_dup(c6_nargout), &c6_thisId);
+  sf_mex_destroy(&c6_nargout);
   *(real_T *)c6_outData = c6_y;
   sf_mex_destroy(&c6_mxArrayInData);
 }
@@ -326,12 +445,111 @@ const mxArray *sf_c6_Tanques_quick_start_get_eml_resolved_functions_info(void)
 {
   const mxArray *c6_nameCaptureInfo = NULL;
   c6_nameCaptureInfo = NULL;
-  sf_mex_assign(&c6_nameCaptureInfo, sf_mex_create("nameCaptureInfo", NULL, 0,
-    0U, 1U, 0U, 2, 0, 1), false);
+  sf_mex_assign(&c6_nameCaptureInfo, sf_mex_createstruct("structure", 2, 3, 1),
+                false);
+  c6_info_helper(&c6_nameCaptureInfo);
+  sf_mex_emlrtNameCapturePostProcessR2012a(&c6_nameCaptureInfo);
   return c6_nameCaptureInfo;
 }
 
-static const mxArray *c6_b_sf_marshallOut(void *chartInstanceVoid, void
+static void c6_info_helper(const mxArray **c6_info)
+{
+  const mxArray *c6_rhs0 = NULL;
+  const mxArray *c6_lhs0 = NULL;
+  const mxArray *c6_rhs1 = NULL;
+  const mxArray *c6_lhs1 = NULL;
+  const mxArray *c6_rhs2 = NULL;
+  const mxArray *c6_lhs2 = NULL;
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut(""), "context", "context", 0);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut("scalar_x_matrix"), "name",
+                  "name", 0);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut("double"), "dominantType",
+                  "dominantType", 0);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut(
+    "[E]C:/Users/Aluno IC/Documents/MATLAB/Projeto001/scalar_x_matrix.m"),
+                  "resolved", "resolved", 0);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(1539014307U), "fileTimeLo",
+                  "fileTimeLo", 0);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(0U), "fileTimeHi",
+                  "fileTimeHi", 0);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(0U), "mFileTimeLo",
+                  "mFileTimeLo", 0);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(0U), "mFileTimeHi",
+                  "mFileTimeHi", 0);
+  sf_mex_assign(&c6_rhs0, sf_mex_createcellmatrix(0, 1), false);
+  sf_mex_assign(&c6_lhs0, sf_mex_createcellmatrix(0, 1), false);
+  sf_mex_addfield(*c6_info, sf_mex_duplicatearraysafe(&c6_rhs0), "rhs", "rhs", 0);
+  sf_mex_addfield(*c6_info, sf_mex_duplicatearraysafe(&c6_lhs0), "lhs", "lhs", 0);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut(
+    "[E]C:/Users/Aluno IC/Documents/MATLAB/Projeto001/scalar_x_matrix.m"),
+                  "context", "context", 1);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut("eml_mtimes_helper"), "name",
+                  "name", 1);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut(""), "dominantType",
+                  "dominantType", 1);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut(
+    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/eml_mtimes_helper.m"),
+                  "resolved", "resolved", 1);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(1383880894U), "fileTimeLo",
+                  "fileTimeLo", 1);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(0U), "fileTimeHi",
+                  "fileTimeHi", 1);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(0U), "mFileTimeLo",
+                  "mFileTimeLo", 1);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(0U), "mFileTimeHi",
+                  "mFileTimeHi", 1);
+  sf_mex_assign(&c6_rhs1, sf_mex_createcellmatrix(0, 1), false);
+  sf_mex_assign(&c6_lhs1, sf_mex_createcellmatrix(0, 1), false);
+  sf_mex_addfield(*c6_info, sf_mex_duplicatearraysafe(&c6_rhs1), "rhs", "rhs", 1);
+  sf_mex_addfield(*c6_info, sf_mex_duplicatearraysafe(&c6_lhs1), "lhs", "lhs", 1);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut(
+    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/eml_mtimes_helper.m!common_checks"),
+                  "context", "context", 2);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut(
+    "coder.internal.isBuiltInNumeric"), "name", "name", 2);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut("double"), "dominantType",
+                  "dominantType", 2);
+  sf_mex_addfield(*c6_info, c6_emlrt_marshallOut(
+    "[IXE]$matlabroot$/toolbox/shared/coder/coder/+coder/+internal/isBuiltInNumeric.m"),
+                  "resolved", "resolved", 2);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(1363718156U), "fileTimeLo",
+                  "fileTimeLo", 2);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(0U), "fileTimeHi",
+                  "fileTimeHi", 2);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(0U), "mFileTimeLo",
+                  "mFileTimeLo", 2);
+  sf_mex_addfield(*c6_info, c6_b_emlrt_marshallOut(0U), "mFileTimeHi",
+                  "mFileTimeHi", 2);
+  sf_mex_assign(&c6_rhs2, sf_mex_createcellmatrix(0, 1), false);
+  sf_mex_assign(&c6_lhs2, sf_mex_createcellmatrix(0, 1), false);
+  sf_mex_addfield(*c6_info, sf_mex_duplicatearraysafe(&c6_rhs2), "rhs", "rhs", 2);
+  sf_mex_addfield(*c6_info, sf_mex_duplicatearraysafe(&c6_lhs2), "lhs", "lhs", 2);
+  sf_mex_destroy(&c6_rhs0);
+  sf_mex_destroy(&c6_lhs0);
+  sf_mex_destroy(&c6_rhs1);
+  sf_mex_destroy(&c6_lhs1);
+  sf_mex_destroy(&c6_rhs2);
+  sf_mex_destroy(&c6_lhs2);
+}
+
+static const mxArray *c6_emlrt_marshallOut(const char * c6_u)
+{
+  const mxArray *c6_y = NULL;
+  c6_y = NULL;
+  sf_mex_assign(&c6_y, sf_mex_create("y", c6_u, 15, 0U, 0U, 0U, 2, 1, strlen
+    (c6_u)), false);
+  return c6_y;
+}
+
+static const mxArray *c6_b_emlrt_marshallOut(const uint32_T c6_u)
+{
+  const mxArray *c6_y = NULL;
+  c6_y = NULL;
+  sf_mex_assign(&c6_y, sf_mex_create("y", &c6_u, 7, 0U, 0U, 0U, 0), false);
+  return c6_y;
+}
+
+static const mxArray *c6_d_sf_marshallOut(void *chartInstanceVoid, void
   *c6_inData)
 {
   const mxArray *c6_mxArrayOutData = NULL;
@@ -347,19 +565,19 @@ static const mxArray *c6_b_sf_marshallOut(void *chartInstanceVoid, void
   return c6_mxArrayOutData;
 }
 
-static int32_T c6_c_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+static int32_T c6_d_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   *chartInstance, const mxArray *c6_u, const emlrtMsgIdentifier *c6_parentId)
 {
   int32_T c6_y;
-  int32_T c6_i0;
+  int32_T c6_i15;
   (void)chartInstance;
-  sf_mex_import(c6_parentId, sf_mex_dup(c6_u), &c6_i0, 1, 6, 0U, 0, 0U, 0);
-  c6_y = c6_i0;
+  sf_mex_import(c6_parentId, sf_mex_dup(c6_u), &c6_i15, 1, 6, 0U, 0, 0U, 0);
+  c6_y = c6_i15;
   sf_mex_destroy(&c6_u);
   return c6_y;
 }
 
-static void c6_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
+static void c6_c_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c6_mxArrayInData, const char_T *c6_varName, void *c6_outData)
 {
   const mxArray *c6_b_sfEvent;
@@ -372,14 +590,14 @@ static void c6_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
   c6_identifier = c6_varName;
   c6_thisId.fIdentifier = c6_identifier;
   c6_thisId.fParent = NULL;
-  c6_y = c6_c_emlrt_marshallIn(chartInstance, sf_mex_dup(c6_b_sfEvent),
+  c6_y = c6_d_emlrt_marshallIn(chartInstance, sf_mex_dup(c6_b_sfEvent),
     &c6_thisId);
   sf_mex_destroy(&c6_b_sfEvent);
   *(int32_T *)c6_outData = c6_y;
   sf_mex_destroy(&c6_mxArrayInData);
 }
 
-static uint8_T c6_d_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+static uint8_T c6_e_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   *chartInstance, const mxArray *c6_b_is_active_c6_Tanques_quick_start, const
   char_T *c6_identifier)
 {
@@ -387,13 +605,13 @@ static uint8_T c6_d_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   emlrtMsgIdentifier c6_thisId;
   c6_thisId.fIdentifier = c6_identifier;
   c6_thisId.fParent = NULL;
-  c6_y = c6_e_emlrt_marshallIn(chartInstance, sf_mex_dup
+  c6_y = c6_f_emlrt_marshallIn(chartInstance, sf_mex_dup
     (c6_b_is_active_c6_Tanques_quick_start), &c6_thisId);
   sf_mex_destroy(&c6_b_is_active_c6_Tanques_quick_start);
   return c6_y;
 }
 
-static uint8_T c6_e_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
+static uint8_T c6_f_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   *chartInstance, const mxArray *c6_u, const emlrtMsgIdentifier *c6_parentId)
 {
   uint8_T c6_y;
@@ -405,134 +623,10 @@ static uint8_T c6_e_emlrt_marshallIn(SFc6_Tanques_quick_startInstanceStruct
   return c6_y;
 }
 
-static real_T c6_get_integral(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b)
-{
-  ssReadFromDataStoreElement(chartInstance->S, 0, NULL, c6_b);
-  if (chartInstance->c6_integral_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'integral\' (#68) in the initialization routine of the chart.\n");
-  }
-
-  return *chartInstance->c6_integral_address;
-}
-
-static void c6_set_integral(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b, real_T c6_c)
-{
-  ssWriteToDataStoreElement(chartInstance->S, 0, NULL, c6_b);
-  if (chartInstance->c6_integral_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'integral\' (#68) in the initialization routine of the chart.\n");
-  }
-
-  *chartInstance->c6_integral_address = c6_c;
-}
-
-static real_T *c6_access_integral(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b)
-{
-  real_T *c6_c;
-  ssReadFromDataStore(chartInstance->S, 0, NULL);
-  if (chartInstance->c6_integral_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'integral\' (#68) in the initialization routine of the chart.\n");
-  }
-
-  c6_c = chartInstance->c6_integral_address;
-  if (c6_b == 0) {
-    ssWriteToDataStore(chartInstance->S, 0, NULL);
-  }
-
-  return c6_c;
-}
-
-static real_T c6_get_pidPreviousTime(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b)
-{
-  ssReadFromDataStoreElement(chartInstance->S, 1, NULL, c6_b);
-  if (chartInstance->c6_pidPreviousTime_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'pidPreviousTime\' (#70) in the initialization routine of the chart.\n");
-  }
-
-  return *chartInstance->c6_pidPreviousTime_address;
-}
-
-static void c6_set_pidPreviousTime(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b, real_T c6_c)
-{
-  ssWriteToDataStoreElement(chartInstance->S, 1, NULL, c6_b);
-  if (chartInstance->c6_pidPreviousTime_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'pidPreviousTime\' (#70) in the initialization routine of the chart.\n");
-  }
-
-  *chartInstance->c6_pidPreviousTime_address = c6_c;
-}
-
-static real_T *c6_access_pidPreviousTime(SFc6_Tanques_quick_startInstanceStruct *
-  chartInstance, uint32_T c6_b)
-{
-  real_T *c6_c;
-  ssReadFromDataStore(chartInstance->S, 1, NULL);
-  if (chartInstance->c6_pidPreviousTime_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'pidPreviousTime\' (#70) in the initialization routine of the chart.\n");
-  }
-
-  c6_c = chartInstance->c6_pidPreviousTime_address;
-  if (c6_b == 0) {
-    ssWriteToDataStore(chartInstance->S, 1, NULL);
-  }
-
-  return c6_c;
-}
-
-static real_T c6_get_previousError(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b)
-{
-  ssReadFromDataStoreElement(chartInstance->S, 2, NULL, c6_b);
-  if (chartInstance->c6_previousError_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'previousError\' (#69) in the initialization routine of the chart.\n");
-  }
-
-  return *chartInstance->c6_previousError_address;
-}
-
-static void c6_set_previousError(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b, real_T c6_c)
-{
-  ssWriteToDataStoreElement(chartInstance->S, 2, NULL, c6_b);
-  if (chartInstance->c6_previousError_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'previousError\' (#69) in the initialization routine of the chart.\n");
-  }
-
-  *chartInstance->c6_previousError_address = c6_c;
-}
-
-static real_T *c6_access_previousError(SFc6_Tanques_quick_startInstanceStruct
-  *chartInstance, uint32_T c6_b)
-{
-  real_T *c6_c;
-  ssReadFromDataStore(chartInstance->S, 2, NULL);
-  if (chartInstance->c6_previousError_address == 0) {
-    sf_mex_error_message("Invalid access to Data Store Memory data \'previousError\' (#69) in the initialization routine of the chart.\n");
-  }
-
-  c6_c = chartInstance->c6_previousError_address;
-  if (c6_b == 0) {
-    ssWriteToDataStore(chartInstance->S, 2, NULL);
-  }
-
-  return c6_c;
-}
-
 static void init_dsm_address_info(SFc6_Tanques_quick_startInstanceStruct
   *chartInstance)
 {
-  ssGetSFcnDataStoreNameAddrIdx(chartInstance->S, "integral", (void **)
-    &chartInstance->c6_integral_address, &chartInstance->c6_integral_index);
-  ssGetSFcnDataStoreNameAddrIdx(chartInstance->S, "pidPreviousTime", (void **)
-    &chartInstance->c6_pidPreviousTime_address,
-    &chartInstance->c6_pidPreviousTime_index);
-  ssGetSFcnDataStoreNameAddrIdx(chartInstance->S, "previousError", (void **)
-    &chartInstance->c6_previousError_address,
-    &chartInstance->c6_previousError_index);
+  (void)chartInstance;
 }
 
 /* SFunction Glue Code */
@@ -558,10 +652,10 @@ extern void utFree(void*);
 
 void sf_c6_Tanques_quick_start_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1281641874U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1969512393U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(946074252U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1269613263U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(361252165U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1283512870U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3002291109U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3788350872U);
 }
 
 mxArray *sf_c6_Tanques_quick_start_get_autoinheritance_info(void)
@@ -573,7 +667,7 @@ mxArray *sf_c6_Tanques_quick_start_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("aMXPO0uEAIK9OaE4wU92uB");
+    mxArray *mxChecksum = mxCreateString("2xKbvHwrznUUmYTch4aokD");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -604,7 +698,7 @@ mxArray *sf_c6_Tanques_quick_start_get_autoinheritance_info(void)
     {
       mxArray *mxSize = mxCreateDoubleMatrix(1,2,mxREAL);
       double *pr = mxGetPr(mxSize);
-      pr[0] = (double)(1);
+      pr[0] = (double)(2);
       pr[1] = (double)(1);
       mxSetField(mxData,1,"size",mxSize);
     }
@@ -630,12 +724,12 @@ mxArray *sf_c6_Tanques_quick_start_get_autoinheritance_info(void)
   {
     const char *dataFields[] = { "size", "type", "complexity" };
 
-    mxArray *mxData = mxCreateStructMatrix(1,2,3,dataFields);
+    mxArray *mxData = mxCreateStructMatrix(1,1,3,dataFields);
 
     {
       mxArray *mxSize = mxCreateDoubleMatrix(1,2,mxREAL);
       double *pr = mxGetPr(mxSize);
-      pr[0] = (double)(1);
+      pr[0] = (double)(2);
       pr[1] = (double)(1);
       mxSetField(mxData,0,"size",mxSize);
     }
@@ -650,25 +744,6 @@ mxArray *sf_c6_Tanques_quick_start_get_autoinheritance_info(void)
     }
 
     mxSetField(mxData,0,"complexity",mxCreateDoubleScalar(0));
-
-    {
-      mxArray *mxSize = mxCreateDoubleMatrix(1,2,mxREAL);
-      double *pr = mxGetPr(mxSize);
-      pr[0] = (double)(1);
-      pr[1] = (double)(1);
-      mxSetField(mxData,1,"size",mxSize);
-    }
-
-    {
-      const char *typeFields[] = { "base", "fixpt" };
-
-      mxArray *mxType = mxCreateStructMatrix(1,1,2,typeFields);
-      mxSetField(mxType,0,"base",mxCreateDoubleScalar(10));
-      mxSetField(mxType,0,"fixpt",mxCreateDoubleMatrix(0,0,mxREAL));
-      mxSetField(mxData,1,"type",mxType);
-    }
-
-    mxSetField(mxData,1,"complexity",mxCreateDoubleScalar(0));
     mxSetField(mxAutoinheritanceInfo,0,"outputs",mxData);
   }
 
@@ -697,10 +772,10 @@ static const mxArray *sf_get_sim_state_info_c6_Tanques_quick_start(void)
 
   mxArray *mxInfo = mxCreateStructMatrix(1, 1, 2, infoFields);
   const char *infoEncStr[] = {
-    "100 S1x3'type','srcId','name','auxInfo'{{M[1],M[14],T\"display\",},{M[1],M[5],T\"y\",},{M[8],M[0],T\"is_active_c6_Tanques_quick_start\",}}"
+    "100 S1x2'type','srcId','name','auxInfo'{{M[1],M[5],T\"y\",},{M[8],M[0],T\"is_active_c6_Tanques_quick_start\",}}"
   };
 
-  mxArray *mxVarInfo = sf_mex_decode_encoded_mx_struct_array(infoEncStr, 3, 10);
+  mxArray *mxVarInfo = sf_mex_decode_encoded_mx_struct_array(infoEncStr, 2, 10);
   mxArray *mxChecksum = mxCreateDoubleMatrix(1, 4, mxREAL);
   sf_c6_Tanques_quick_start_get_check_sum(&mxChecksum);
   mxSetField(mxInfo, 0, infoFields[0], mxChecksum);
@@ -728,12 +803,12 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
            1,
            1,
            0,
-           7,
+           3,
            0,
            0,
            0,
            0,
-           0,
+           1,
            &(chartInstance->chartNumber),
            &(chartInstance->instanceNumber),
            (void *)S);
@@ -752,13 +827,9 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
             0,
             0,
             0);
-          _SFD_SET_DATA_PROPS(0,1,1,0,"ki");
-          _SFD_SET_DATA_PROPS(1,1,1,0,"error");
-          _SFD_SET_DATA_PROPS(2,2,0,1,"y");
-          _SFD_SET_DATA_PROPS(3,11,0,0,"integral");
-          _SFD_SET_DATA_PROPS(4,11,0,0,"previousError");
-          _SFD_SET_DATA_PROPS(5,11,0,0,"pidPreviousTime");
-          _SFD_SET_DATA_PROPS(6,2,0,1,"display");
+          _SFD_SET_DATA_PROPS(0,1,1,0,"scalar");
+          _SFD_SET_DATA_PROPS(1,2,0,1,"y");
+          _SFD_SET_DATA_PROPS(2,1,1,0,"matrix");
           _SFD_STATE_INFO(0,0,2);
           _SFD_CH_SUBSTATE_COUNT(0);
           _SFD_CH_SUBSTATE_DECOMP(0);
@@ -774,38 +845,38 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,161);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,71);
+        _SFD_CV_INIT_SCRIPT(0,1,0,0,0,0,0,0,0,0);
+        _SFD_CV_INIT_SCRIPT_FCN(0,0,"scalar_x_matrix",0,-1,88);
         _SFD_SET_DATA_COMPILED_PROPS(0,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c6_sf_marshallOut,(MexInFcnForType)NULL);
-        _SFD_SET_DATA_COMPILED_PROPS(1,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c6_sf_marshallOut,(MexInFcnForType)NULL);
-        _SFD_SET_DATA_COMPILED_PROPS(2,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c6_sf_marshallOut,(MexInFcnForType)c6_sf_marshallIn);
-        _SFD_SET_DATA_COMPILED_PROPS(3,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c6_sf_marshallOut,(MexInFcnForType)c6_sf_marshallIn);
-        _SFD_SET_DATA_COMPILED_PROPS(4,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c6_sf_marshallOut,(MexInFcnForType)c6_sf_marshallIn);
-        _SFD_SET_DATA_COMPILED_PROPS(5,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c6_sf_marshallOut,(MexInFcnForType)c6_sf_marshallIn);
-        _SFD_SET_DATA_COMPILED_PROPS(6,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c6_sf_marshallOut,(MexInFcnForType)c6_sf_marshallIn);
+          (MexFcnForType)c6_c_sf_marshallOut,(MexInFcnForType)NULL);
 
         {
-          real_T *c6_ki;
-          real_T *c6_error;
-          real_T *c6_y;
-          real_T *c6_display;
-          c6_display = (real_T *)ssGetOutputPortSignal(chartInstance->S, 2);
-          c6_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
-          c6_error = (real_T *)ssGetInputPortSignal(chartInstance->S, 1);
-          c6_ki = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
-          _SFD_SET_DATA_VALUE_PTR(0U, c6_ki);
-          _SFD_SET_DATA_VALUE_PTR(1U, c6_error);
-          _SFD_SET_DATA_VALUE_PTR(2U, c6_y);
-          _SFD_SET_DATA_VALUE_PTR(3U, chartInstance->c6_integral_address);
-          _SFD_SET_DATA_VALUE_PTR(4U, chartInstance->c6_previousError_address);
-          _SFD_SET_DATA_VALUE_PTR(5U, chartInstance->c6_pidPreviousTime_address);
-          _SFD_SET_DATA_VALUE_PTR(6U, c6_display);
+          unsigned int dimVector[1];
+          dimVector[0]= 2;
+          _SFD_SET_DATA_COMPILED_PROPS(1,SF_DOUBLE,1,&(dimVector[0]),0,0,0,0.0,
+            1.0,0,0,(MexFcnForType)c6_sf_marshallOut,(MexInFcnForType)
+            c6_sf_marshallIn);
+        }
+
+        {
+          unsigned int dimVector[2];
+          dimVector[0]= 2;
+          dimVector[1]= 1;
+          _SFD_SET_DATA_COMPILED_PROPS(2,SF_DOUBLE,2,&(dimVector[0]),0,0,0,0.0,
+            1.0,0,0,(MexFcnForType)c6_b_sf_marshallOut,(MexInFcnForType)NULL);
+        }
+
+        {
+          real_T *c6_scalar;
+          real_T (*c6_y)[2];
+          real_T (*c6_matrix)[2];
+          c6_matrix = (real_T (*)[2])ssGetInputPortSignal(chartInstance->S, 1);
+          c6_y = (real_T (*)[2])ssGetOutputPortSignal(chartInstance->S, 1);
+          c6_scalar = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
+          _SFD_SET_DATA_VALUE_PTR(0U, c6_scalar);
+          _SFD_SET_DATA_VALUE_PTR(1U, *c6_y);
+          _SFD_SET_DATA_VALUE_PTR(2U, *c6_matrix);
         }
       }
     } else {
@@ -818,7 +889,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization(void)
 {
-  return "eW8ED0bT7oBxxzzKePsnJH";
+  return "j5MjwqdkBNE3MakejFdGlC";
 }
 
 static void sf_opaque_initialize_c6_Tanques_quick_start(void *chartInstanceVar)
@@ -979,12 +1050,12 @@ static void mdlSetWorkWidths_c6_Tanques_quick_start(SimStruct *S)
       sf_mark_chart_expressionable_inputs(S,sf_get_instance_specialization(),
         infoStruct,6,2);
       sf_mark_chart_reusable_outputs(S,sf_get_instance_specialization(),
-        infoStruct,6,2);
+        infoStruct,6,1);
     }
 
     {
       unsigned int outPortIdx;
-      for (outPortIdx=1; outPortIdx<=2; ++outPortIdx) {
+      for (outPortIdx=1; outPortIdx<=1; ++outPortIdx) {
         ssSetOutputPortOptimizeInIR(S, outPortIdx, 1U);
       }
     }
@@ -1002,13 +1073,13 @@ static void mdlSetWorkWidths_c6_Tanques_quick_start(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(1545037682U));
-  ssSetChecksum1(S,(3137559762U));
-  ssSetChecksum2(S,(511919927U));
-  ssSetChecksum3(S,(1916292601U));
+  ssSetChecksum0(S,(3426090673U));
+  ssSetChecksum1(S,(2666261546U));
+  ssSetChecksum2(S,(3918688745U));
+  ssSetChecksum3(S,(40390765U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
-  ssSupportsMultipleExecInstances(S,0);
+  ssSupportsMultipleExecInstances(S,1);
 }
 
 static void mdlRTW_c6_Tanques_quick_start(SimStruct *S)

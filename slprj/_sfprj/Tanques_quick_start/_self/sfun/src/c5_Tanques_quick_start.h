@@ -20,12 +20,6 @@ typedef struct {
   boolean_T c5_isStable;
   boolean_T c5_doneDoubleBufferReInit;
   uint8_T c5_is_active_c5_Tanques_quick_start;
-  real_T *c5_integral_address;
-  int32_T c5_integral_index;
-  real_T *c5_pidPreviousTime_address;
-  int32_T c5_pidPreviousTime_index;
-  real_T *c5_previousError_address;
-  int32_T c5_previousError_index;
 } SFc5_Tanques_quick_startInstanceStruct;
 
 #endif                                 /*typedef_SFc5_Tanques_quick_startInstanceStruct*/
