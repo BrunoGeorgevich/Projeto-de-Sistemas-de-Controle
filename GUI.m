@@ -483,7 +483,7 @@ switch popup_controll_value
         if (valor == 1)
             
             msg_error(kp,'Tanques_quick_start/PI-D_Kp','Gain',handles);
-            msg_error(ki,'Tanques_quick_start/PI-D_Ki','Gain',handles);
+            msg_error(ki,'Tanques_quick_start/PI-D_Ki ','Gain',handles);
             msg_error(kd,'Tanques_quick_start/PI-D_Kd','Gain',handles);
             
         else
@@ -755,15 +755,63 @@ function checkboxSS_Callback(hObject, eventdata, handles)
 
 % Hint: get(hObject,'Value') returns toggle state of checkboxSS
 function updateSS(handles)
-k1=get(handles.editGainK1,'String');
-k2=get(handles.editGainK2,'String');
-Ke=get(handles.editGainKe,'String');
+k1gui=get(handles.editGainK1,'String');
+k2gui=get(handles.editGainK2,'String');
+Kegui=get(handles.editGainKe,'String');
+l1gui=get(handles.editGainL1,'String');
+l2gui=get(handles.editGainL2,'String');
 
-
-kee=str2num(Ke);
-kk=[str2num(k1) str2num(k2)];
+l1 = str2num(l1gui)
+l2 = str2num(l2gui)
+kee=str2num(Kegui);
+kk=[str2num(k1gui) str2num(k2gui)];
+L = [l1;l2]
 assignin('base', 'ke', kee);
 assignin('base', 'k',kk);
+assignin('base','L',L);
 
-disp('gainnnn')
 
+
+function editGainL1_Callback(hObject, eventdata, handles)
+% hObject    handle to editGainL1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of editGainL1 as text
+%        str2double(get(hObject,'String')) returns contents of editGainL1 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function editGainL1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to editGainL1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function editGainL2_Callback(hObject, eventdata, handles)
+% hObject    handle to editGainL2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of editGainL2 as text
+%        str2double(get(hObject,'String')) returns contents of editGainL2 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function editGainL2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to editGainL2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
