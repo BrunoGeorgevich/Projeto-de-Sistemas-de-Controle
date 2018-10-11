@@ -5,7 +5,7 @@
  *
  * Model version              : 1.849
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Mon Oct 08 17:01:42 2018
+ * C source code generated on : Wed Oct 10 08:14:18 2018
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -468,9 +468,6 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
       Tanques_quick_start_P.switch_input_signal_Value;
   }
 
-  /* SignalGenerator: '<Root>/Signal Generator' */
-  rtb_Temcontroladorouno = Tanques_quick_start_P.SignalGenerator_Frequency *
-    Tanques_quick_start_M->Timing.t[0];
   if (rtmIsMajorTimeStep(Tanques_quick_start_M)) {
     /* Constant: '<Root>/offset' */
     Tanques_quick_start_B.offset = Tanques_quick_start_P.offset_Value;
@@ -493,8 +490,9 @@ void Tanques_quick_start_output0(void) /* Sample time: [0.0s, 0.0s] */
    */
   switch ((int32_T)Tanques_quick_start_B.switch_input_signal) {
    case 1:
-    Tanques_quick_start_B.MultiportSwitch = (1.0 - (rtb_Temcontroladorouno -
-      floor(rtb_Temcontroladorouno)) * 2.0) *
+    Tanques_quick_start_B.MultiportSwitch = sin
+      (Tanques_quick_start_P.SignalGenerator_Frequency *
+       Tanques_quick_start_M->Timing.t[0]) *
       Tanques_quick_start_P.SignalGenerator_Amplitude +
       Tanques_quick_start_B.offset;
     break;
@@ -1726,10 +1724,10 @@ RT_MODEL_Tanques_quick_start_T *Tanques_quick_start(void)
   Tanques_quick_start_M->Timing.stepSize2 = 1.0;
 
   /* External mode info */
-  Tanques_quick_start_M->Sizes.checksums[0] = (1840484595U);
-  Tanques_quick_start_M->Sizes.checksums[1] = (1073956884U);
-  Tanques_quick_start_M->Sizes.checksums[2] = (3878834394U);
-  Tanques_quick_start_M->Sizes.checksums[3] = (1016664163U);
+  Tanques_quick_start_M->Sizes.checksums[0] = (1984191458U);
+  Tanques_quick_start_M->Sizes.checksums[1] = (1566655758U);
+  Tanques_quick_start_M->Sizes.checksums[2] = (3235082960U);
+  Tanques_quick_start_M->Sizes.checksums[3] = (1968222549U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
